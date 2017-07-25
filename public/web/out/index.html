@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>离退休工作处</title>
+</head>
+  <link type="text/css" href="CSS/index.css" rel="stylesheet" />
+  <script src="link.js"></script>
+  <script src="rili.js"></script>
+  <script>
+  function sanjiao()
+  {var san=document.getElementsByClassName("slidable");
+		san.style.backgroundColor="black";
+		/*san.style.backgroundImage="images/guide_san.png";
+		san.style.backgroundPosition="bottom";
+		san.style.backgroundRepeat="no-repeat";*/}
+  </script>
+<body onLoad="initial()">
+<div class="all">
+	<div id="top">
+		<div id="logo">
+		</div>
+		<div id="login">
+        </div>
+        <div id="guide">
+			<ul>
+            <li><a href="#" id="selected">首&nbsp;&nbsp;&nbsp;页</a></li>
+            <li>|&nbsp;<a href="#" class="slidable">新闻动态</a>
+            	<div class="slidle" onmouseover="sanjiao()">
+                <ul>
+            	<li><a href="#">最新消息</a></li>
+                <li><a href="#">老年大学</a></li>
+                <li><a href="#">作品展示</a></li>
+                </ul>
+                </div>
+            </li>
+            <li>|&nbsp;<a href="#">单位简介</a></li>
+            <li>|&nbsp;<a href="#">机构设置</a></li>
+            <li>|&nbsp;<a href="#">学习园地</a></li>
+            <li>|&nbsp;<a href="#">工作职责</a></li>
+            <li>|&nbsp;<a href="#">政策法规</a></li>
+            <li>|&nbsp;<a href="#">服务指南</a></li>
+            <li>|&nbsp;<a href="#">管理制度</a></li>
+            </ul>
+		</div>
+        <div id="guideline"></div>    
+	</div>
+    <div id="main">
+    	<div id="leftimage"><div></div>
+        <h3>校园风光</h3>
+    	</div>
+   	 	<div id="rvideo">
+		<div align="center">
+        <object class id="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="240" height="152">
+<param name="movie" value="http://p.you.video.sina.com.cn/swf/quotePlayer20140220_V4_4_42_19.swf?autoPlay=0&actlogActive=1&as=1&vid=86165889&pid=478&tj=1&uid=2534096383&tokenURL=http%3A%2F%2Fyou.video.sina.com.cn%2Fapi%2FsinawebApi%2Foutplayrefer.php%2Fvid%3D86165889_478_2534096383_1_PB%2BxGyI%2BDjTK%2Bl1lHz2stqlF%2B6xCpv2xhGixuFakLAhaXQ%2BYJMXNb9UB4S%2FTCMdL5yoUEJU3c%2F8g0hUlYQ%2Fs.swf&tHostName=">
+  <param name="quality" value="high">
+  <param name="allowFullScreen" value="true">
+  <param name="FlashVars" value="vcastr_file=images/1234.flv&LogoText=www.lanrentuku.com&BufferTime=3&IsAutoPlay=0">
+  <embed src="flvplayer.swf" allowfullscreen="true" flashvars="vcastr_file=images/1234.flv&LogoText=www.lanrentuku.com&IsAutoPlay=0" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="300" height="240"></embed>
+		</object>
+        </div>
+    <!--<div align=center><EMBED style="MARGIN: 5px" height=135 type=application/x-shockwave-flash pluginspage=http://www.macromedia.com/go/getflashplayer width=240 src=http://you.video.sina.com.cn/api/sinawebApi/outplayrefer.php/vid=86165889_478_2534096383_1_PB+xGyI+DjTK+l1lHz2stqlF+6xCpv2xhGixuFakLAhaXQ+YJMXNb9UB4S/TCMdL5yoUEJU3c/8g0hUlYQ/s.swf allowscriptaccess="never" quality="high" wmode="transparent"></EMBED></div>-->
+        <!--<video src="videos/GT3.0(Beta0.7).mp4"  width="250" height="141" controls="controls">
+Your browser does not support the video tag.
+</video>
+        <div id="myrl">
+			<FORM name="CLD">
+			<div id="detail" style="position:absolute;z-index:9999;"></div>
+			<table id="box" style="table-layout:fixed;word-break:break-all;word-wrap:break-word;">
+			<tbody>
+			<tr>
+			<td align="middle">
+			<table class="biao">
+			<tbody>
+			<tr>
+			<tr bgColor="#0099FF" colSpan="7" style="text-align:center;"><FONT style="FONT-SIZE:10px;" color="#ffffff" size="2">公历
+			<select style="FONT-SIZE:9pt;" onchange="changeCld()" name="SY">
+			<script><!--
+				for(i=1900;i<2101;i++) document.write('<option>'+i)
+			</script>
+			</select>年
+<select style="FONT-SIZE:9pt;" onchange="changeCld()" name="SM">
+<script><!--
+for(i=1;i<13;i++) document.write('<option>'+i)
+</script>
+</select>月</font> <font id="GZ"></font>
+</td>
+</tr>
+<tr style="color:#333;font:16px;background:#A8E1FD;font-weight:bold;text-align:center;vertical-align:middle;">
+<td width="70">日</td>
+<td width="70">一</td>
+<td width="70">二</td>
+<td width="70">三</td>
+<td width="70">四</td>
+<td width="70">五</td>
+<td width="70">六</td>
+</td>
+<script><!--
+function cMyBg(myobj){myobj.style.backgroundColor='#D2FFF5';}
+function bMyBg(myobj){myobj.style.backgroundColor='transparent';}
+var  gNum
+for(i=0;i<6;i++)  {
+document.write('<tr  align=center height="44">')
+for(j=0;j<7;j++)  {
+gNum  =  i*7+j
+document.write('<td id="GD'  +  gNum  +'"  onMouseOver="mOvr('  +  gNum  +');cMyBg(this)"  onMouseOut="mOut();bMyBg(this)"><font  id="SD'  +  gNum  +'" size=5  face="Arial"')
+if(j  ==  0)  document.write('  color=red')
+if(j  ==  6)
+if(i%2==1)  document.write('  color=red')
+else  document.write('  color=red')
+document.write('  TITLE="">  </font><br><font  id="LD'  +  gNum  +  '"  size=2  style="font-size:9pt;white-space:nowrap;overflow:hidden;cursor:default;">  </font></td>')
+}
+document.write('</tr>')
+}
+</script>
+</table></td>
+<td vAlign="top" align="middle" width="20" class="btm"><br /><br /><br /><br />
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>-->
+    	</div>
+        <div class="lblock">
+        	<div class="more" onclick="window.open('#','_self')"></div>
+        	<div class="title"><span class="chtitle">最新<font color="#00CC33">消息</font></span><span class="entitle">-Last News</span></div>
+        	<div id="newsimg"></div>
+        	<ul class="maintext">
+           	<li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+           	<li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+           	<li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+           	<li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+           	</ul>
+        </div>
+        <div class="line"></div>
+    	
+        <div class="rblock">
+ 			<div class="title"><span class="chtitle">站内<font color="#0066FF">搜索</font></span><span class="entitle">- Search</span></div>
+                <form action="http://www.baidu.com/baidu">
+                <div id="search">
+                <input type=text name=word id="searchtext">
+                <input id="searchbnt" type=image src="images/searchbnt.png" onmouseover="this.src='images/searchbnt_1.png'" onmouseout="this.src='images/searchbnt.png'" onclick="submit()" value="Baidu 搜索">
+                </div>
+                <input name=tn type=hidden value="bds">
+                <input name=cl type=hidden value="3">
+                <input name=ct type=hidden value="2097152">
+                <input name=si type=hidden value="@">
+                </form>
+				<iframe allowtransparency="true" frameborder="0" width="250" height="90" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=1&v=0&d=3&k=&f=1&q=1&e=1&a=1&c=56294&w=250&h=90"></iframe>
+   		</div>
+        <div class="lblock">
+   			<div class="more" onclick="window.open('#','_self')"></div>
+        	<div class="title"><span class="chtitle"><font color="#CC6633">老年</font>大学</span><span class="entitle"> -University for the Elders</span></div>
+            <ul class="maintext" id="lblocktext">
+            <li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+            <li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+            <li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+            <li><a href="#">● 离退休工作给80岁老人祝寿</a></li>
+            </ul>
+        </div>
+        <div class="line"></div>
+        
+    	<div id="bblock">
+    		<div class="more" onclick="window.open('#','_self')"></div>
+        	<div class="title"><span class="chtitle"><font color="#990000">作品</font>展示</span><span class="entitle">-Works Exhibition</span></div>
+        	<div id="photo">
+        		<ul>
+            	<a href="#"><li><img src="images/ph01.jpg" /><div><div class="phtext"></div><p>photo01</p></div></li></a>
+            	<a href="#"><li><img src="images/ph02.jpg" /><div><div class="phtext"></div><p>photo02</p></div></li></a>
+            	<a href="#"><li><img src="images/ph03.jpg" /><div><div class="phtext"></div><p>photo03</p></div></li></a>
+            	<a href="#"><li><img src="images/ph04.jpg" /><div><div class="phtext"></div><p>photo04</p></div></li></a>
+            	</ul>
+        	</div>
+        </div>
+    	<div id="bottom">
+			<div id="rbottom"><p onclick="linkgo()">Go</p>           
+            <select name="link" id="link">
+            	<option value="0" class="s0">--友情链接--</option>
+                <option value="1">西南财经大学</option>
+                <option value="2">夕阳红论坛</option>
+            </select>
+            </div>
+            <div id="btext">
+            <h4>西南财经大学西南财经大学离退休工作处</h4>
+        	<h5>联系电话&nbsp;84865615&nbsp;&nbsp;邮编&nbsp;610000</h5>
+			<h5>LenRinfvck@2014</h5>
+            </div>
+    	</div>
+    </div>
+</div>
+</body>
+</html>

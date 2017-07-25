@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {% parent %}
+    <title>LRFMAD-{{article.title}}</title>
+    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/lib/highlight/styles/monokai-sublime.css">
+    <script type="text/javascript" src="/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="/lib/highlight/highlight.pack.js"></script>
+    <script src="/js/blog.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% parent %}
+    <div class="content">
+        <div class="left-con markdown-body">
+            {{p|raw()}}
+        </div>
+        <div class="right-con">
+            <div class="r-block r-info">
+                <h5>INFO</h5>
+                <p class="info-date">
+                    <b>DATE</b>
+                    <span class="date-time">{{article.mate.createAt|date('H:i')}}</span>
+                    <span class="date-day">{{article.mate.createAt|date('y年m月d日')}}</span>
+                </p>
+                <p class="info-view">
+                    <span class="ico-view">访问量: {{article.view}}</span>
+                    <!-- <span class="ico-zan">赞: 0</span>
+                    <span class="ico-share">享: 0</span> -->
+                </p>
+            </div>
+            {% include './widget/blog_side_more.html' %}
+        </div>
+    </div>
+    <div class="topBnt">TOP</div>
+{% endblock %}

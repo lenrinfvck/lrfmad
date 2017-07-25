@@ -1,0 +1,9 @@
+{
+    "id":"userid",
+    "tName":"张三",
+    "sex":"1",
+    "birth":"1993-1-1",
+    "tel":"18200333222",
+    "email":"9123456@qq.com",
+    "check":false
+}

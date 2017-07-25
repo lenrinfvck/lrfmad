@@ -1,0 +1,23 @@
+{
+    "pName":"iPhone 6 Plus",
+    "res":1221,
+    "save":611,
+    "uType":1,
+    "pInfo":[
+        {"key":"产品品牌","val":"苹果(APPLE)"},
+        {"key":"产品型号","val":"iPhone 6 Plus"},
+        {"key":"产品颜色","val":"金色 / 银色 / 黑色"},
+        {"key":"内存大小","val":"8G / 16G / 32G"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxx"},
+        {"key":"详细配置","val":"xxxxx"}
+    ]
+}

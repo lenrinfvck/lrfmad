@@ -1,0 +1,17 @@
+    <div class="indexBanner" ms-class="inputTop:isInput">
+        <div class="indexLogo">
+            <a href="#!/userInfo"><img ms-src="{{uImg}}" width="100%" alt="3chelp" /></a>
+        </div>
+        <div class="indexSearch">
+            <input id="boldNum" placeholder="请输入苹果产品IMEI/序列号" ms-click="scro_focus" ms-duplex="iph" />
+            <span class="ico_close" ms-visible="iph.length>0" ms-click="scro_blur"></span>
+            <!--ms-visible="iph.length>0"-->
+            <button ms-class="show:isInput"  ms-click="fnSubmit">查询</button>
+            <!--TODO:辅助输入，待定-->
+            <!--<ul class="inputAjax" ms-visible="isInput">-->
+            <!--<li ms-repeat="inputList" ms-click="go(el)">{{el.text}}</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+    <div ms-view="v_iphSel">
+    </div>

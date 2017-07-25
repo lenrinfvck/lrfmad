@@ -1,0 +1,12 @@
+#read{width: auto;min-width: 0;height: auto;}
+.regBox input{width: 80%;}
+input.check{width: 40%;max-width: 300px;}
+.login ul{width: 70%;min-width:300px;max-width: 400px;margin: 0 auto;text-align: left;margin-top: 60px;}
+.checkDiv{background: #eee;width: 70px;height: 30px;display: inline-block;line-height: 30px;margin-left: 20px;}
+.login ul li{margin: 10px 0;display: inline-block;width: 100%;}
+.regBox .submit{text-align: center;cursor: pointer}
+.small p{font-size: 14px;text-align: center;padding: 0;}
+.small h5{font-size: 18px;font-weight: 600; padding-top:20px;}
+.small h5 a{color: #76BDF1;font-weight: normal;font-size: 14px;cursor: pointer}
+.small h5 img{vertical-align: middle;margin-left: -10px;margin-right: 10px;}
+.small h5 span{color:#aaa;margin-left:15px;font-weight: normal;font-size: 14px;cursor: pointer}

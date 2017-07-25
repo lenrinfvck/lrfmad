@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {% parent %}
+    <title>LRFMAD-MAD合集</title>
+    <link rel="stylesheet" href="/css/mad.css">
+    <script type="text/javascript" src="/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="/lib/jquery/jquery.lazyload.min.js"></script>
+    <script src="/js/mad.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% parent %}
+    <div class="content mad">
+    	<div class="topBnt">TOP</div>
+    	<div class="centerBox">
+            <div class="centerWarp">
+            {% for item in mad %}
+                <div class="proBox lgBox firstBk" data-url="{{item.video}}">
+                    <div class="proImg">
+                        <div class="playHover"></div>
+                        {% if loop.index <= 4 %}
+                        <img src="{{ item.img }}" width="100%">
+                        {% else %}
+                        <img data-original="{{ item.img }}" width="100%">
+                        {% endif %}
+                        <h2>{{item.name}}</h2>
+                    </div>
+                    <div class="proText">
+                        <h3>EVENT</h3>
+                        <p>{{item.events}}</p>
+                        <h3>BGM</h3>
+                        <p>{{item.bgm}}</p>
+                        <h3>MATERIAL</h3>
+                        <p>{{item.material}}</p>
+                        <h3>PS</h3>
+                        <p>{{item.desc|raw}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+	    </div>
+    </div>
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc182c362c098a7bfb663a0292d9becd0' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>

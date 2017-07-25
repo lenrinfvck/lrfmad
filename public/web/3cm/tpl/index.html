@@ -1,0 +1,46 @@
+<div ms-controller="c_index" ms-keyup="fnEnter">
+<div class="indexBanner" ms-class="inputTop:isInput">
+    <div class="indexLogo" ms-css-background-image="url({{$uImg}})">
+    </div>
+    <!--TODO:1.高度补正-->
+    <div class="indexSearch" style="position: relative;top: -3px">
+        <!--TODO:1.iPhone上输入光标；2.搜索结果判断跳转-->
+        <span class="ico_search"></span>
+            <input id="boldNum" placeholder="请输入品牌/型号/产品" ms-click="scro_focus" ms-duplex="searchVal" />
+            <span class="ico_close" ms-visible="searchVal.length>0" ms-click="scro_blur"></span>
+            <button ms-class="show"  ms-click="fnSubmit(false)">查询</button>
+        <!--<input placeholder="请输入你要搜索的内容" ms-click="scro_focus" ms-duplex="searchVal"/>-->
+        <!--<button ms-class="show:isInput" ms-click="scro_blur">取消</button>-->
+        <ul class="inputAjax" ms-visible="isInput">
+            <li ms-repeat="inputList" ms-click="go(el)">{{el.text}}</li>
+        </ul>
+    </div>
+</div>
+<!--<div class="indexSearch_v2">-->
+   <!--<div class="userImg"><a href="#!/userInfo"><img ms-src="{{uImg}}" height="40px" alt="用户头像"/></a></div>-->
+   <!--<input type="text" ms-duplex="searchVal" placeholder="请输入你要搜索的内容"/>-->
+    <!--<ul class="inputAjax">-->
+        <!--<li ms-repeat="inputList" ms-click="fnSubmit({str:el})">{{el}}</li>-->
+    <!--</ul>-->
+   <!--<div class="indexBnt" ms-click="fnSubmit">搜索</div>-->
+<!--</div>-->
+<!--<div class="iBanner">-->
+    <!--<img src="images/shop.jpg" alt="" width="100%" />-->
+<!--</div>-->
+<div class="content">
+    <div class="chanel">
+        <span class="slideBnt" ms-class-1="ico_up:onSlide" ms-class-2="ico_down:!onSlide" ms-click="fnSlide"></span>
+        <h2>大家都在找</h2>
+        <ul ms-class="slide:onSlide">
+            <li ms-repeat-el="hotLinkShow" ms-click="go(el)">{{el.text}}</a></li>
+        </ul>
+        <span ms-click="fnChangehot" ms-visible="onSlide">换一批看看</span>
+    </div>
+</div>
+<div class="placeholdFooter"></div>
+<footer ms-if="!isInput">
+    <a href="#!/iSearch/pIndex" class="bottom_apple"></a>
+    <a href="#!/" class="bottom_home active"></a>
+    <a href="#!/user/pIndex" class="bottom_user"></a>
+</footer>
+</div>

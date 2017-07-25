@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {% parent %}
+    <title>LRFMAD</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/lb_game.css">
+    <script type="text/javascript" src="lib/jquery/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/lb_game.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% parent %}
+    <div class="play">
+        <div class="lb-con">
+            <div class="lb-ele cloud3"></div>
+            <div class="lb-ele cloud4"></div>
+            <div class="lb-ele cloud2"></div>
+            <div class="lb-ele cloud1"></div>
+            <!-- 房屋后 START -->
+            <div class="z0">
+               
+            </div>
+            <!-- 房屋后 END -->
+            <div class="lb-ele school"></div>
+            <div class="lb-ele l-trees"></div>
+            <div class="lb-ele r-trees"></div>
+            <!-- 墙后 START -->
+            <div class="z1">
+               
+            </div>
+            <!-- 墙后 END -->
+            <div class="lb-ele wall"></div>
+            <!-- 前景 START -->
+            <div class="z2">
+                <div class="masado"></div>
+                <div class="kengo"></div>
+            </div>
+            <!-- 前景 END -->
+            <div class="front-box"></div>
+            <div class="z3">
+                <div class="cText">
+                    <div class="play-btn">PLAY</div>
+                </div>
+                <div class="game-res">
+                    <div class="life">Life: <span>3</span></div>
+                    <div class="score">Score: <span>0</span></div>
+                    <div class="maxscore">Max: <span>{{score}}</span></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pageB">
+        <div class="contentPlay">
+            <div class="aLogo"><img src="images/lrflogo.png" height="184" width="191" /></div>
+            <h3>愿光头与你同在!</h3>
+            <h3>lenrinfvck个人主页，用以整理个人web、mad作品</h3>
+            <h3>Blog部分完善中...Index秘之小游戏心血来潮开发中...</h3>
+                <div class="lan">
+                    <div class="webLan">
+                        <a href="/web" target="_self"><img src="images/webImg.jpg" height="224" width="243" /></a>
+                    </div>
+                    <div class="madLan">
+                        <a href="/mad" target="_self"><img src="images/madImg.jpg" height="224" width="243" /></a>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}
+
+<!--
+    <div class="play">
+        <div class="playCenter">
+            <div class="playThing playing">
+                <div class="anime">
+                    <img data-xout="50%" data-xin="50%" data-yout="-100%" data-yin="200px" src="images/saya.png" height="587" width="702" />
+                </div>
+                <div class="bk"></div>
+            </div>
+            <div class="playThing ">
+                <div class="anime">
+                    <img data-xout="50%" data-xin="50%" data-yout="-100%" data-yin="200px" src="images/baoshi.jpg" height="450" width="490" />
+                </div>
+                <div class="bk" style="background:#fff"></div>
+            </div>
+            <div class="playThing ">            
+                <div class="anime">
+                    <img data-xout="50%" data-xin="50%" data-yout="100%" data-yin="50%" src="images/madao.png" height="233" width="582" />
+                </div>
+                <div class="bk"><img src="images/bk01.jpg" height="600px" /></div>
+            </div>
+        </div>
+    </div>
+-->

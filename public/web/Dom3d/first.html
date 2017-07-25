@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Dom3D</title>
+    <link rel="stylesheet" href="css/dom3d.css"/>
+</head>
+<script src="jquery-1.11.0.min.js"></script>
+<body>
+<div class="ntrStage">
+    <div class="ntrSpace">
+        <div class="dom3d" id="div1">1</div>
+        <div class="dom3d">2</div>
+        <div class="dom3d">3</div>
+        <div class="dom3d">4</div>
+        <div class="dom3d">5</div>
+        <div class="dom3d">6</div>
+    </div>
+</div>
+<!--<div id="controller">-->
+	<!--X:<input  id='cX'/>-->
+	<!--Y:<input  id='cY'/>-->
+	<!--Z:<input  id='cZ'/>-->
+	<!--<button>确定</button>-->
+<!--</div>-->
+	<script src="develop/dom3d.js"></script>
+    <script>
+        $(document).ready(function(){
+            var d3d = $('.ntrSpace').dom3d();
+            setTimeout(function(){d3d.camera.setPos([0,-300,0])},2000);
+            setTimeout(function(){d3d.camera.setPos([-300,-300,0])},3000);
+            setTimeout(function(){d3d.camera.setPos([-300,-300,800])},4000);
+            setTimeout(function(){d3d.camera.setPos([100,200,-1000])},5500);
+        });
+    </script>
+</body>
+</html>

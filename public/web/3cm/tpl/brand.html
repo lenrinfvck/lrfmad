@@ -1,0 +1,81 @@
+<div ms-controller="c_brand">
+    <header>
+        <h3>苹果(APPLE)</h3>
+    </header>
+    <div class="placehold"></div>
+    <div class="pBanner">
+        <img src="images/pInfo.jpg" alt="" width="100%" />
+    </div>
+    <div class="pInfo">
+        <span class="right"></span>
+        <span class="num">1221212赞|1221收藏</span>
+    </div>
+    <ul class="proTab brandTab">
+        <li ms-class="active:tab==='p1'" ms-click="chTab('p1')">本地相关</li>
+        <li ms-class="active:tab==='p2'" class="middle" ms-click="chTab('p2')">本地促销</li>
+        <li ms-class="active:tab==='p3'" ms-click="chTab('p3')">产品大全</li>
+    </ul>
+    <div class="proCon">
+        <div class="icoUl" ms-if="tab==='p1'">
+            <a class="bBnt" href="#!/res">
+                <div class="iBox sPro ico_right">
+                    直营及授权经销
+                </div>
+            </a>
+            <a class="bBnt" href="#!/res">
+                <div class="iBox sPro ico_right">
+                    本地经销商
+                </div>
+            </a>
+            <a class="bBnt" href="#!/res">
+                <div class="iBox sPro ico_right">
+                    客户服务中心
+                </div>
+            </a>
+            <a class="bBnt" href="#!/res">
+                <div class="iBox sPro ico_right">
+                    保外维修中心
+                </div>
+            </a>
+            <a class="bBnt" href="#!/res">
+                <div class="iBox sPro ico_right">
+                    配件销售商
+                </div>
+            </a>
+            <a class="bBnt" href="#!/res">
+                <div class="iBox sPro ico_right">
+                    预约送修寄修
+                </div>
+            </a>
+        </div>
+        <ul class="resUl localAd" ms-if="tab==='p2'">
+            <li ms-repeat="tab2List">
+                <h3>{{el.sName}}</h3>
+                <p>地址：{{el.pos}}</p>
+                <p>电话：{{el.tel}}</p>
+                <p>经营：{{el.service}}</p>
+                <span class="price"><i>￥</i>{{el.price}}</span>
+                <span>{{el.zan}}人赞过</span>
+                <div class="appBnt">
+                    <a class="ghBnt left" href="#!/proInfo">电话咨询</a>
+                    <a class="ghBnt" href="'#!/shop?sId={{el.sId}}">去这里</a>
+                    <a class="ghBnt right" ms-href="#!/shop?sId={{el.sId}}">了解更多</a>
+                </div>
+            </li>
+        </ul>
+        <div class="pInfoBox" ms-if="tab==='p3'">
+            <ul class="resUl brandUl" ms-class="active:slide">
+                <li class="ico_right" ms-click="click_li(el.sId)">
+                    <a href="#!/proInfo?tap=p3"><h3>iPhone 6 Plus</h3>
+                    <span class="num">1221212赞|1221收藏</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="placeholdFooter"></div>
+    <footer>
+        <a href="#!/">首页</a>
+        <a href="#!/ad">热门</a>
+        <a href="#!/ad">分类</a>
+    </footer>
+</div>

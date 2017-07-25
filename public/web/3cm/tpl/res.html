@@ -1,0 +1,26 @@
+<div ms-controller="c_res">
+<header>
+    <!--<div class="content">-->
+        <!--<button class="right" ms-click="mapModel">地图模式</button>-->
+        <h3>{{searchVal}}</h3>
+    <!--</div>-->
+</header>
+<div class="placehold"></div>
+<ul class="resUl">
+    <li ms-repeat="resList" class="ico_right" ms-click="click_li(el.sId)">
+        <h3 ms-class="reg:el.reg">{{el.sName}}</h3>
+        <!--<p>地址：{{el.pos}}</p>-->
+        <!--TODO:修改MV和接口-->
+        <!--<p>电话:{{el.tel}}</p>-->
+        <p>{{el.zan}}赞 | {{el.save}}收藏</p>
+        <!--<a ms-href="#!/shop?sId={{el.sId}}"></a>-->
+    </li>
+</ul>
+
+<div class="placeholdFooter"></div>
+    <footer ms-if="!isInput">
+        <a href="#!/iSearch/pIndex" class="bottom_apple"></a>
+        <a href="#!/" class="bottom_home active"></a>
+        <a href="#!/user/pIndex" class="bottom_user"></a>
+    </footer>
+</div>

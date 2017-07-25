@@ -1,0 +1,23 @@
+<table class="resIptab1">
+    <caption ms-visible="tab1List[0]"><span>查询结果</span></caption>
+    <tr ms-repeat="tab1List" ms-visible="el.val!==''">
+        <th>{{el.key}}</th><td>{{el.val}}</td>
+    </tr>
+    <tfoot class="resBnt" ms-click="chPage('pIndex')">
+    <tr>
+        <td colspan="2" ms-class="active:!tab1List[0]">
+            <div class="content" ms-class="noBorder:tab1List[0]">
+                <ul ms-visible="!tab1List[0]">
+                    <li><span class="ico_fail"></span>未查询到相关结果</li>
+                    <li>1.产品刚激活,苹果官网数据还未更新</li>
+                    <li>2.暂时无法验证该产品的购买日期,所以无法显示保修状态</li>
+                    <li>3.苹果官网可能未接收到该产品的激活信息,您也可以前往苹果官网注册提交</li>
+                    <li>4.输入的IMEI/序列号(SN)有误</li>
+                </ul>
+                <div ms-visible="!tab1List[0]"  class="witheIm">重新输入</div>
+                <div ms-visible="tab1List[0]"  class="witheIm">继续查询</div>
+            </div>
+        </td>
+    </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,16 @@
+<table class="resP6">
+    <caption>iPhone 5s/6/6 Plus</caption>
+    <thead>
+    <tr>
+        <th class="line"><span class="left">版本</span><span class="right">制式</span></th><th>GSM</th><th>CDMA2000</th><th>TD-SCDMA</th><th>TD-LTE</th><th>WCDMA</th><th>FDD-LTE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ms-repeat="p6List">
+        <td>{{el.title}}</td><td ms-repeat-list="el.list" class="ico_true" ms-class-1="ico_false:!list" ms-class-2="other:list===2"></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr><td colspan="7"><div ms-click="chPage('pIndex')"><span>继续查询</span></div></td></tr>
+    </tfoot>
+</table>

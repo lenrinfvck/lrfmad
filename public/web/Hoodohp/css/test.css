@@ -1,0 +1,132 @@
+
+	.startMadL,.startMadR{position: fixed;z-index: 9998; width: 50%;height: 100%;background: #fff;overflow: visible;}
+	.startMadL{left: 0%;z-index: 9999}
+	.startMadR{right: 0%;}
+	.mid{position: fixed; top:50%;left:50%;}
+	.box{position:relative;top:-100px;left:-50%;}
+	.box img{border: none;}
+	h1{ text-decoration: none; font-size:60px; color: #555}
+	html{font-family: '微软雅黑',"Helvetica Neue",Helvetica,Arial,sans-serif;overflow-y:hidden; min-width: 480px;}
+	*{ margin: 0; padding: 0; list-style: none; border: 0px;}
+	.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }
+	* html>body .clearfix { display:inline-block; width:100%; }
+	* html .clearfix { height:1%; }
+	*+html .clearfix { min-height:1%; }
+	#base01{overflow: hidden;position: relative; }
+	.main{ /*background: url(../images/01.jpg) no-repeat top #363636; */}
+		#topHead{height:59%; width:100%; min-height:310px; position: relative; max-height: 1200px;background: url(../images/bk0.jpg) no-repeat center right; overflow: hidden; text-align: center;}
+			.topHeadBk{/*transform-origin:0% 0%;*/}
+			.topLogo{ background: url(../images/Allicon.png) -655px -165px; width: 322px;height: 282px;position: relative;left: 50%;top: 50%;margin-top: -190px;margin-left: -161px;}
+				.aboutBnt{ position: relative;width: 137px;height: 40px; top: 320px;left:92px; background: url(../images/Allicon.png) -260px -155px;}
+				.aboutBnt:hover{background:url(../images/Allicon.png) -260px -200px;}
+			.hoodoBnt{position: relative; margin-top:-40px; left: 50%; margin-left: -240px;  width: 480px;height: 80px; background: #19294B;color: #fff;font-size: 55px; text-align: center;line-height: 80px; cursor: pointer; z-index: 10}
+			.hoodoBnt:hover{background: #AAA}
+		#topFoot{ height: 40%; width: 100%; margin-top:50px;} 
+			p{ color: #000;font-size: 20px;}
+			.sP{ color: #646464;font-size: 16px;}
+			.downBnt{ width: 72px; height: 72px; background:url(../images/Allicon.png) -0px -250px; margin:70px auto 0 auto;}
+			.downBnt:hover{opacity: 0.5}
+	.descrip{ /*background: url(../images/descrip.jpg) no-repeat center #363636;*/;position: relative;z-index: 99; overflow: hidden;}
+		.des{min-width: 480px;}
+		.descripImg{width:100% ;height: 25%; max-height: 300px;}
+		h2{margin: 35px auto;color: #858788}
+		.descripIcon{width:30%; margin:1% auto; text-align: center; max-width: 650px;}
+		.descrip p{width: 70%; margin: 0 auto;font-size: 16px; color: #858788; margin: 15px auto 0 auto; text-align: left;}
+		.descripShow{width: 70%; text-align: center; margin: 100px auto; min-width: 840px;}
+		.descripShow li{width: 200px; height: 100px; background: #2209a0;display: inline-block;}
+	#base02{ background: url(../images/bk01.jpg) no-repeat center #363636; }
+	#base03{ background:#1F2228; }
+		.help{ width: 100%; margin:10% auto; text-align: center;}
+		.help li{ width: 150px;height: 150px; display: inline-block; margin: 7%; position: relative;}
+		.help li a{display:inline-block; width: 150px;height: 150px; position: relative; z-index: 15}
+			.helpApp{ background: url(../images/Allicon.png) -0px -0px;} 
+			.helpApp:hover{ background: url(../images/Allicon.png) -150px -0px;}
+				.help li a.helpBnt{position:absolute;z-index: 14; width: 120px; height: 92px; top: 50%;margin-top: -46px;left: 50%}
+				.help li a.helpBnt:hover{opacity: 0.8}
+					.iosBnt{ left: -150px; background: url(../images/Allicon.png) -0px -155px; margin-left: -65px;}
+					.anBnt{  background: url(../images/Allicon.png) -125px -155px;; margin-left: -55px}
+					.help li a.helpBnt span{position: relative;top: 62%; font-size: 14px;color: #87888A}
+			.helpBuy{ background: url(../images/Allicon.png) -300px -0px;} 
+			.helpBuy:hover{ background: url(../images/Allicon.png) -450px -0px;;}
+			.helpFAQ{ background: url(../images/Allicon.png) -600px -0px;;} 
+			.helpFAQ:hover{ background: url(../images/Allicon.png) -750px -0px;;}
+		.help li span{position: relative; color: #fff; font-size: 20px; top: 15px;}
+		.help li:hover span{}
+	#foot{position: relative;background: #1f2228}
+		.mail{background: url(../images/mailBK.png) no-repeat top; width: 100%; height: 55%; min-height: 360px; position: relative;}
+			.mailForm{position:absolute; width:570px; top:50%;margin-top:-180px;  left: 50%;margin-left: -285px}
+			.mailForm li{ margin: 10px 0;}
+			.mailBnt{width: 40px; height: 40px;  margin-right: 10px; display: inline-block;vertical-align:middle}
+			label.mailBnt{display: inline-block;width: 40px; height: 40px; border: solid #fff 1px;text-align: center;line-height: 40px;}
+			.mailBnt span{background: none;background:url(../images/Allicon.png) -275px -300px;width:16px; height: 26px;display: inline-block; margin: 6px;}
+			.large span{margin: 36px auto;}
+			label.mailBnt:hover{opacity: 0.7; background: #fff;}
+			.mailInput{width: 500px; height: 40px; display: inline-block;vertical-align:middle;font-size: 18px;font-family: '微软雅黑';text-indent: 10px; border: solid #fff 1px;}
+			label.large,.large{height: 100px;max-height: 100px;max-width: 500px;}
+			label.large{line-height: 100px;}
+			.sendBnt{background: url(../images/Allicon.png) -905px -80px;width: 75px; height: 75px; margin: 2% auto; display: block;}
+			.sendBnt:hover{background: url(../images/Allicon.png) -905px -0px;}
+		.foot{background: #1f2228;height: 45%;}
+			.footLogo{background: url(../images/Allicon.png) -405px -155px; width: 119px;height: 118px; margin: 40px auto;}
+			.footNum{background: url(../images/Allicon.png) -0px -330px; width: 247px; height: 26px;margin: 10px auto;}
+			.ICP{margin-top:20px;border-top: dashed 2px #333338;text-align: center; color: #858FA7;font-size: 14px; padding-top: 10px;}
+			.ICP a{color: #858FA7; }
+	.baseBox{width: 100%; background: /*#00C8FF*/;overflow: hidden;}
+	/*.baseBox:odd{ background: #2B303B}*/
+	.baseCenter{width: 75%;height: 100%; margin: 0px auto; /*background: #E6E6E6*/}
+	.baseTitle{width:15%; height:50px;position: relative; top: 20px;color:#fff;line-height: 50px; text-indent: 10px; font-size:25px; font-weight: 300; min-width: 150px;}
+	.rightNav{position: fixed; right: 2%; z-index: 19;background-attachment:fixed;}
+	.rightNav li{ background: url(../images/Allicon.png) -80px -290px; height: 30px; width: 30px; margin: 20px 3px;}
+	.rightNav li:hover{ background: url(../images/Allicon.png) -115px -290px;}
+	.rightNav li.actived{ background: url(../images/Allicon.png) -115px -290px;}
+	.rightNav li span{ display: none; color: #FFF; position: relative; width: 100px; height: 30px; line-height: 30px; text-align: right; right: 110px;}
+	.rightNav li:hover span{ display: inline-block;}
+
+	.hoodoBar{height: 35px; width: 100%;position: fixed;bottom: 0;background: #000;z-index: 555;text-align: center;}
+	.hoodoBar div{background: url(../images/Allicon.png) -80px -250px; width: 95px; height: 35px;display: inline-block;}
+
+	.imgShow{ width:85%;height: 95%;position: relative; overflow: hidden; /*background: #EE999B;*/ margin: auto;}
+	.preBnt,.nextBnt{ position:relative; top: 47%; z-index: 9; background: url(../images/Allicon.png); width: 40px; height: 40px; display: inline-block;}
+	.preBnt{background-position:-180px -250px; }
+	.nextBnt{background-position:-225px -250px;}
+	.imgShow .nextBnt{ float:right;}
+	
+	.changeBnt{ position:relative; z-index: 100;width:70px;height: 100%; background:url(../images/slideBK.png) repeat-y; text-align: center; font-size: 30px; opacity: .5;}
+	.changeBnt div{position:relative; background: url(../images/Allicon.png) -305px -250px; width: 22px; height: 43px;top: 47%; left: 20%}
+	.changeBnt:hover{ background:url(../images/slideBK.png) repeat-y; color:#fff; opacity: .8;}
+	.showThing , .com{height: 90%; width: 100%; text-align: center; float: left;min-width: 350px;}
+	.com{min-width: 0px;}
+	.allImg , .allCom{ height: 100%;position: absolute;top:0;left:0;margin:0;padding:0;}
+	.showThing img{display: inline-block;}
+	.imgText{ bottom: 5%; width: 80%; font-size: 1.1em; text-align: center; margin: 5% auto 1% auto; color: #fff;}
+	.imgText h3{position: relative; font-size: 1.4em;top:-0.5em;}
+
+	.proLink{width: 137px; height: 40px; background:url(../images/Allicon.png) -310px -315px; cursor: pointer; margin: auto; position: relative;top: 40px;}
+	.proLink:hover{ background:url(../images/Allicon.png) -450px -315px;}
+
+			.foot h4,h5{ margin:5px auto;font-size: 14px;color:#858FA7;font-weight: normal; text-align:center;}
+			hr{color:#333338; }
+			a{ color: #fff;text-decoration: none;}
+		#lan{ background:#333; height:30px; clear:left; position:relative; margin-top:-100px; z-index:-5;}
+		
+		#help{text-align: center;}
+		#help-icon{ width:60%; height:380px; min-width:430px; max-width:430px; display:inline-block; margin:20px auto;}
+		
+		#help-icon ul{ margin:0px; padding:0px; text-align: center; color: #fff}
+		#help-icon li{ width:100px; height:100px;  float:left; display:inline-block; margin:60px 5%; cursor:default;}
+		#help-icon li h4{ position:relative; margin-top:110px; font-style:inherit; font-size:1.0em;}
+		#help-icon li:hover h4{ color:#0CF;}
+		
+		.ico {background-image:url(../images/ico.png); display: block;}
+		.ico_c {background-position: -204px -102px; width: 100px; height: 100px; }
+		.ico_c:hover {background-position: -204px -0px; width: 100px; height: 100px; }
+		.ico_d:hover {background-position: -305px -0px; width: 100px; height: 100px; }
+		.ico_a:hover {background-position: -0px -0px; width: 100px; height: 100px; }
+		.ico_b:hover {background-position: -102px -0px; width: 100px; height: 100px; }
+		.ico_e:hover {background-position: -408px -0px; width: 100px; height: 100px; }
+		.ico_f:hover {background-position: -510px -0px; width: 100px; height: 100px; }
+		.ico_a {background-position: -0px -102px; width: 100px; height: 100px; }
+		.ico_b {background-position: -102px -102px; width: 100px; height: 100px; }
+		.ico_d {background-position: -306px -102px; width: 100px; height: 100px; }
+		.ico_e {background-position: -408px -102px; width: 100px; height: 100px; }
+		.ico_f {background-position: -510px -102px; width: 100px; height: 100px; }

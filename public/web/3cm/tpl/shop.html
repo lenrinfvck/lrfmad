@@ -1,0 +1,32 @@
+<div ms-controller="c_shop">
+<div class="sInfo">
+    <span class="shopIco"><img ms-src="sModel.reg?'images/sReg_true.png':'images/sReg_false.png'" height="80px" alt="shop"/></span>
+    <h3>{{sModel.sName}} <span ms-visible="sModel.reg">已认证</span><span ms-visible="!sModel.reg">未认证</span></h3>
+</div>
+<!--<div class="shopInfo">-->
+    <!--<span class="left active"></span>-->
+    <!--<span class="right"></span>-->
+    <!--<span class="num">1221212赞|1221收藏</span>-->
+<!--</div>-->
+<ul class="shopBnt">
+    <li><div class="sZanBnt" ms-class-1="active:sModel.uType&2" ms-click="fnZan"><p>{{sModel.zan}} 赞</p></div></li>
+    <li><div class="sSaveBnt" ms-class-1="active:sModel.uType&4" ms-click="fnSave"><p>{{sModel.save}} 关注</p></div></li>
+    <!--<li><a href="#!/addApp"><span style="background-image:url(images/sg03.png)"><i>预约</i></span></a></li>-->
+    <li><div class="sShareBnt" ms-click="fnShare"><p>分享</p></div></li>
+</ul>
+<!--<ul class="shopUl">-->
+    <!--<li>-->
+        <!--<a href="#!/proInfo"><div class="right">-->
+            <!--<span class="price"><span>RMB</span>4788</span>-->
+        <!--</div>-->
+        <!--<h5>iPhone 6 Plus 16GB</h5>-->
+        <!--<p>送钢化膜</p></a>-->
+    <!--</li>-->
+<!--</ul>-->
+<!--<div class="bkGray"></div>-->
+
+<div class="placeholdFooter"></div>
+<footer ms-visible="sModel.tel!==''">
+    <a ms-href="tel:{{sModel.tel}}" class="single bottom_tel active"></a>
+</footer>
+</div>

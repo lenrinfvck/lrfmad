@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="Monitor.css" />
+    <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="chipi.js"></script>
+ 
+    <title>table</title>
+</head>
+<body onload="time()">
+	<div id="head">
+        <ul class="navH">
+            <li>
+            	<div id="userinfo"><img class="infoimg" src="image/user.png" /><label  class="nametext"></label><label id="timeex"></label>
+        			<div id="usertable"><img src="image/user.jpg" /><label class="usertableText nametext"></label><label>物联网工程实践</label>
+               		</div>
+             	</div>
+             </li>
+             <li>
+                <div id="nav1" onclick="window.open('table.html','_self');" class="tag">
+                	用户管理
+                    <!--<div class="down">
+                    	<ul>
+                        	<li id="nav1_1">查看个人信息</li>
+                            <li id="nav1_2">编辑个人信息</li>
+                            <li id="nav1_3">修改个人密码</li>
+                        </ul>
+                    </div>-->
+                </div>
+             </li>
+                          <li>
+                <div id="nav2" onclick="selected(event)" class="tagon">
+                	查看骑行数据 
+                </div>
+             </li>
+                                       <li>
+                <div id="nav3" onclick="window.open('table03.html','_self');" class="tag">
+                	关于我们
+                </div>
+             </li>
+          </ul>
+            
+    </div>
+
+        <div id="contid1" class="conton">
+                    <div id="temp">  <!--gridview-->
+	<table cellspacing="0" cellpadding="4" rules="all" border="1" id="Temperature" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">温度采集时间</th><th scope="col">温度传感器号</th><th scope="col">温度(℃)</th><th scope="col">XX(℃)</th>
+		</tr><tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td><td class="value">D3</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td><td class="value">D3</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td><td class="value">D3</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td><td class="value">D3</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td><td class="value">D3</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td><td class="value">D3</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td><td class="value">D3</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td><td class="value">D3</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td><td class="value">D3</td>
+		</tr>
+	</table>
+	</div>
+            <div id="input">
+                <form action="#" method="get">
+                <ul id="search">
+                    <li>Form<input name="StartDate" type="text" id="StartDate" class="Wdate" onclick="WdatePicker()" /></li>
+                    <li>
+                        <div id="submit">
+                            <input type="submit" name="Searching" value="Search" id="Searching" />
+                        </div>
+                    </li>
+                    <li>To<input name="EndDate" type="text" id="EndDate" class="Wdate" onclick="WdatePicker()" /></li>
+                </ul>
+				</form>
+            </div>
+        </div>
+
+        <div id="foot">
+            @2014 工程实践
+        </div>
+    
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="76508830" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="q37+e1g9vEHyqxKGPTDyQ8zZqGvPhnWoZBpFt5a1fXeGsXvquwCroQR1XaB/PEGkBShieN5Ewjsyowdvnb85QntcSvcLVuk+PqSI25okZuFyNYiBcRQb/aiY93uUpq4uoNmXOklxNUgdDUCmMrp2f5G7vn9tsxqtFPl8FRUOGQw=" />
+</div></form>
+
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"39296f25ed204f6fb082917a7cc8fe87"}
+</script>
+<script type="text/javascript" src="http://localhost:45588/6fc8608b454849e8967ac4ee05758b8e/browserLink" async="async"></script>
+<!-- End Browser Link -->
+
+</body>
+</html>

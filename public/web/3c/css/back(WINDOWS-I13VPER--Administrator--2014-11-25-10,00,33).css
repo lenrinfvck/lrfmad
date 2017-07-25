@@ -1,0 +1,75 @@
+body{height: 2000px;background: #FCFCFC;}
+.formCon {height: 1500px;width:962px;overflow:hidden;margin-bottom: 200px;background: #fff;border: 1px solid #F7F7F7;margin-top: 60px;}
+.formCon input{width: 500px;background-color: transparent;}
+.formCon input[readonly]{background: none;}
+.formCon select[disabled]{background: none;border: 0;}
+.lSlide{width: 200px;height: 1500px;float: left; font-size: 17px;background: #fff;border-radius: 10px 0 0 10px;color: #000}
+.lSlide ul{margin-top: 20px;}
+.lSlide ul.mChild{margin-top: 25px; font-size: 16px;}
+.lSlide li{height: 30px;line-height: 30px;cursor: pointer;color: #8B8B8C;padding-top: 10px;}
+.lSlide li:hover{color: #00BCF9;}
+.lSlide .tab.active{color: #000;}
+.lSlide .tab{display: block;float: none; position: static;top: 0; width:auto;margin-top: 0;height:auto; background: none;line-height:40px;font-size: 20px;cursor: pointer;color: #000;}
+.lSlide .tab:hover{color:#000;}
+.control{margin-left: 120px;padding-left: 100px;/*border-left: 1px solid #eeefef;*/padding-top: 25px;}
+table,td,th{font-weight: normal;font-size: 17px;}
+tr{height: 50px;line-height: 50px;}
+th{color: #00BCF9;vertical-align: top}
+/*table.inBorder{border-right:1px solid #eeefef;border-bottom:1px solid #eeefef;}*/
+table.inBorder{width: 100%;/*border-bottom: 1px solid  #eeefef;*/}
+table.inBorder td{/*border-left:1px solid  #eeefef;border-top:1px solid #eeefef;*/text-indent: 20px;}
+table.inBorder th{/*border-top:1px solid #eeefef;*/text-align: left;width:90px;}
+table.inBorder table td,table.inBorder table th{border: none;text-align: center;text-indent: 0;}
+table.inBorder .first td, table.inBorder .first th{border-top:0;}
+table.inBorder table{margin: 10px auto;}
+table.inBorder table tr{height: 30px;line-height: 30px;}
+.inTable{width: 100%;}
+.inTable .add,.inTable .removeAdd{color: #00BCF9;cursor: pointer;}
+.inTable .add:hover,.inTable .removeAdd:hover{color: #F08519;}
+table.inTable th{width: auto;}
+.imgUp th,.imgUp td{border-top: 1px solid  #eeefef;font-size: 14px;}
+.imgUp th{font-size: 17px;}
+table.inBorder .imgUp td{border-left: none;color: #8B8B8C;}
+.imgUpBox {width: 640px;height: 560px;margin: 10px auto;text-align: center;border-radius: 10px;}
+.imgUpBox h4{height: 40px;background: #C9C9CA;color: #fff;line-height: 40px;font-weight: normal;border-radius: 10px 10px 0 0;font-size: 15px;}
+.imgBox{height: 480px;background: #eeefef;}
+.imgUpBox .upBnt{height: 30px;width: 150px;cursor: pointer; background: #00BCF9;color: #fff;line-height: 30px;text-align: center;text-indent: 0;border-radius: 4px;position: relative;top: 50%;left: 50%;margin-left: -75px;}
+#img{display: none;}
+.editBnt{cursor: pointer;}
+.control>form{display: none;}
+form.active{display: block;}
+.banner{height: 120px;}
+.index.back .banner{height: 120px;}
+textarea{width: 500px;border: none;max-width: 500px;min-width: 500px;max-height: 300px;min-height: 100px;}
+table.inBorder .submit{text-indent: 0;}
+.othInput li{display: inline-block;text-indent: 0;}
+.othInput input{width: 20px;}
+
+.noedit input{border: 0;}
+input{border-bottom: 1px solid #eeefef;background-color: transparent;}
+
+.control .submit{}
+.control .submit div{width: 300px;height: 40px;line-height:40px;border-radius: 5px;background: #c9c9ca;color: #fff;text-align: center;font-size: 20px;margin: 40px auto;cursor: pointer;}
+.control .submit div:hover{background: #00BCF9;}
+
+.listTable{color: #8B8B8C;}
+.listTable input{width: 100px;text-align: center;border: 0;font-size: 17px;background: #fff;font-family: '微软雅黑';color: #00BCF9;}
+.listEdit{color: #00BCF9;cursor: pointer}
+.listEdit:hover{color:#F08519; }
+
+.tab.active{text-align: center;}
+
+.mChild{/*display: none;*/text-align: center;margin-top: 25px;}
+.uId{line-height: 30px;}
+.uInfo{font-size: 14px;line-height: 20px;}
+.userImg{height: 240px;background: #fff;width: 600px;text-align: center;color: #000;border-right: 1px dashed #eeefef}
+.userImgBox{height: 120px;padding: 60px 0;display: inline-block;width: 400px;}
+.userImgBox img{float: left;border: 2px solid #FFF}
+.userImgBox div{margin-left: 140px;color: #000;height: 80px;margin-top:20px;text-align: left;font-size: 20px;width: 260px;text-overflow: ellipsis;}
+.otherCon{position: relative;border-top:1px solid #c9c9ca;background: #fff;}
+.topTap{width: 100%;height: 60px;text-align: left;box-shadow: 0 -0.5px 4px 0 #00BCF9;}
+.topTap li{width: 120px;height: 60px;cursor:pointer;background: #fff;margin: 0 2px; display: inline-block;line-height: 60px;font-size: 18px;}
+.topTap li:hover{color: #00BCF9;}
+.topTap li.active{color: #00BCF9;}
+.bList{width: 350px;margin: 105px auto;text-align: center; float: right;}
+.bList li{display: inline-block;width: 80px;height: 30px;background: no-repeat left;line-height: 30px;color: #000;text-align: left;text-indent: 30px}

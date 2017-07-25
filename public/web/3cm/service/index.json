@@ -1,0 +1,16 @@
+{
+    "uImg":"images/logo.png",
+    "aLink":[
+        {"text":"美择科技","linkType":"shop","value":"S112312"},
+        {"text":"iPhone 6 Plus","linkType":"pro","value":"6plus"},
+        {"text":"苹果维修","linkType":"search","value":"iphone"},
+        {"text":"苹果(APPLE)","linkType":"brand","value":"b110"},
+        {"text":"显示信息5","linkType":"search","value":"显示信息5"},
+        {"text":"显示信息6","linkType":"search","value":"显示信息6"},
+        {"text":"显示信息7","linkType":"search","value":"显示信息7"},
+        {"text":"显示信息8","linkType":"search","value":"显示信息8"},
+        {"text":"显示信息9","linkType":"search","value":"显示信息9"},
+        {"text":"显示信息10","linkType":"shop","value":"显示信息10"},
+        {"text":"显示信息11","linkType":"shop","value":"显示信息11"}
+    ]
+}

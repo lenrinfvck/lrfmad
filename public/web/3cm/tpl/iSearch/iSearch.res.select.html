@@ -1,0 +1,25 @@
+<table class="resP5">
+    <caption>{{p4Select_2}}的查询结果</caption>
+    <thead>
+    <tr ms-if="p4Select_1==='iPhone'">
+        <th class="w5">对应型号</th><th class="w4">对应编号</th><th>地区</th><th>运营商</th><th class="w2">有锁与否</th><th class="w3">大陆保修</th><th  class="w3">充电器</th>
+    </tr>
+    <tr ms-if="p4Select_1==='Mac mini'">
+        <th class="w5">产品型号</th><th class="w2">CPU</th><th class="w4">CPU主频</th><th class="w2">内存</th><th>硬盘</th><th>显卡类型</th><th  class="w3">上市年份</th>
+    </tr>
+    <tr ms-if="p4Select_1==='MacBook Air'||p4Select_1==='MacBook Pro'||p4Select_1==='iMac'">
+        <th class="w5">产品型号</th><th class="w3">CPU主频</th><th class="w2">内存</th><th class="w2">硬盘</th><th class="w4">显卡类型</th><th class="w4">分辨率</th><th  class="w3">上市年份</th>
+    </tr>
+    <tr ms-if="p4Select_1==='iPod touch'||p4Select_1==='iPad'">
+        <th class="w5">版本号</th><th class="w2">处理器</th><th class="w2">网络制式</th><th class="w4">分辨率</th><th>屏幕</th><th>摄像头</th><th  class="w4">上市时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ms-repeat="p5resList">
+        <td ms-repeat-td="el">{{td}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr><td colspan="7"><div ms-click="chPage('pIndex')"><span>继续查询</span></div></td></tr>
+    </tfoot>
+</table>

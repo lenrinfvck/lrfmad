@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {% parent %}
+    <script type="text/javascript" src="/lib/jquery/jquery-1.11.0.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% parent %}
+    <form id="formweb" action="/admin/updateWeb/" method="post" enctype="multipart/form-data">
+        <label for="">proj</label><input class="ipt-proj" type="text" value="{{test.proj}}" name="webitem[proj]" />
+        <label for="">title</label><input class="ipt-title" type="text" value="{{test.title}}" name="webitem[title]"/>
+        <label for="">desc</label><input class="ipt-desc" type="text" value="{{test.desc}}" name="webitem[desc]"/>
+        <label for="">img</label><input class="ipt-img" type="text" value="{{test.img}}" name="webitem[img]"/>
+        <label for="">url</label><input class="ipt-url" type="text" value="{{test.url}}" name="webitem[url]"/>
+        <label for="">tag</label><input class="ipt-tag" type="text" value="{{test.tag}}" name="webitem[tag]"/>
+        <button class="submit">提交</button>
+    </form>
+
+    <form action="/admin/updateWeb/" method="post" enctype="multipart/form-data">
+        <label for="">name</label><input class="ipt2-name" type="text" value="" name="webitem[proj]" />
+        <label for="">events</label><input class="ipt2-events" type="text" value="" name="webitem[title]"/>
+        <label for="">bgm</label><input class="ipt2-bgm" type="text" value="" name="webitem[desc]"/>
+        <label for="">meterial</label><input class="ipt2-material" type="text" value="" name="webitem[img]"/>
+        <label for="">desc</label><input class="ipt2-desc" type="text" value="" name="webitem[url]"/>
+        <label for="">type</label><input class="ipt2-type" type="text" value="" name="webitem[tag]"/>
+        <label for="">video</label><input class="ipt2-video" type="text" value="" name="webitem[tag]"/>
+        <label for="">img</label><input class="ipt2-img" type="text" value="" name="webitem[tag]"/>
+        <button class="submit2">提交2</button>
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            console.log($("#formweb").serializeArray());
+            $(".submit").click(function(e) {
+                e.preventDefault();
+                var proj = $(".ipt-proj").val();
+                var title = $(".ipt-title").val();
+                var desc = $(".ipt-desc").val();
+                var img = $(".ipt-img").val();
+                var url = $(".ipt-url").val();
+                var tagstr = $(".ipt-tag").val();
+                var tag = [];
+                tag = tagstr.split(",");
+                var webitem = {
+                    proj : proj,
+                    title: title,
+                    desc: desc,
+                    img: img,
+                    url: url,
+                    tag: tag
+                }
+                $.ajax({
+                    url: "/admin/updateWeb",
+                    type: "POST",
+                    data: webitem,
+                    success: function(data) {
+                        console.log("ok");
+                    }
+                });
+            });
+            $(".submit2").click(function(e) {
+                e.preventDefault();
+                var name = $(".ipt2-name").val();
+                var events = $(".ipt2-events").val();
+                var desc = $(".ipt2-desc").val();
+                var img = $(".ipt2-img").val();
+                var video = $(".ipt2-video").val();
+                var bgm = $(".ipt2-bgm").val();
+                var material = $(".ipt2-material").val();
+                var typestr = $(".ipt2-type").val();
+                var type = [];
+                type = typestr.split(",");
+                var maditem = {
+                    name : name,
+                    events: events,
+                    desc: desc,
+                    img: img,
+                    video: video,
+                    type: type,
+                    material: material,
+                    bgm: bgm
+                }
+                $.ajax({
+                    url: "/admin/updateMad",
+                    type: "POST",
+                    data: maditem,
+                    success: function(data) {
+                        console.log("ok");
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

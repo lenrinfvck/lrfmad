@@ -1,0 +1,14 @@
+.mBanner{overflow: hidden;}
+.bannerUl{height: 100%;transition: 0s ease-out;-webkit-transform: 0s ease-out;}
+.mBanner .bannerUl li{float: left;height:100%;overflow: hidden;}
+.mBanner .bannerUl li img{float: none;}
+.bannerIndex{margin: 0 auto;position: relative;top: -20px;height: 10px;text-align: center;width: auto;}
+.bannerIndex li{width: 10px;height: 10px;margin:0 3px;border-radius: 5px;background: #FFF;display: inline-block;opacity: 0.4;text-align: center;}
+.bannerIndex li.active{background: #00BCF9;opacity: 1;}
+
+
+.lSlide{position: fixed;top: 0;height: 100%;width: 240px;background: #FFF;z-index: 1000;
+    transform:translate3d(-240px,0,0);
+    -webkit-transform:translate3d(-240px,0,0);
+    transition: 0.3s ease-out;
+    -webkit-transform: 0.3s ease-out;}

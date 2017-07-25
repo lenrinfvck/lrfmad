@@ -1,0 +1,400 @@
+@import "common.module.less";
+
+@path: "../images/index_game/";
+
+.play {
+    background: #fff;
+
+}
+
+.lb-con {
+    width: 960px;
+    height: 540px;
+    overflow: hidden;
+    position: relative;
+    margin: 30px auto;
+    background: url("@{path}bk.jpg");
+    //cursor: none;
+}
+
+.front-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("@{path}front_boxs.png");
+    animation: front-box 2.5s steps(2) infinite;
+}
+
+.lb-ele {
+    position: absolute;
+    background-size: contain;
+}
+
+.school {
+    width: 377px;
+    height: 403px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -180px;
+    background-image: url("@{path}school.png");
+    transform: translateY(500px);
+}
+.wall {
+    width: 960px;
+    height: 118px;
+    margin-left: -480px;
+    bottom: 0;
+    left: 50%;
+    background-image: url("@{path}front_wall.png");
+    transform: translateY(300px);
+}
+.r-trees {
+    width: 281px;
+    height: 238px;
+    right: 0px;
+    bottom: 30px;
+    background-image: url("@{path}r_trees.png");
+    transform: translateY(300px);
+}
+.l-trees {
+    width: 276px;
+    height: 257px;
+    bottom: 10px;
+    left: 10px;
+    background-image: url("@{path}l_trees.png");
+    transform: translateY(300px);
+}
+.cloud1 {
+    @w: 270px;
+    @h: 216px;
+    width: @w;
+    height: @h;
+    top: -300px;
+    background-image: url("@{path}cloud_1.png");
+    animation: up-down ease-in-out 3s infinite alternate;
+}
+.cloud2 {
+    @w: 289px;
+    @h: 298px;
+    @x: 0.7;
+    width: @w * @x;
+    height: @h * @x;
+    left: 320px;
+    top: -300px;
+    background-image: url("@{path}cloud_2.png");
+    animation: up-down ease-in-out 2.5s infinite alternate;
+}
+
+.cloud3 {
+    @w: 430px;
+    @h: 327px;
+    @x: 0.8;
+    width: @w * @x;
+    height: @h * @x;
+    left: 440px;
+    top: -340px;
+    background-image: url("@{path}cloud_3.png");
+    animation: up-down ease-in-out 4s infinite alternate;
+}
+
+.cloud4 {
+    @w: 395px;
+    @h: 300px;
+    @x: 0.8;
+    width: @w * @x;
+    height: @h * @x;
+    left: 700px;
+    top: -300px;
+    background-image: url("@{path}cloud_4.png");
+    animation: up-down ease-in-out 3.2s infinite alternate;
+}
+.z0,
+.z1,
+.z2,
+.z3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+}
+.rin {
+    @w: 337px;
+    @h: 574px;
+    @x: 0.3;
+    width: @w * @x;
+    height: @h * @x;
+    left: 480px;
+    top: 30px;
+    margin-left: -@w * @x / 2;
+    background-image: url("@{path}rin_lite.png");
+}
+
+.yui {
+    @w: 466px;
+    @h: 600px;
+    @x: 0.25;
+    width: @w * @x;
+    height: @h * @x;
+    left: 410px;
+    top: 320px;
+    margin-left: -@w * @x / 2;
+    background-image: url("@{path}yui_lite.png");
+}
+
+.komani {
+    @w: 313px;
+    @h: 587px;
+    @x: 0.25;
+    width: @w * @x;
+    height: @h * @x;
+    left: 100px;
+    top: 350px;
+    margin-left: -@w * @x / 2;
+    background-image: url("@{path}komani_lite.png");
+}
+
+.haruka {
+    @w: 446px;
+    @h: 592px;
+    @x: 0.25;
+    width: @w * @x;
+    height: @h * @x;
+    left: 240px;
+    top: 330px;
+    margin-left: -@w * @x / 2;
+    background-image: url("@{path}haruka_lite.png");
+}
+
+.mio {
+    @w: 490px;
+    @h: 561px;
+    @x: 0.25;
+    width: @w * @x;
+    height: @h * @x;
+    left: 700px;
+    top: 330px;
+    margin-left: -@w * @x / 2;
+    background-image: url("@{path}mio_lite.png");
+}
+
+.kudo {
+    @w: 488px;
+    @h: 557px;
+    @x: 0.25;
+    width: @w * @x;
+    height: @h * @x;
+    left: 850px;
+    top: 340px;
+    margin-left: -@w * @x / 2;
+    background-image: url("@{path}kudo_lite.png");
+}
+
+.masado {
+    @w: 521px;
+    @h: 600px;
+    @x: 0.9;
+    width: @w * @x;
+    height: @h * @x;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url("@{path}kinnikus.png");
+    animation: masado 0.3s steps(2) infinite;
+    transition: transform ease 1.6s;
+    transform: translateX(550px);
+}
+.kengo {
+    @w: 427px;
+    @h: 600px;
+    @x: 1;
+    width: @w * @x;
+    height: @h * @x;
+    position: absolute;
+    left: -60px;
+    top: 0;
+    background-image: url("@{path}kengos.png");
+    animation: kengo 0.3s steps(2) infinite;
+    transition: transform ease 1.6s;
+    transform: translateX(-550px);
+}
+
+.cText {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    top: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    .play-btn {
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        background: #333;
+        cursor: pointer;
+        opacity: 0;
+        transition: ease .5s 1.6s;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+.game-res {
+    position: absolute;
+    height: 30px;
+    top: 40px;
+    left: 50px;
+    transition: ease 0.7s;
+    opacity: 0;
+}
+.life,
+.score,
+.maxscore {
+    width: 100px;
+    height: 30px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+    margin-left: 30px;
+    float: left;
+}
+.loaded {
+    .masado {
+        transition-delay: 1.6s;
+        transform: translateX(0);
+    }
+    .kengo {
+        transition-delay: 1.6s;
+        transform: translateX(0);
+    }
+    .wall {
+        transition: ease 0.8s;
+        transform: translateY(0);
+    }
+    .school {
+        transition: ease 0.8s 0.3s;
+        transform: translateY(0);
+    }
+    .r-trees,
+    .l-trees {
+        transition: ease .8s 1s;
+        transform: translateY(0);
+    }
+    .cloud1,
+    .cloud2 {
+        transition: ease .8s;
+        top: 0;
+    }
+    .cloud3,
+    .cloud4 {
+        transition: ease .8s .3s;
+        top: 40px;
+    }
+    .cloud4 {
+        top: -70px;
+    }
+    .play-btn {
+        opacity: 1;
+    }
+}
+
+.starting {
+    .game-res {
+        opacity: 1;
+    }
+    .masado {
+        transition-delay: 0.5s;
+        transform: translateX(550px);
+    }
+    .kengo {
+        transition-delay: 0.5s;
+        transform: translateX(-550px);
+    }
+}
+
+.role-enter {
+    animation: up-show ease;
+    animation-duration: 0.5s;
+    animation-fill-mode:forwards; 
+}
+.role-leave {
+    animation: down-leave ease 0.15s;
+    animation-fill-mode:forwards; 
+}
+.role-click {
+    animation: wiggle 0.7s;
+    animation-fill-mode:forwards; 
+}
+
+
+@keyframes front-box {
+    100% {
+        background-position: 0 -1080px;
+    }
+}
+
+@keyframes masado {
+    100% {
+        background-position: -1042px 0;
+    }
+}
+@keyframes kengo {
+    100% {
+        background-position: -854px 0;
+    }
+}
+
+@keyframes up-down {
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes up-show {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes down-leave {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@keyframes wiggle {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(10px);
+    }
+    20% {
+        transform: translateX(0);
+    }
+    30% {
+        transform: translateX(8px);
+    }
+    40% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(6px);
+    }
+    60% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}

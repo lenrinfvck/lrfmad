@@ -1,0 +1,29 @@
+{
+    "uId":"u0001",
+    "uImg":"./images/AppleLogo.png",
+    "uName":"user01",
+    "uPersent":10,
+    "pInfo":[
+        {"brand":"苹果(APPLE)","pId":"p0001", "pName":"iPhone 6 Plus", "active":"2014-10-25","sId":"S0001","buyShop":"天音科技成都有限公司","uTel":18200389711,"sTel":"028-84636666"},
+        {"brand":"苹果(APPLE)","pId":"p0002", "pName":"iPhone 5s", "active":"2013-10-25","sId":"S0002","buyShop":"天音科技成都有限公司","uTel":18200389700,"sTel":"028-84636616"},
+        {"brand":"苹果(APPLE)","pId":"p0003", "pName":"iPhone 4s", "active":"2012-9-25","sId":"S0003","buyShop":"天音科技成都有限公司","uTel":18900389701,"sTel":"028-84636636"},
+        {"brand":"苹果(APPLE)","pId":"p0004", "pName":"iPhone 4", "active":"2012-9-25","sId":"S0004","buyShop":"天音科技成都有限公司","uTel":13500389711,"sTel":"028-84636626"}
+    ],
+    "proSave":[
+        {"pId":"p0001","zan":133212,"save":13223,"pName":"iPhone 6 Plus"},
+        {"pId":"p0002","zan":133212,"save":13223,"pName":"iPhone 6"},
+        {"pId":"p0003","zan":133212,"save":13223,"pName":"iPhone 5s"},
+        {"pId":"p0004","zan":133212,"save":13223,"pName":"iPhone 5"},
+        {"pId":"p0005","zan":133212,"save":13223,"pName":"iPhone 4"},
+        {"pId":"p0006","zan":133212,"save":13223,"pName":"iPhone 3"},
+        {"pId":"p0007","zan":133212,"save":13223,"pName":"iPhone 2"},
+        {"pId":"p0008","zan":133212,"save":13223,"pName":"iPhone"}
+    ],
+    "shopSave":[
+        {"sId":"S0001","zan":133212,"save":13223,"reg":true,"sName":"天音科技成都有限公司"},
+        {"sId":"S0002","zan":13322,"save":13223,"reg":false,"sName":"天音科技成都有限公司"},
+        {"sId":"S0003","zan":13212,"save":1323,"reg":true,"sName":"商户02"},
+        {"sId":"S0004","zan":13212,"save":13223,"reg":false,"sName":"商户03"},
+        {"sId":"S0005","zan":13312,"save":13223,"reg":true,"sName":"商户04"}
+    ]
+}

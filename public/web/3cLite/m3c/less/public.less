@@ -1,0 +1,49 @@
+//公用变量
+@mBlue:#00BCF9;     //#00BCF9
+@mRed:#E62129;      //#E62129
+@mOrange:#F08519;   //#F08519
+@mGray10:#EEEFEF;   //#EEEFEF
+@mGray20:#C9C9CA;   //#C9C9CA
+@mGray50:#898989;   //#898989
+@mWhite:#FFF;       //#FFF
+@mBlack:#000;       //#000
+@mFont:#333;        //#333
+
+//标准文字
+.nFn(m,@size:1rem){
+  font-size: @size;
+}
+.nFn(s,@size:0.8rem){
+  font-size: @size;
+}
+.nFn(b,@size: 1.2rem){
+  font-size: @size;
+}
+
+//标准居中背景
+.nBg(@url,@pos:center,@repeat:no-repeat){
+  background: url(@url) @repeat @pos;
+}
+
+//css3
+.radius(@num){
+  border-radius: @num;
+  -webkit-border-radius: @num;
+}
+
+.scale(@size){
+  transform-origin:0 0;
+  -webkit-transform-origin:0 0;
+  transform:scale(@size);
+  -webkit-transform:scale(@size);
+}
+
+.trans3d(@x,@y,@z){
+  transform:translate3d(@x,@y,@z);
+  -webkit-transform:translate3d(@x,@y,@z);
+}
+
+.transition(@time,@ease:ease-out){
+  transition: @time @ease;
+  -webkit-transform: @time @ease;
+}

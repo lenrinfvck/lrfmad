@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {% parent %}
+    <title>{{msg}}</title>
+    <link rel="stylesheet" href="css/user.css">
+{% endblock %}
+
+{% block content %}
+    {% parent %}
+
+    <h2>{{ status }}</h2>
+    
+{% endblock %}

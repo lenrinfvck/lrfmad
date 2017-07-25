@@ -1,0 +1,44 @@
+<div class="placehold"></div>
+<header>
+    <h3>我</h3>
+</header>
+<a href="#!/userInfo" >
+    <div class="iBox userBox">
+        <img src="images/logo.png" alt=""/>
+        <h3>{{uModel.uName}}</h3>
+        <div>
+            <b>完善个人资料</b>
+        </div>
+    </div>
+</a>
+<!--<a class="bBnt" href="#!/iphSet">-->
+<!--<div class="iBox sApp ico_right">-->
+<!--iPhone/iPad激活查询-->
+<!--</div>-->
+<!--</a>-->
+<a href="#!/user/proBind">
+    <div class="iBox myPro" ms-class-1="ico_right:uModel.pInfo.length>0">
+        <h3>产品信息</h3>
+        <dl ms-class="show:uModel.pInfo.length>0">
+            <dt>产品品牌</dt><dd>{{uModel.pInfo[0].brand}}</dd>
+            <dt>产品型号</dt><dd>{{uModel.pInfo[0].pId}}</dd>
+            <dt>激活时间</dt><dd>{{uModel.pInfo[0].active}}</dd>
+        </dl>
+        <h3 ms-visible="uModel.pInfo.length==0" style="color: #e0e1e1;float: right;">绑定您的相关产品</h3>
+    </div>
+</a>
+<!--<a class="bBnt" href="#!/appList">-->
+<!--<div class="iBox sApp ico_right">-->
+<!--我的预约-->
+<!--</div>-->
+<!--</a>-->
+<a class="bBnt" href="#!/user/proSave">
+    <div class="iBox sPro ico_right">
+        我关注的产品
+    </div>
+</a>
+<a class="bBnt" href="#!/user/shopSave">
+    <div class="iBox sShop ico_right">
+        我关注的店
+    </div>
+</a>

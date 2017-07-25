@@ -1,0 +1,52 @@
+<div ms-controller="c_user">
+<div class="placehold"></div>
+<header>
+    <h3>我</h3>
+</header>
+<a href="#!/userInfo" >
+    <div class="iBox userBox">
+        <img src="images/logo.png" alt=""/>
+        <h3>{{uModel.uName}}</h3>
+        <div>
+            <b>完善个人资料</b>
+        </div>
+    </div>
+</a>
+<!--<a class="bBnt" href="#!/iphSet">-->
+    <!--<div class="iBox sApp ico_right">-->
+        <!--iPhone/iPad激活查询-->
+    <!--</div>-->
+<!--</a>-->
+<a href="#!/proBind">
+    <div class="iBox myPro ico_right">
+        <h3>产品信息</h3>
+        <dl>
+            <dt>产品品牌</dt><dd>{{uModel.pInfo[0].brand}}</dd>
+            <dt>产品型号</dt><dd>{{uModel.pInfo[0].pId}}</dd>
+            <dt>激活时间</dt><dd>{{uModel.pInfo[0].active}}</dd>
+        </dl>
+    </div>
+</a>
+<!--<a class="bBnt" href="#!/appList">-->
+    <!--<div class="iBox sApp ico_right">-->
+        <!--我的预约-->
+    <!--</div>-->
+<!--</a>-->
+<a class="bBnt" href="#!/proList">
+    <div class="iBox sPro ico_right">
+        我关注的产品
+    </div>
+</a>
+<a class="bBnt" href="#!/res">
+    <div class="iBox sShop ico_right">
+        我关注的店
+    </div>
+</a>
+
+<div class="placeholdFooter"></div>
+<footer>
+    <a href="#!/">首页</a>
+    <a href="#!/ad">热门</a>
+    <a href="#!/ad">分类</a>
+</footer>
+</div>

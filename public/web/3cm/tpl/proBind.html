@@ -1,0 +1,50 @@
+<div ms-controller="c_proBind">
+<div class="addBox ico_add" ms-click="fnAddBox">
+    <div class="addText">点击添加我的产品 查看服务一键搞定</div>
+</div>
+<div class="othPage" ms-include-src="'tpl/addPro.html'" ms-if="flexModel">
+</div>
+<div class="iBoxForm">
+    <dl>
+        <dt>产品品牌</dt>
+        <dd>苹果(APPLE)</dd>
+        <dt>产品型号</dt>
+        <dd>iPhone 6 Plus</dd>
+        <dt>保修截止</dt>
+        <dd>2015-10-25</dd>
+        <dt>售卖商家</dt>
+        <dd><a href="#!/shop/">天音科技成都有限公司</a></dd>
+    </dl>
+    <div ms-include-src="'tpl/addAppoint.html'" ms-visible="addApp===0"></div>
+    <div ms-visible="addApp!==0">
+        <a class="bntCir left" href="#!/proInfo?tab=p1" style="background-image: url(./images/more.png)"><span>本地相关</span></a>
+        <a class="bntCir"  style="background-image: url(./images/sw03.png)"><span>咨询卖家</span></a>
+        <a class="bntCir right" ms-click="fnEditBox" style="background-image: url(./images/edit.png)"><span>修改资料</span></a>
+    </div>
+</div>
+<div class="iBoxForm">
+    <dl>
+        <dt>产品品牌</dt>
+        <dd>苹果(APPLE)</dd>
+        <dt>产品型号</dt>
+        <dd>iPhone 6 Plus</dd>
+        <dt>保修截止</dt>
+        <dd>2015-10-25</dd>
+        <dt>售卖商家</dt>
+        <dd><a href="#!/shop/">天音科技成都有限公司</a></dd>
+    </dl>
+    <div ms-include-src="'tpl/addAppoint.html'" ms-visible="addApp===0"></div>
+    <div ms-visible="addApp!==0">
+        <a class="bntCir left" href="#!/proInfo?tab=p1"><span>本地相关</span></a>
+        <a class="bntCir"  style="background-image: url(./images/sw03.png)"><span>咨询卖家</span></a>
+        <a class="bntCir right" ms-click="fnEditBox"><span>修改资料</span></a>
+    </div>
+</div>
+
+<div class="placeholdFooter"></div>
+<footer>
+    <a href="#!/">首页</a>
+    <a href="#!/ad">热门</a>
+    <a href="#!/ad">分类</a>
+</footer>
+</div>

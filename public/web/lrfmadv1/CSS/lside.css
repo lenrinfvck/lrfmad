@@ -1,0 +1,29 @@
+html{ height:100%; }
+p{ padding:10px 0; }
+body{ min-height:100%; font-family:arial; position:relative; }
+body.sideMenu{ margin:0; -webkit-transform:none; transform:none; }
+#sideToggle{ display:none; }
+#sideToggle:checked + aside{ left:0; }
+#sideToggle:checked ~ #wrap{ margin-left:220px;}
+#sideToggle:checked ~ #wrap > label{ background:url(../images/%E4%BE%A7%E8%BE%B9_button.png) no-repeat; background-position:-60px 0px}
+body > aside{ position:fixed; top:0; bottom:0; left:-230px;width:260px; background-image:url(../images/%E4%BE%A7%E8%BE%B9_l.png); background-repeat:repeat-y;transition:0.2s ease-out; -webkit-transition:0.2s ease-out; z-index:99;text-shadow: 0 1px;}
+body > aside > h2{ color:#FFF; font-size:1.4em; text-align:left; font-weight:normal; padding:10px; margin-left:-8px}
+aside p{ text-align:left; margin-left:-50px;}
+aside ul{margin:0px 0px 0px -110px;}
+aside ul > li:hover{margin-left:50px; transition:linear .2s; -webkit-transition:linear .2s; }
+#wrap{ position:relative;margin-left:-25px; padding:0px; transition:0.22s ease-out; -webkit-transition:0.22s ease-out; z-index:9999;}
+  #wrap > label{ display:inline-block; }
+    #wrap > label{ position:fixed;
+	  margin-left:0px;
+	  background:url(../images/侧边_button.png) no-repeat;
+      cursor: pointer;
+      display: block;
+      font-family: Courier New;
+      font-size: 25px;
+      font-weight: bold;
+	  width:60px;
+	  height:110px;
+    }
+    #wrap > label:hover{ background-position:0px -110px;}
+	#sideToggle:checked ~ #wrap > label:hover{ background-position:-60px -110px;}
+#side{ position:fixed; }

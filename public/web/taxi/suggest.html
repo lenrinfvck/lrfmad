@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <title></title>
+    <style>
+        .sug form{width: 90%;margin: 0 auto;max-width: 600px;text-align: center;}
+        .submit,.regist{margin-top:15px;width: 30%;height: 35px;border-radius: 5px;display: inline-block;line-height: 35px;color: #fff;cursor: pointer;}
+        .submit{background: #2dc03e;}
+        textarea{width: 80%;max-width: 500px;height: 150px;}
+        .sug input{width: 56%;}
+        .sug li{text-align: left;margin: 10px 0}
+        .sugTh{position: relative;top: -135px;}
+        .sug .center{text-align: center;}
+        .tGray{font-size: 12px;}
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="nav">
+        <ul>
+            <li style="background: url(images/userico.png) left no-repeat;"><a href="">用户中心</a></li>
+            <li style="background: url(images/setico.png) left no-repeat;"><a href="">发布线路</a></li>
+        </ul>
+        <div class="logo"><img src="images/5178logo.jpg" height="100%" alt=""/></div>
+    </div>
+    <div class="addr"><a href="index.html">首页</a>&gt;&gt;<a href="user.html">会员中心</a>&gt;&gt;<a href="suggest.html">我的建议</a></div>
+    <div class="box sug tx3">
+        <h4>我的建议</h4>
+        <form action="index.html" method="post" class="regBox">
+            <ul>
+                <li><label class="sugTh">建议: </label><textarea name="sugText"></textarea></li>
+                <li class="sugTel"><label>联系方式(选填): </label><input name="tel" type="text"/></li>
+                <li class="center">
+                    <div class="submit">提交</div>
+                    <div class="tGray">感谢您对我们提出宝贵的建议</div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="box padding"></div>
+    <div class="box bkBlue">
+    </div>
+</div>
+</body>
+</html>

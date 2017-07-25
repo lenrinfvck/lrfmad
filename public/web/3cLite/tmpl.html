@@ -1,0 +1,38 @@
+{{each data}}
+    <div class="setBox slide">
+        <span class="eq"></span>
+        <h2>${lTitle}</h2>
+        <div class="formBnt lite setRemove red">删除</div>
+        <div class="formBnt lite setView diaBnt" data-dialog="view">预览</div>
+        <div class="formBnt lite setEdit">编辑</div>
+        <div class="formBnt lite setTop">置顶</div>
+        <table class="inBorder" cellspacing="0" cellpadding="0">
+            <tr class="first ti"><th colspan="4">热门列表</th></tr>
+            <tr><th>名称</th>
+                <td>
+                    <input type="text" value="${lLitle}" />
+                </td>
+            </tr>
+            {{each(i,v) lList}}
+                <tr><th>产品型号0${i}</th>
+                    <td>
+                        <input type="text" value="" />
+                    </td>
+                </tr>
+            {{/each}}
+
+            <tr class="first ti"><th colspan="4">首页推荐</th></tr>
+            {{each(i,v) rList}}
+                <tr><th>商户编号0${i}</th>
+                    <td>
+                        <input type="text" value="" />
+                    </td>
+                    <th>banner</th>
+                    <td>
+                        <input type="file" value="" />
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+</div>
+{{/each}}

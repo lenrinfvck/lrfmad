@@ -1,0 +1,35 @@
+﻿body{
+	background:#08A7CF;font-family:微软雅黑, "Microsoft YaHei",黑体;
+}
+
+
+#center{ clear:right; position:absolute; width:222px;top:27%; left:50%; margin-left:-111px; text-align:center;}
+#image img{
+	width:120px; height:120px;
+}
+ul{ 
+	list-style:none; width:222px; margin:20px 0px; padding:0px;
+}
+
+input{
+	border:none; width:200px; height:22px; margin:13px 0px; padding:0px;display:inline;float:left;
+}
+#Logging{ float:none; width:50px; height:25px; background-color:#333; color:#FFF; margin:10px auto; cursor:pointer;display:inline-block;
+}
+#Logging:hover{ background:#FFF; color:#000;}
+/*li img{ margin:0px; padding:0px; width:22px; height:22px;}*/
+#listusername,#listpassword{display:inline-block; float:left;width:22px; height:22px; padding:0px;margin:13px 0px;}
+#listusername{ background:#FFF url(image/user.png) center no-repeat;}
+#listpassword{ background:#FFF url(image/ps.png) center no-repeat;}
+
+#color{ position:absolute; top:1%; left:82%;}
+#c1,#c2,#c3,#c4{float:left;width:20px;height:20px; display:inline-block; margin-left:10px;}
+#c1{ background:#08A7CF}
+#c2{ background:#FCC}
+#c3{ background:#000}
+#c4{ background:#123}
+#foot{width:100%; height:65px; position:fixed;top:100%; margin-top:-65px; margin-left:-8px; background:#333; display:inline-block; color:#FFF; padding-top:20px}
+#foot p{ position:fixed; left:50%; margin-left:-60px; margin-top:0px;}
+
+
+

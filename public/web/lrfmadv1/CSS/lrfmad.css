@@ -1,0 +1,36 @@
+*{margin:0; padding:0; outline-style:none; }
+html{ height:100%; }
+body{font-family:微软雅黑, "Microsoft YaHei",黑体; background-image:url(../images/tile.jpg); margin:0px ;height:100%; 
+text-align:center; }	
+#container{text-align:left; width:960px; height:100%; } 
+input{border:none;}
+#frame{position:absolute; top:50%; left:50%; margin:-290px 0 0 -386px; width:772px; height:550px;background-image:url(../images/BG.png);background-repeat:no-repeat;}
+#logo{ position:absolute; margin-top:40px ; margin-left:570px;}
+#rbutton{margin:350px 0px 20px 525px;float:right; }
+#time{ position:absolute; margin-top:265px;margin-left:578px;}
+#lblank{position:absolute;margin:412px 195px 0px 20px;width:470px;}
+#lblank p{ font-size:13px; font-weight:bold;}
+#lblank h3{ font-size:1.4em; font-weight:bold; margin:0;}
+#lblank h4{ font-size:1.2em; font-weight:bold; margin:0;}
+#lblank h5{ font-size:0.8em; text-align:right;font-weight:normal;margin:0px; cursor:pointer;}
+#bottom{clear:both; text-align:center;}
+ul{list-style:none;}
+#ad{position:fixed;left:85%;bottom:-170px;text-align:center; text-shadow:0 1px #FFFFFF; font-weight:normal;transition:bottom 1s ease; -webkit-transition:bottom 1s ease;}
+
+#ad:hover{bottom:0px; transition:bottom 1s ease; -webkit-transition:bottom 1s ease;}
+#login{ position:absolute; top:50%; margin-top:150px; right:0px; left:auto; background-color:#3e3e3e; height:95px; width:190px; border-radius:10px; border:solid #FFF 2px; box-shadow: 3px 3px 3px #888888; opacity:0.8;}
+#login table{ margin:3px; color:#CCC;}
+#loginbnt{ margin-top:5px;background:url(../images/%E7%99%BB%E5%BD%95.png) no-repeat; width:75px; height:34px;}
+#loginbnt:hover{ background-position:bottom;}
+
+.bigbnt{ width:206px; height:58px;background:url(../images/mainmenu.png) no-repeat 0px 0px; overflow:hidden;}
+#mainbnt_01{background-position:0px 0px;}
+#mainbnt_01:hover{ background-position:0px -58px;}
+#mainbnt_01:active{ background-position:0px -116px;}
+#mainbnt_02{background-position:-206px 0px;}
+#mainbnt_02:hover{ background-position:-206px -58px;}
+#mainbnt_02:active{ background-position:-206px -116px;}
+#mainbnt_03{background-position:-412px 0px;}
+#mainbnt_03:hover{ background-position:-412px -58px;}
+#mainbnt_03:active{ background-position:-412px -116px;}
+

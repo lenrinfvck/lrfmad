@@ -1,0 +1,162 @@
+/*
+*Title: lrfmad common.less
+*By: lenrinfvck
+*Create: 2015-12-22
+*Update: -
+*/
+
+.font() {
+    font-family: Arial, Helvetica, 'Microsoft Yahei';
+}
+
+//透明
+.opacity(@val) {
+    @ieval: @val*100;
+    opacity: @val;
+    filter: alpha(opacity=@ieval);
+}
+
+//背景rgba
+.bg-opacity(@r, @g, @b, @a) {
+    @bg: rgba(@r, @g, @b, @a);
+    // IE6-IE8下滤镜模拟透明背景
+    filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d')", argb(@bg), argb(@bg)));
+    // url(about:blank)是为了防止IE下鼠标点穿半透明遮罩，无此需求时不写此行
+    background: url(about:blank);
+    // IE9+ Firefox Chrome Safari Opera
+    background: @bg;
+
+    :root & {
+        // IE9需要关闭滤镜，否则会同时显示半透明背景和半透明滤镜
+        filter: none;
+    }
+}
+
+//缩放
+.scale(@s) {
+    transform: scale(@s);
+    zoom: @s~"\9\0";
+}
+
+//超出省略
+.ellipsis() {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+//clearfix
+.clearfix() {
+    &:after {
+        content: '';
+        clear: both;
+        visibility: hidden;
+        display: block;
+    }
+}
+
+/* img居中剪裁
+    <div style="overflow: hidden">
+        <div class="img-warp">
+            <img />
+        </div>
+    </div>
+*/
+.img-warp {
+    position: relative;
+    text-align: center;
+    margin: 0 -9999px;
+}
+
+//多列布局
+.prolist-con(@col:3, @mar:10px, @pad:0px) {
+    .prolist-warp {
+        width: 1035-@pad*2+@mar;
+        margin-left: -@mar;
+    }
+
+    padding: 0 @pad;
+    margin: 0 auto;
+    .clearfix();
+
+    .procon {
+        margin-left: @mar;
+    }
+}
+
+.prolist-con-4 {
+    .prolist-con(4, 10px, 10px);
+}
+
+//color
+@blue: rgb(37, 178, 213);
+
+
+@keyframes up-fadein {
+    0% {
+        display: block;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes shake-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(25deg);
+    }
+
+    50% {
+        transform: rotate(-20deg);
+    }
+
+    70% {
+        transform: rotate(10deg);
+    }
+
+    90% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(20px);
+    }
+
+}
+
+@keyframes updown-lite {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+
+}
+
+
+
+
+
+

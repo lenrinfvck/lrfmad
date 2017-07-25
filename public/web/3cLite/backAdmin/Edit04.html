@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/back.css"/>
+    <link rel="stylesheet" href="../plugin/upload/control/css/zyUpload.css"/>
+    <link rel="stylesheet" href="../css/dialog.css"/>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/mytab.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../plugin/upload/core/zyFile.js"></script>
+    <script src="../plugin/upload/control/js/zyUpload.js"></script>
+    <script src="../js/back.js"></script>
+    <style>
+        .upload_box{margin: 0 auto;}
+        .add_upload{display: none;}
+        .upload_append_list{margin: 0;}
+        .uploadImg,.uploadImg img{text-indent: 0;}
+        .imgUpBox{text-indent: 0;}
+        .editBnt{float: right;color: #00BCF9;margin-right:25px;text-indent: 0;}
+        .control{padding-left:0px;}
+        .control table td{text-align: center;}
+    </style>
+    <title></title>
+
+</head>
+<script>
+    $(document).ready(function() {
+        animeShowInit();
+        playInit(5,3000);
+        //navScroll();
+        aTabsInit();
+        $('.upBnt').imgUp($('#img'),$('.imgUpBox > div'));
+        $('.submit').testOpen('creat02.html','_self');
+        $('.login').testOpen('../index.html','_self');
+        $.getJSON('../files/cityList.json',function(data){
+            data=data.data;
+            posa=[];
+            posb=data[0].cities;
+            for(var pro in data){
+                posa.push(data[pro].name);
+            }
+            $('.posA').mySelect(posa);
+            $('.posB').mySelect(posb).mySelectLink($('.posA input'),data);
+        });
+
+    })
+
+</script>
+<body class="index back">
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="../images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="../index.html">返回首页</a></div>
+            <div class="login out">退出</div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="banner">
+
+</div>
+<div class="content formCon">
+    <!--<div class="userImg">-->
+    <!--<ul class="topTap">-->
+    <!--<li class="">基本资料</li>-->
+    <!--<li class="">我的积分</li>-->
+    <!--<li class="">我关注的</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <ul class="topTap">
+        <li class=""><a href="creat.html">创建账号</a></li>
+        <li class=""><a href="creChannel.html">首页编辑</a></li>
+        <li class=""><a href="Edit02.html">banner图</a></li>
+        <li class=""><a href="Edit03.html">密码修改</a></li>
+        <li class="active"><a href="Edit04.html">商户审批</a></li>
+    </ul>
+    <div class="control">
+        <form class="active" action="" method="post" data-tabcon="allInfo">
+            <table class="listTable" cellspacing="0" cellpadding="0">
+                <tr class="first"><th class="t100">序号</th><th class="t100">商户ID</th><th class="t300">商户名称</th><th class="t100">审批类型</th><th class="t200">时间</th><th class="t200">相关操作</th></tr>
+                <tr class="con"><td>1</td><td>S002810008</td><td>成都美择科技有限公司</td></td><td><span>资料修改</span></td><td>2014-09-28 17:20</td><td>
+                    <a href="Edit04in.html">审核</a><a class="tRed" href="">打回</a></td></tr>
+                <tr class="con"><td>2</td><td>S002810008</td><td>成都美择科技有限公司</td></td><td><span>资料修改</span></td><td>2014-09-28 17:20</td><td>
+                    <a href="Edit04in.html">审核</a><a class="tRed"  href="">打回</a></td></tr>
+                <tr class="con"><td>3</td><td>S002810008</td><td>成都美择科技有限公司</td></td><td><span>资料修改</span></td><td>2014-11-25 17:20</td><td>
+                    <a href="Edit04in.html">审核</a><a class="tRed"  href="">打回</a></td></tr>
+                <tr class="con"><td>4</td><td>S002810008</td><td>成都美择科技有限公司</td></td><td><span>资料修改</span></td><td>2014-11-25 17:20</td><td>
+                    <a href="Edit04in.html">审核</a><a class="tRed"  href="">打回</a></td></tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="css/siteForm.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/user.css"/>
+    <link rel="stylesheet" href="css/map.css"/>
+    <link rel="stylesheet" href="css/mobiscroll.custom-2.5.0.min.css"/>
+    <title>3C帮</title>
+    <script src="js/avalon.min.js"></script>
+
+    <script>
+        avalon.config({debug: true});
+        require.config({
+           paths:{
+               databus: "./module/databus",
+               mobiscroll: "./module/mobiscroll.custom-2.5.0.min",
+               zepto: "../zepto.min"
+           }
+        });
+        require(["databus","./zepto.min","ready!","mmState","mmAnimate"], function(dbus,zepto) {
+
+            //一个顶层VM
+            avalon.define({
+                $id: "test"
+            });
+            /*1*home**/
+            avalon.state("home", {
+                controller: "test",
+                url: "/index",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/index.html'
+                    }
+                },
+                onChange: function(){
+                    if (!avalon.vmodels.c_index){
+                        var vmodel = avalon.define({
+                            $id: "c_index",
+                            searchVal: "",
+                            uImg: "images/logo.png",
+                            hotLink: [],
+                            hotLinkShow:[],
+                            inputList:[],
+                            isInput: false,
+                            onSlide:true,
+                            fnSubmit:function(arg){
+                                if(arg.str){
+                                    window.open('#!/res?str='+arg.str+'&type=0','_self');
+                                    vmodel.inputList = [];
+                                    vmodel.isInput = false;
+                                }
+                                else if(vmodel.searchVal) {
+                                    window.open('#!/res?str=' + vmodel.searchVal + '&type=0', '_self');
+                                    vmodel.inputList = [];
+                                    vmodel.isInput = false;
+                                }
+                                else {
+                                    alert("请输入搜索内容");
+                                }
+                            },
+                            fnEnter:function(e){
+                                if(e.keyCode == 13)
+                                    vmodel.fnSubmit(false);
+                            },
+                            fnChangehot:function(){
+                                var len = vmodel.hotLink.length;
+                                if(vmodel.hotLinkShow[7] == vmodel.hotLink[7])
+                                    vmodel.hotLinkShow = vmodel.hotLink.slice(len-9,-1);
+                                else
+                                    vmodel.hotLinkShow = vmodel.hotLink.slice(0,8);
+                            },
+                            go: function(search){
+                                console.log(search);
+                                switch (search.linkType){
+                                    case 'shop':dbus.open('#!/shop?sId='+search.value);break;
+                                    case 'pro':dbus.open('#!/proInfo?pId='+search.value);break;
+                                    case 'search':dbus.open('#!/res?str='+search.value);break;
+                                    case 'brand':dbus.open('#!/brand?bId='+search.value);break;
+                                }
+                            },
+                            scro_focus: function(){
+                                vmodel.isInput = true;
+                            },
+                            scro_blur: function(){
+                                vmodel.isInput = false;
+                                vmodel.inputList.removeAll();
+                                vmodel.searchVal='';
+                            },
+                            fnSlide: function(num){
+                                console.log(vmodel.onSlide);
+                                vmodel.onSlide= !vmodel.onSlide;
+                            },
+                            onload: function () {
+                                dbus.load_index(function(data){
+                                    vmodel.hotLink = data.aLink;
+                                    vmodel.hotLinkShow = vmodel.hotLink.slice(0,8);
+                                    uImg = data.uImg;
+
+                                });
+                            }
+                        });
+                        vmodel.$watch("searchVal",function(newValue){
+                            dbus.inputAjax(newValue,function(data){
+                                vmodel.inputList=data;
+                            })
+                        });
+                        vmodel.onload();
+                    }
+                }
+            });
+            /*2*user**/
+            avalon.state("user", {
+                controller: "test",
+                url: "/user",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/user.html'
+                    }
+                }
+            });
+            /*3*userInfo**/
+            avalon.state("userInfo", {
+                controller: "test",
+                url: "/userInfo",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/userInfo.html'
+                    }
+                },
+                onChange:function(){
+                    var query = this.query;
+                    function LocUser(){
+                        this.uId = '';
+                        this.uImg = '';
+                    }
+                    function urlFilter(arg){
+                        if(arg[0] === '\''){
+                            arg = arg.slice(1,-1);
+                        }
+                        return arg
+                    }
+                    var user = new LocUser;
+                    user.uId = urlFilter(query.id);
+                    user.uImg = urlFilter(query.img);
+                    sessionStorage.setItem("locUser",JSON.stringify(user));
+                    //console.log(JSON.parse(sessionStorage.getItem("locUser")));
+                    if (!avalon.vmodels.c_userInfo) {
+                        var vmodel = avalon.define({
+                            $id: "c_userInfo",
+                            $uImg: user.uImg,
+                            form: {
+                                id: '',
+                                wxid: user.uId,
+                                tName: '',
+                                sex: '0',
+                                birth: '',
+                                tel: '',
+                                email: '',
+                                check: false
+                            },
+                            checkForm: function () {
+                                var test = vmodel.form;
+                                var tel = /^\d+$/;
+                                var email = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+                                /*TODO: 验证生日*/
+                                if (!(test.tName)) {
+                                    alert('请确认必填部分');
+                                    return false
+                                }
+                                if (!(tel.test(test.tel) && (test.tel.length === 8 || test.tel.length === 11))) {
+                                    alert('请确认电话为8位或11位数字');
+                                    return false
+                                }
+                                if (!email.test(test.email)) {
+                                    alert('邮箱格式错误');
+                                    return false
+                                }
+                                return true
+                            },
+                            submit: function () {
+                                //var ok = true;
+                                if (!vmodel.checkForm()) {
+                                    return false
+                                }
+//                                alert(vmodel.$model.form.tName);
+//                                alert(vmodel.$model.form.birth);
+//                                alert(vmodel.$model.form.tel);
+//                                alert(vmodel.$model.form.email);
+                                dbus.send_userInfo(vmodel.$model.form, function(data){
+                                    if(data.success){
+                                        alert('操作成功');
+                                    }
+                                })
+                            },
+                            chCheck: function () {
+                                vmodel.form.check = !vmodel.form.check;
+                            },
+                            onload: function () {
+                                dbus.load_userInfo(vmodel.form.wxid, function (data) {
+                                    if (!data.success) {
+                                        return false
+                                    }
+                                    vmodel.form = data.data;
+                                })
+                            }
+                        });
+                    }
+                    vmodel.onload();
+                }
+            });
+            /*4*res**/
+            avalon.state("res", {
+                controller: "test",
+                url: "/res",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/res.html'
+                    }
+                },
+                onChange:function(){
+                    var query = this.query;
+                    //if (!avalon.vmodels.c_res){
+                        var vmodel = avalon.define({
+                            $id: "c_res",
+                            resList: [],
+                            title: query.str,
+                            searchVal: query.str,
+                            type: query.type,
+                            click_li: function(sId){
+                                window.open('#!/shop?sId='+sId,'_self');
+                            },
+                            mapModel: function(){
+                                window.open('#!/map?str='+vmodel.searchVal+'&type='+vmodel.type,'_self');
+                            },
+                            onload: function(){
+                                dbus.load_search(vmodel.searchVal,vmodel.type,function(data){
+                                    vmodel.resList = data;
+                                })
+                            }
+                        });
+                        vmodel.onload();
+//                    }else{
+//                        vmodel.title = query.str;
+//                        vmodel.searchVal = query.str;
+//                        vmodel.type = query.type;
+//                        vmodel.onload();
+//                    }
+                }
+            });
+            /*5*ad**/
+            avalon.state("ad", {
+                controller: "test",
+                url: "/ad",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/ad.html'
+                    }
+                }
+            });
+            /*6*shop**/
+            avalon.state("shop", {
+                controller: "test",
+                url: "/shop",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/shop.html'
+                    }
+                },
+                onChange: function(){
+                    var query = this.query;
+                    //if (!avalon.vmodels.c_proInfo){
+                        var vmodel = avalon.define({
+                            $id: "c_shop",
+                            moreInfo: false,
+                            pId: query.pId,
+                            fnMore:function(){
+                                vmodel.moreInfo = !vmodel.moreInfo;
+                            },
+                            onload: function(){
+                                switch (vmodel.tab){
+                                    case 'p1': vmodel.load_tab1();break;
+                                    case 'p2': vmodel.load_tab2();break;
+                                    case 'p3': vmodel.load_tab3();break;
+                                }
+                            }
+                        });
+                        vmodel.onload();
+                    }
+                //}
+            });
+            /*7*proInfo**/
+            avalon.state("proInfo", {
+                controller: "test",
+                url: "/proInfo",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/proInfo.html'
+                    }
+                },
+                onChange: function(){
+                    var query = this.query;
+
+                    var vmodel = avalon.define({
+                        $id: "c_proInfo",
+                        slide: false,
+                        tab: query.tab||'p3',
+                        pId: query.pId,
+                        tab2List:[],
+                        tab3List:[],
+                        fnSlide:function(){
+                            vmodel.slide = !vmodel.slide;
+                        },
+                        chTab: function(num){
+                            vmodel.tab = num;
+                            vmodel.onload();
+                        },
+                        load_tab1: function () {
+
+                        },
+                        load_tab2: function () {
+                            dbus.load_proTab2(vmodel.pId,function(data){
+                                vmodel.tab2List = data;
+                            })
+                        },
+                        load_tab3: function () {
+                            dbus.load_proTab3(vmodel.pId,function(data){
+                                vmodel.tab3List = data;
+                            })
+                        },
+                        onload: function(){
+                            switch (vmodel.tab){
+                                case 'p1': vmodel.load_tab1();break;
+                                case 'p2': vmodel.load_tab2();break;
+                                case 'p3': vmodel.load_tab3();break;
+                            }
+                        }
+                    });
+                    vmodel.onload();
+                }
+
+            });
+            /*8*resSelect**/
+            avalon.state("resSelect", {
+                controller: "test",
+                url: "/resSelect",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/resSelect.html'
+                    }
+                }
+            });
+            /*9*addApp**/
+            avalon.state("addApp", {
+                controller: "test",
+                url: "/addApp",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/addAppoint.html'
+                    }
+                }
+            });
+            /*10*proBind**/
+            avalon.state("proBind", {
+                controller: "test",
+                url: "/proBind",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/proBind.html'
+                    }
+                },
+                onChange: function(){
+                    //if (!avalon.vmodels.c_proBind){
+                        var vmodel = avalon.define({
+                            $id: "c_proBind",
+                            addModel: false,
+                            addApp:-1,
+
+                            //我要预约
+                            fnAddApp:function(n){
+                                vmodel.addApp = n;
+                            },
+                            fnBindBack:function(){
+                                vmodel.addApp = -1;
+                            },
+                            fnBindSub:function(){
+                                alert("提交成功");
+                                vmodel.addApp = -1;
+                            },
+                            //增加提交
+                            fnAddBox:function(){
+                                if(!vmodel.addModel) {
+                                    vmodel.addModel=true;
+                                    vmodel.fnSubmit=vmodel.fnAddSub;
+                                }
+                            },
+                            fnSubmit:function(){},
+                            fnAddSub:function(){
+                                alert("增加成功");
+                                vmodel.addModel = false;
+                            },
+                            fnAddBack:function(){
+                                vmodel.addModel = false;
+                            },
+                            //修改
+                            fnEditBox:function(){
+                                if(!vmodel.addModel) {
+                                    vmodel.addModel=true;
+                                    vmodel.fnSubmit=vmodel.fnEditSub;
+                                }
+                            },
+                            fnEditSub:function(){
+                                alert("修改成功");
+                                vmodel.addModel = false;
+                            },
+
+
+                            onload: function () {
+
+                            }
+                        });
+                        //vmodel.onload();
+                    }
+               // }
+            });
+            /*11*appList**/
+            avalon.state("appList", {
+                controller: "test",
+                url: "/appList",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/appointList.html'
+                    }
+                }
+            });
+            /*12*map**/
+            avalon.state("map", {
+                controller: "test",
+                url: "/map",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/map.html'
+                    }
+                }
+            });
+            /*13*map**/
+            avalon.state("addPro", {
+                controller: "test",
+                url: "/addPro",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/addPro.html'
+                    }
+                }
+            });
+            /*14*iphone*/
+            avalon.state("iphSet", {
+                controller: "test",
+                url: "/",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/iphoneSet.html'
+                    }
+                },
+                onChange: function(){
+                    var query = this.query;
+                    if(!avalon.modules.c_iphSet){
+                    var vmodel = avalon.define({
+                        $id: "c_iphSet",
+                        tab: query.tab||'pIndex',
+                        //inputPage: query.tab||'p3',
+                        uImg: "images/logo.png",
+                        iph: "",
+                        pTitle: "",
+                        isInput: false,
+                        onSelect: false,
+                        tab1List:[],
+                        p4res: {
+                            "iPhone":["iPhone 6 8G 黑色","iPhone 6 8G 白色","iPhone 6 8G 金色","iPhone 6 8G 白色","iPhone 6 8G 金色","iPhone 6 8G 白色","iPhone 6 8G 金色","iPhone 6 8G 白色","iPhone 6 8G 金色","iPhone 6 8G 金色","iPhone 6 8G 白色","iPhone 6 8G 金色","iPhone 6 8G 金色","iPhone 6 8G 白色","iPhone 6 8G 金色","iPhone 6 8G 金色","iPhone 6 8G 白色","iPhone 6 8G 金色"],
+                            "MacBook Air":["MacBook Air"],
+                            "iPad":["MacBook Air","MacBook Pro"],
+                            "MacBook Pro":["MacBook Pro"],
+                            "iMac":["iPhone 6 8G 黑色"],
+                            "Mac mini":["iPhone 6 8G 黑色"],
+                            "iPod touch":["iPhone 6 8G 黑色"],
+                            " ":[""]
+                        },
+                        p5resList:[
+                            ["MF265CH/A","A1431","中国","移动/联通","无","支持","通用"],
+                            ["MF265CH/A","A1431","中国","移动/联通","无","支持","转接头"],
+                            ["MF265CH/A","A1431","中国","移动/联通","无","不支持","通用"]
+                        ],
+                        p6List:[
+                            {title:"美版T-Mobile",list:[1,0,0,0,1,1]},
+                            {title:"美版Verizon",list:[1,1,0,0,1,1]},
+                            {title:"美版AT&T",list:[1,1,0,0,1,1]},
+                            {title:"美版Sprint",list:[1,1,1,1,1,1]},
+                            {title:"日版",list:[1,1,1,1,1,1]},
+                            {title:"港版",list:[1,0,1,1,1,1]},
+                            {title:"国行联通",list:[1,1,1,1,1,1]},
+                            {title:"国行电信",list:[1,1,1,1,1,1]},
+                            {title:"国行移动",list:[1,0,1,1,2,2]}
+                        ],
+                        p4Select_1:'',
+                        p4Select_2:'',
+                        p4Select_2List: [],
+                        chTab: function(num){
+                            if(num === 'p1'&& !vmodel.tab1List[0]){
+                                alert("请先输入序列号");
+                                vmodel.chPage('p3');
+                                //vmodel.tab = 'p3';
+                                //vmodel.inputPage = !vmodel.inputPage;
+                            }else {
+                                vmodel.chPage(num);
+                                //vmodel.tab = num;
+                            }
+                        },
+                        chPage: function(p){
+                            //vmodel.tab = p;
+                            window.open("#!/?tab="+p,'_self');
+                            vmodel.tab=p;
+                            vmodel.scro_blur();
+                            //vmodel.inputPage = !vmodel.inputPage ;
+                        },
+                        scro_focus: function(){
+                            vmodel.isInput = true;
+                        },
+                        scro_blur: function(){
+                            vmodel.isInput = false;
+                        },
+                        clearInput: function(){
+                            vmodel.scro_blur();
+                            vmodel.iph = '';
+                        },
+                        fnEnter: function(e){
+                            if(vmodel.tab==='pIndex'&&e.keyCode == 13)
+                                vmodel.load_tab1();
+                        },
+                        fnSelcetNext: function(){
+                            vmodel.onSelect = !vmodel.onSelect;
+                            //console.log(vmodel.onSelect);
+                        },
+                        fnSelcetPrev: function(){
+                            if(vmodel.onSelect){
+                                vmodel.onSelect = false;
+                                return false
+                            }
+                        },
+                        fnSelect_1: function(select){
+                            vmodel.p4Select_1 = select;
+                            vmodel.p4Select_2List = vmodel.p4res[select];
+                            if(vmodel.p4Select_2List.length===1){
+                                vmodel.fnSelect_2(vmodel.p4Select_2List[0]);
+                            }
+                            vmodel.fnSelcetNext();
+                        },
+                        fnSelect_2: function(select){
+                            vmodel.p4Select_2 = select;
+                            vmodel.fnSelcetNext();
+                            vmodel.chPage('pResSel');
+                        },
+                        fnAutoH: function(arg, num){
+                            return arg.length*num
+                        },
+                        load_tab1: function () {
+                            if(vmodel.iph){
+                                dbus.load_iphList(vmodel.iph,function(data){
+                                    vmodel.tab1List = data;
+                                    vmodel.chPage('pRes');
+                                });
+                                vmodel.scro_blur();
+                            }else{
+                                $('input').focus();
+                            }
+                        }
+                    });
+                    vmodel.$watch('iph',function(newValue){
+                        vmodel.iph = newValue.toUpperCase();
+                    });
+                    }
+                }
+            });
+            /*15*proList*/
+            avalon.state("proList", {
+                controller: "test",
+                url: "/proList",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/proList.html'
+                    }
+                }
+            });
+            /*16*brand*/
+            avalon.state("brand", {
+                controller: "test",
+                url: "/brand",
+                views: {
+                    "page@": {
+                        templateUrl: './tpl/brand.html'
+                    }
+                },
+                onChange: function(){
+                    var query = this.query;
+                    var vmodel = avalon.define({
+                        $id: "c_brand",
+                        slide: false,
+                        tab: query.tab||'p3',
+                        pId: query.pId,
+                        tab2List:[],
+                        tab3List:[],
+                        fnSlide:function(){
+                            vmodel.slide = !vmodel.slide;
+                        },
+                        chTab: function(num){
+                            vmodel.tab = num;
+                            vmodel.onload();
+                        },
+                        load_tab1: function () {
+
+                        },
+                        load_tab2: function () {
+                            dbus.load_proTab2(vmodel.pId,function(data){
+                                vmodel.tab2List = data;
+                            })
+                        },
+                        load_tab3: function () {
+                            dbus.load_proTab3(vmodel.pId,function(data){
+                                vmodel.tab3List = data;
+
+                            })
+                        },
+                        onload: function(){
+                            switch (vmodel.tab){
+                                case 'p1': vmodel.load_tab1();break;
+                                case 'p2': vmodel.load_tab2();break;
+                                case 'p3': vmodel.load_tab3();break;
+                            }
+                        }
+                    });
+                    vmodel.onload();
+                }
+            });
+            avalon.history.start({
+                basepath: "/mmRouter"
+            });
+            avalon.scan();
+        });
+    </script>
+</head>
+<body>
+<div ms-controller="test">
+    <div ms-view="page"></div>
+</div>
+
+</body>
+</html>

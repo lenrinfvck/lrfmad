@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+
+<script type="text/javascript" src="js/pdfobject_source.js"></script>
+<script type='text/javascript'>
+
+  function embedPDF(){
+
+    var myPDF = new PDFObject({ 
+
+      url: 'ypdf.pdf'
+
+    }).embed('pdf01'); 
+    // Be sure your document contains an element with the ID 'pdf01' 
+
+  }
+
+  window.onload = embedPDF; //Feel free to replace window.onload if needed.
+
+</script>
+</head>
+<body>
+    <p>It appears you don't have Adobe Reader or PDF support in this web
+    browser. <a href="ypdf.pdf">Click here to download the PDF</a></p>
+  </body>
+</body>
+</html>

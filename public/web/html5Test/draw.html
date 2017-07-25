@@ -1,0 +1,38 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>canvas</title>
+</head>
+<script>
+/*
+*	鼠标画线
+*/
+var oldX=0,oldY=0;
+function xy(event){
+	var x=event.clientX-8;
+	var y=event.clientY-8;
+	if(oldX!=0||oldY!=0)
+	{
+		var drawing = document.getElementById("test");	
+		var context = drawing.getContext("2d");
+		context.beginPath();
+		context.moveTo(oldX,oldY);
+		context.lineTo(x,y);
+		context.stroke();
+	}
+	oldX=x;
+	oldY=y;			
+}
+function movexy(event){
+	var x=event.clientX-8;
+	var y=event.clientY-8;
+	document.getElementById("xy").innerHTML=x+","+y;
+}
+</script>
+<body>
+	<canvas id="test" width="400px" height="400px" onClick="xy(event)" onMouseMove="movexy(event)" style="background:#CCC">
+    </canvas>
+    <p id="xy"></p>
+</body>
+</html>

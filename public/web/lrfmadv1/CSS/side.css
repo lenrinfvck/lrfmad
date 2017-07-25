@@ -1,0 +1,31 @@
+html{overflow-x:hidden;}
+body{min-height:100%; max-width:100%}
+body.sideMenu{margin:0; -webkit-transform:none; transform:none; }
+#sideToggle{display:none;}
+#sideToggle:checked + aside{right:0;}
+#sideToggle:checked ~ #wrap{padding-right:230px; background-image:url(../images/%E4%BE%A7%E8%BE%B9_button_R.png); background-repeat:no-repeat;}
+#sideToggle:checked ~ #wrap > label{background-image:url(../images/%E4%BE%A7%E8%BE%B9_button_R.png); background-repeat:no-repeat;}
+#sideToggle:checked ~ #wrap > label:hover{ background-image:url(../images/%E4%BE%A7%E8%BE%B9_button_R_1.png); background-repeat:no-repeat;}
+body > side > aside{ position:relative; top:0; bottom:0; width:200px; background:#f1103a; transition:0.2s ease-out; -webkit-transition:0.2s ease-out; }
+#wrap{margin-left:-12px; padding:0px; transition:0.25s ease-out; -webkit-transition:0.25s ease-out;}
+  #wrap > label{ display:inline-block; }
+    #wrap label{ background-image:url(../images/%E4%BE%A7%E8%BE%B9_button_L.png);
+	  margin-top:490px;
+	  cursor: pointer;
+      display: block;
+      width: 60px;
+      height: 110px;
+      text-align: center;
+      text-shadow: 0 -4px;
+	  z-index:99;
+	  clear:both;
+    }
+    #wrap > label:hover{ background-image:url(../images/%E4%BE%A7%E8%BE%B9_button_L_1.png) }
+.side{position:absolute; top:0; bottom:0 ;right:-25px;width:260;background-image:url(../images/%E4%BE%A7%E8%BE%B9.png); background-repeat:repeat-y; z-index:100;}
+.sidebutton{ position:absolute;padding-left:40px;list-style:none; margin:0px;}
+.sidebutton ul{ margin:0px}
+.sidebutton h3{ margin:10px 0px 10px 10px; font-size:1.1em;font-weight:normal; color:#fff;text-shadow: 0 1px #000;}
+#sidebottom{position:absolute;margin:-30px 0px 0px 140px; padding:0px;font-size:24px;}
+#login{ border-radius:20px; border-style:solid; border-width:1px; border-color:#000; height:80px; border-style:double}
+#login:hover{src:url(../images/%E7%99%BB%E5%BD%95_1.png)}
+#register:hover{src:url(../images/%E6%B3%A8%E5%86%8C_1.png)}

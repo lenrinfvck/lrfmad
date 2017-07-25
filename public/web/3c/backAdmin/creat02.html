@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/back.css"/>
+    <link rel="stylesheet" href="../plugin/upload/control/css/zyUpload.css"/>
+    <link rel="stylesheet" href="../css/dialog.css"/>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/mytab.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../plugin/upload/core/zyFile.js"></script>
+    <script src="../plugin/upload/control/js/zyUpload.js"></script>
+    <script src="../js/back.js"></script>
+    <style>
+        .upload_box{margin: 0 auto;}
+        .add_upload{display: none;}
+        .upload_append_list{margin: 0;}
+        .uploadImg,.uploadImg img{text-indent: 0;}
+        .imgUpBox{text-indent: 0;}
+        .editBnt{float: right;color: #00BCF9;margin-right:25px;text-indent: 0;}
+        .control{padding-left:80px;}
+    </style>
+    <title></title>
+</head>
+<script>
+    $(document).ready(function() {
+        var posa,posb;
+        $('.submit').testOpen('creat03.html','_self');
+        $.getJSON('../files/cityList.json',function(data){
+            data=data.data;
+            console.log(data);
+            posa=[];
+            posb=data[22].cities;
+            for(var pro in data){
+                posa.push(data[pro].name);
+            }
+            $('.posA').mySelect(posa);
+            $('.posB').mySelect(posb).mySelectLink($('.posA input'),data);
+        });
+        $('.typeA').mySelect(['请选择','苹果','三星']);
+        $('.typeB').mySelect(['销售','维修','销售/维修']);
+        $('.typeC').mySelect(['范围','平板','手机','笔记本','台式']);
+    })
+</script>
+<body class="index back">
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="../images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="../index.html">无价之宝</a><a href="../index_brand.html">品牌体验店</a><a href="../index_shop.html">优选商户</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="banner">
+</div>
+<div class="content formCon">
+    <!--<div class="userImg">-->
+    <!--<ul class="topTap">-->
+    <!--<li class="">基本资料</li>-->
+    <!--<li class="">我的积分</li>-->
+    <!--<li class="">我关注的</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <ul class="topTap">
+        <li class="active"><a href="creat.html">创建账号</a></li>
+        <li class=""><a href="Edit03.html">密码修改</a></li>
+    </ul>
+    <div class="control">
+        <form class="active" action="" method="post" data-tabcon="allInfo">
+            <table class="inBorder" cellspacing="0" cellpadding="0">
+                <tr><th>所属区域</th>
+                    <td>
+                        <!--<select name="" id="">-->
+                        <!--<option value="">普通</option>-->
+                        <!--<option value="">白金</option>-->
+                        <!--<option value="">钻石</option>-->
+                        <!--</select>-->
+                        <div class="mySelect posA"><span>四川</span>
+                            <input type="text" class="selectInput" value="四川"/>
+                        </div>
+                        <span class="tBlue">省</span>
+                        <!--<select name="" id="">-->
+                        <!--<option value="">普通</option>-->
+                        <!--<option value="">白金</option>-->
+                        <!--<option value="">钻石</option>-->
+                        <!--</select>-->
+                        <div class="mySelect posB"><span>成都</span>
+                            <input type="text" class="selectInput" value="成都"/>
+                        </div>
+                        <span class="tBlue" >市</span>
+                    </td>
+                </tr>
+                <tr><th>商户编码</th><td><input class="able" type="text" value="S1231531" readonly="readonly"/></td></tr>
+                <tr><th>商户商号</th><td><input class="able" type="text" placeholder="请输入商号"/><span class="tRed">*</span></td></tr>
+                <tr><th>店铺地址</th><td><input class="able" type="text" value="" placeholder="请输入详细地址"/><span class="tRed">*</span></td></tr>
+                <tr><th>联系电话</th><td><input class="able" type="text" value="" placeholder="请输入电话号码(如028-88888888)"/><span class="tRed">*</span></td></tr>
+                <tr><th>主要经营</th>
+                    <td>
+                        <div class="mySelect typeA"><span>请选择</span>
+                            <input type="text" class="selectInput" value="请选择"/>
+                        </div>
+                        <div class="mySelect typeB"><span>销售</span>
+                            <input type="text" class="selectInput" value="销售"/>
+                        </div>
+                        <div class="mySelect typeC"><span>范围</span>
+                            <input type="text" class="selectInput" value="范围"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td colspan="2" class="submit"><div>确认注册</div></td></tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

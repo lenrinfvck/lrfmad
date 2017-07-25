@@ -1,0 +1,55 @@
+/*lenrinfvck HomePage 2014v2 */
+html{font-family:'微软雅黑','Hiragino Sans GB';}
+*{ margin: 0; padding: 0; list-style: none; border: 0;}
+a{text-decoration: none; color: inherit;}
+body{background: #F2F2F2}
+.topBar{background: #000;height: 30px;width: 100%;}
+.nav{width: 40%;height: 30px; background: #000;margin: 0 auto;position: relative;min-width: 256px;}
+	.nav li{display: inline-block; width: 25%;height: 30px; text-align: center;color: #D8D8D8;line-height: 30px;cursor: default; z-index: 2;float: left;}
+	.nav li:hover{color: #fff;text-shadow: 0 0 6px #fff}
+	.nav li a{background: #000;display: inline-block;width: 100%;height: 100%; position: relative;z-index: 100}
+	.tagBox{display: inline-block; width: 100%;height: 80px;z-index: 99;position: relative;top: -72px;}
+	.actived{text-shadow: 0 0 6px #fff}
+	.actived a{color: #fff}
+.topBnt{width: 50px;height: 50px;background: #333;position: fixed;bottom: 10%;right: 10%;z-index: 99;opacity: 0.6; text-align: center;line-height: 50px;cursor: default;color: #fff;display: none;}
+.topBnt:hover{width: 50px;height: 50px;background: #EEE;color: #000}
+.content{position: relative;z-index: 1;}
+a[href^="http://tongji"]{display: none;}
+
+/*IndexPlayCss v0.8 */
+.play{width: 100%;height: 600px; overflow: hidden; position: relative;box-shadow: 0px 1px 3px 0.2px #000;}
+	.playCenter{position:relative;left: 50%;width: 1920px;height: 100%;}
+	.playThing{width: 1920px;height: 100%;background: #F2F2F2;position: absolute; z-index: 1;left: -50%;}
+	.bk{width: 100%;height: 600px;}
+	.playThing .bk img{position: relative;text-align: center;left: 50%;margin-left: -960px;}
+	.anime img{position: absolute;z-index: 4;}
+	.playing{display: block;z-index: 2}
+	.playBnt{position:absolute;top: 100%;left: -50%; margin:-20px auto 0 auto;width: 1920px;text-align: center;z-index: 7}
+	.playBnt li{background: #333;width: 30px;position: relative; height: 40px;display: inline-block;margin: 0 2px;}
+	.playBnt li:hover{background: #25B2D5}
+@media screen and (max-width:600px){
+	.play{zoom:0.5\9; transform: scale(0.5);-webkit-transform: scale(0.5);-moz-transform: scale(0.5);
+		transform-origin:0% 0%;-webkit-transform-origin:0% 0%;-o-transform-origin:0% 0%;-moz-transform-origin:0% 0%; 
+	}
+	.play{width: 200%;position: absolute;}
+	.playBnt li{margin: 0 10px;width: 80px;}
+	.pageB{padding-top: 320px;}
+}
+.contentPlay{width:auto;height:90%;margin: 0 auto; position: relative;top:5%; text-align: center;min-width: 320px;}
+
+/*index.html*/
+.pageB{width: 100%;height: 600px;background: #F2F2F2;}
+	.aLogo{padding-bottom: 30px;}	
+	.lan{width: auto;height: auto;margin-top: 30px; display: inline-block;background: url(../../../images/logoW.jpg) center no-repeat;}
+	.lan img{box-shadow: 0px 1px 3px 0.2px #000;}
+	.madLan,.webLan{display: inline-block;margin: 0px 20px;background: #FFF}
+	.pageB	h2{font-size: 1.5rem;margin: 10px auto 5px auto}
+	.pageB	h3{font-size: 0.9rem;margin: 1px auto;color: #999;font-weight: normal;}
+	.pageB	h4{font-size: 1rem;margin: 3px auto;color: #FFF}
+	.pageB	h5{font-size: 0.8rem;color: #999;font-weight: normal; margin: 0px auto;}
+/*mad.html*/
+.mask{opacity: 0.4;height: 100%;width: 100%;background: #000;position: fixed;z-index: 9999;top: 0;}
+.video{position: fixed;z-index: 10000;width: 965px;height: 560px;left: 50%;margin-left: -455px;}
+.video .videoBk{display: inline-block;background: #000;width: auto;height: 560px;}
+.closeBnt{width:50px;height: 50px;background: #fff;opacity: 0.7;float: right;text-align: center;line-height: 50px;font-size: 1.5em;cursor: default;}
+.closeBnt:hover{opacity: 1;z-index: 10000}

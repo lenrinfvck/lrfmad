@@ -1,0 +1,62 @@
+<header>
+<h3><span ms-visible="addModel">添加产品</span><span ms-visible="editModel">修改资料</span></h3>
+</header>
+<div class="placeholdFooter"></div>
+
+<table class="iBox allInfo form">
+<tbody>
+<tr>
+<th>选择品牌</th>
+<td colspan="3">
+<b>*</b>
+<select ms-focus="scro_focus" ms-blur="scro_blur" name=""id="" ms-duplex="send_addModel.brand">
+<option value="default">请选择品牌</option>
+<option value="苹果(APPLE)">苹果(APPLE)</option>
+<option value="Samsung">Samsung</option>
+<option value="">小米</option>
+<option value="">魅族</option>
+<option value="">华为</option>
+<option value="">小米</option>
+<option value="">魅族</option>
+<option value="">华为</option>
+<option value="">小米</option>
+<option value="">魅族</option>
+<option value="">华为</option>
+<option value="">小米</option>
+<option value="">魅族</option>
+<option value="">华为</option>
+<option value="">小米</option>
+<option value="">魅族</option>
+<option value="">华为</option>
+</select>
+</td>
+</tr>
+<tr>
+<th>产品型号</th>
+<td colspan="3">
+<b>*</b>
+<select ms-focus="scro_focus" ms-blur="scro_blur" name="" ms-duplex="send_addModel.pId">
+<option value="default">请选择产品</option>
+<option value="p0001">iPhone 6 Plus</option>
+<option value="p0002">iPhone 5s</option>
+<option value="p0003">iPhone 4s</option>
+<option value="p0004">iPhone 4</option>
+</select>
+</td>
+</tr>
+<tr>
+<th>售卖商家</th><td colspan="3"><b>*</b><input ms-click="scro_focus" ms-blur="scro_blur" type="text" ms-duplex="send_addModel.buyShop" /></td>
+</tr>
+<tr>
+    <th>联系电话</th><td colspan="3"><b>*</b><input ms-click="scro_focus" ms-blur="scro_blur" type="number" ms-duplex="send_addModel.sTel" /></td>
+</tr>
+<tr>
+<th>购买日期</th><td colspan="3"><b>*</b><input type="date" ms-duplex="send_addModel.active" /></td>
+</tr>
+</tbody>
+<tfoot><tr><td></td><td colspan="3">
+<a class="bnt3_blue left" ms-click="fnSubmit">确定</a>
+<a class="bnt3_yellow right" ms-click="fnAddBack">取消操作</a>
+</td></tr></tfoot>
+</table>
+<div class="placeholdFooter"></div>

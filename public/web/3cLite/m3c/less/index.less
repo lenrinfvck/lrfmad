@@ -1,0 +1,102 @@
+/* 3chelp-index.less */
+
+@import "public";
+@import "form";
+
+/* fontIco */
+@font-face {
+  font-family: 'indexIco';
+  src: url("../fontIco/index.eot") format("embedded-opentype")
+  ,url("../fontIco/index.woff") format("woff")
+  ,url("../fontIco/index.ttf") format("truetype")
+  ,url("../fontIco/index.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* index主体 */
+html{min-width: 320px;width:100%;overflow-x:hidden;background: @mGray10;}
+body{font-size: 14px;color: @mFont;}
+input{border: none;}
+
+/* index头部-banner */
+.mBanner{
+  width: 100%; height: 140px; min-width: 320px; background: @mGray10; text-align: center;
+}
+/* index-box01 */
+.logo{
+  height: 50px; line-height: 50px; text-align: center;
+  img{vertical-align: middle;}
+}
+.searchBar{
+  text-align: center;
+  input{width: 69%;  height: 30px; .nBg("../images/searchBg.png",95%); border: 1px solid @mBlue; .radius(16px); text-indent: 20px;}
+}
+.topBnt{
+  display: table; width: 85%; margin: 10px auto 0 auto;
+  //顶部按钮
+  li{
+    display: table-cell; width: 20%; vertical-align: top; text-align: center; color: @mFont;
+  }
+  .bntIco{
+    display: inline-block; width: 40px; height: 40px; line-height: 40px; background: @mBlue center no-repeat; font-family:'indexIco'; color: @mWhite; background-size: auto 75%; text-align: center;
+    .radius(20px); .nFn(b,1.6rem);
+  }
+}
+//展示区标题
+.proTab{
+  width: 100%; height:40px; line-height:40px; color:@mBlue; text-align: left; text-indent: 1rem;
+  .nFn(b);
+}
+//副标题
+.tabHelp{
+  color: @mGray20; cursor: pointer; padding-left: 5px;
+  .nFn(s);
+}
+/*
+ * box-展示栏
+ * 默认type1: 上大，下小x2
+ * type2: 左大，右小x2
+ * type3: 右大，左小x2
+ */
+.inBox{
+  @w1:150px;@h1:90px;
+  width: @w1*2; height: @h1*2; margin: 0 auto 20px auto;
+  li, li.normal{
+    width: @w1; height: @h1; float: left; margin:0; overflow: hidden; text-align: center;
+  }
+  li.big{
+    width: @w1*2; height: @h1; margin:0;
+  }
+  li img{
+    position: relative; left: 0; border:0; cursor: default;
+  }
+}
+.type2{
+  .inBox();
+  @w1:150px; @h1:90px;
+  li.big{
+    width: @w1; height: @h1*2;
+  }
+}
+.type3{
+  .type2();
+  li, li.normal{
+    float: right;
+  }
+}
+
+.footLink{
+  text-align: center;
+  a{
+    width: 60px; height: 20px; display: inline-block; color: @mFont; margin: 0 10px; cursor: pointer;
+    &.active{
+      color: @mWhite; background: @mBlue;
+    }
+  }
+}
+.copyRight{
+  text-align: center;margin-top: 10px;
+  .nFn(s);
+}
+

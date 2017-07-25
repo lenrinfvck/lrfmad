@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>3C帮-登陆</title>
+    <!--<script src="js/jquery-1.8.3.min.js"></script>-->
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/dialog.css"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/mytab.js"></script>
+</head>
+    <script>
+        $(document).ready(function() {
+            $('.submit').click(function(){
+                var id= $('.firList').val();
+                var open = function(url){
+                    window.open(url,'_self');
+                };
+                switch (id){
+                    case 'user': open('background_user/back01.html'); break;
+                    case 'admin':open('backAdmin/creat.html'); break;
+                    case 'shop': open('background/back01.html');break;
+                }
+            });
+            $('.logFoot').diaAjax();
+            $('.logFoot a').click(function(e){e.preventDefault();})
+            alert('用户名分别输入user/admin/shop后点击登陆');
+        })
+    </script>
+<body>
+    <div class="nav">
+        <div class="content">
+            <ul class="navL">
+                <li><a href="index.html">回到首页</a></li>
+            </ul>
+            <ul class="navR">
+                <li><a href="password.html">忘记密码</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="logBox">
+        <img src="images/user_img.png" alt="头像"/>
+        <form action="" method="post">
+            <input class="firList" type="text" placeholder="请输入账号"/>
+            <input  type="password" placeholder="请输入密码"/>
+            <div class="enList logBnt submit">登录</div>
+            <input id="cookieCheck" name="Fruit" type="checkbox" value="" /><label for="cookieCheck" >记住自动登录</label>
+        </form>
+    </div>
+    <div class="logFoot">
+        <h3>授权合作账号</h3>
+        <ul>
+            <li style="background-image: url(images/weibo.png)" ></li>
+            <li style="background-image: url(images/qq.png)"></li>
+            <li style="background-image: url(images/weixin.png)"></li>
+        </ul>
+        <a class="diaBnt" data-url="files/support.txt" href="">服务条款</a>|<a class="diaBnt" data-url="files/3cAbout.txt" href="">关于3C帮</a>
+    </div>
+</body>
+</html>

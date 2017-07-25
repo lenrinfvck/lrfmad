@@ -1,0 +1,98 @@
+.mask{opacity: 0.7;filter:alpha(opacity=70); height: 100%;width: 100%;background: #000;position: fixed;z-index: 9999;top: 0;}
+.dialog{position: fixed;z-index: 10000;width: 960px;height:80%;left: 50%;top:40px;margin-left: -480px;display: none;background: #fff;border-radius: 10px;overflow: hidden;}
+
+.diaImg .diaCon{height: auto;padding: 1% 0;}
+.dialog.diaImg{height: auto;}
+.dialog .dialogBk{display: inline-block;background: #000;width: auto;height: 560px;}
+.dialog h4{background-color: #FFF;  height: 70px;width: 960px; line-height: 70px;text-align: left;font-size: 28px;text-indent:10%;font-weight: normal;border-bottom: 1px solid #00BCF9;color: #00BCF9;position: absolute;top: 0;}
+.dialog p{padding: 50px 0 100px 0;color: #8B8B8C;}
+.dialog .text p{padding: 30px 0 20px 0;}
+.dialog b{color: #00BCF9;}
+h4.closeBnt{top:auto;bottom: 0;background:#fff;color:#c9c9ca;box-shadow: none;font-size: 20px;border: none;text-align: center;text-indent: 0;}
+h4.closeBnt:hover{background: #fff;color: #00BCF9;}
+.diaCon{width: 80%;height:80%;margin: 40px auto;margin-top: 80px;text-indent: 0;overflow: auto;}
+.closeBnt{width:50px;height: 50px;background:url(../images/dialog_close.png) center no-repeat;z-index: 10000;top:10px;right: 10px; position: absolute; float: right;cursor: default;color: #00BCF9;}
+.closeBnt:hover{opacity: 1;background-image: url(../images/dialog_close01.png);}
+
+.photoBox{}
+.wrap{width: 640px;height: 480px;overflow: hidden;margin: 0 auto;position: relative;}
+.allPhoto{height: 100%;position: absolute;left: 0;}
+.photoBox li{float: left;height: 100%;width: 640px;text-indent: 0;}
+.lBnt,.rBnt{width: 40px;height: 80px;background: #000;float: left;position: absolute;top: 50%;margin-top: -40px;right:30px;left: auto;background: url(../images/rBnt.png) center no-repeat;}
+.rBnt:hover{background-image:url(../images/rBnt01.png)}
+.lBnt{left: 30px;right: auto;display: none;background-image: url(../images/lBnt.png)}
+.lBnt:hover{background-image:url(../images/lBnt01.png)}
+
+.dialog li{height: 25px;font-size: 18px;line-height: 25px;margin: 5px 0;color: #8B8B8C;}
+li.posT{font-size: 22px;color: #00BCF9;margin-top: 30px;}
+.diaPos{display: inline-block;width: 550px;}
+
+@media screen and (max-height:700px){
+    .dialog{top: 0;height: 100%;}
+    .dialog.diaImg{height: 100%;}
+    .photoBox{transform:scale(0.7,0.7);transform-origin:50% 0%}
+    .diaCon{margin-top: 70px;}
+    .lBnt{left: 80px;}
+    .rBnt{right: 80px;}
+}
+@media screen and (max-width:700px){
+    .dialog{top:50%;height: 400px;width: 90%;margin-left: -45%;margin-top: -200px;border-radius: 5px;}
+    .dialog.diaImg{height: 100%;}
+    .diaCon{margin-top: 70px;}
+    .lBnt{left: 80px;}
+    .rBnt{right: 80px;}
+    .dialog h4{width: 100%;}
+}
+
+.diaImgLan{margin-top: 30px;}
+.imgList li{width: 150px;float: left;}
+
+.diaForm .closeBnt{background: none;width: auto;top: 20px;right: 30px;font-size: 20px;cursor: pointer;}
+.diaForm .bottom{ position: static;float:left;text-indent:0;text-align: center;display: inline;margin-left: 20%;color: #8B8B8C;}
+.diaForm .submit{margin-right: 20%;cursor: pointer;float: right;text-indent:0;}
+.diaForm .diaBottom{position: absolute;bottom: 0;top: auto;font-size: 20px;}
+
+/* mySelect */
+.selectInput,.selectCon{display: none;}
+.mySelect{display: inline-block;width: 150px;height: 30px;border: 1px solid #00BCF9;vertical-align: middle;line-height: 30px;cursor: pointer;background: url(../images/select.png) no-repeat 95% center;}
+.selectCon li{display: inline-block;width: 150px;height: 30px;cursor: pointer;text-align: left;text-indent: 10px;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.selectCon li:hover{background: #eeefef;color: #00BCF9;}
+.selectCon{width: 650px;max-height:360px;overflow: auto; height: auto;background: #fff;position: relative;z-index: 10;text-indent: 0;border: 1px solid #00BCF9;left: -250px;}
+.user .selectCon{width: 150px;}
+
+/* banner*/
+.banner{overflow: hidden;}
+.bannerUl{height: 100%;transition: 0s ease-out;-webkit-transform: 0s ease-out;position:relative;}
+.bannerUl li{float: left;height:100%;overflow: hidden;text-align: center;position: relative;background: no-repeat center;}
+.bannerIndex{margin: 0 auto;position: relative;top: -35px;height: 10px;text-align: center;}
+.bannerIndex li{width: 20px;height: 20px;margin:0 5px;border-radius: 12px;background: #00BCF9;display: inline-block;opacity: 0.2;filter:alpha(opacity=20);border: 1px solid #fff}
+.bannerIndex li.active,.bannerIndex li:hover{background: #00BCF9;opacity: 0.8;filter:alpha(opacity=80);}
+.aboutBnt{display: inline-block; font-size: 18px; color: #00BCF9; height: 35px;width: 100px;line-height: 35px;border: 1px solid #00BCF9;position: relative;top:400px;left: 430px;box-shadow: 1px 1px 1px 0 rgba(255,255,255,0.3);}
+a.aboutBnt:visited{color: #00BCF9;}
+
+/* topBnt*/
+.fixBnt{position: fixed;right: 30px;bottom: 3%;}
+.fixBnt li{background: #00BCF9;border-radius: 30px;/*border: 3px solid #fff;box-shadow: 0 0 2px 0 rgba(0,0,0,0.4);*/line-height: 60px;color: #fff;
+    font-size: 20px;text-align: center;opacity: 0.8;filter:alpha(opacity=80);cursor: pointer;width: 60px;height: 60px;margin: 15px 0;}
+.fixBnt li.zanBnt,.fixBnt li.caiBnt{background: url(../images/slide_zan.png) center no-repeat #C9C9CA;position: relative;}
+.fixBnt li.zanBnt span,.fixBnt li.caiBnt span{display:inline-block;width:auto;height:14px;font-size:14px;line-height:14px;padding:1px 4px;position:relative;bottom:-35px;color: #00BCF9;/*background: #00BCF9;border: 1px solid #eeefef;border-radius: 8px;*/}
+.fixBnt li.caiBnt{background-image: url(../images/slide_cai.png);}
+.fixBnt li.mTopBnt{background: url(../images/top.png) center no-repeat #00BCF9;}
+.fixBnt li.mTopBnt:hover{background-color:#c9c9ca;}
+.fixBnt li.zanBnt:hover,.fixBnt li.caiBnt:hover{background-color: #00BCF9;}
+.mTopBnt:hover{background: #eeefef;color: #8b8b8c;}
+
+/* userSlide*/
+.userList{color: #8b8b8c;width:150px;background: none;}
+.userList li a{height: 30px;width: 100%; background: #fff;line-height:30px;border: 1px solid #eeefef;border-bottom: 0;display: block;}
+.userList .firstLi a{border-radius: 5px 5px 0 0;}
+.userList .lastLi a{border-radius: 0 0 5px 5px;border-bottom: 1px solid #eeefef;}
+.userList li a{color: #8b8b8c;}
+.userList a:hover{background: #00BCF9;color: #fff;}
+
+/* tbIframe */
+.tbIframe{width: 0;height: 0;display: block; margin: 0 auto;}
+.tbIframe.active{width: 960px; height: 800px;}
+@media screen and (max-width: 600px){
+    .tbIframe.active{height: 500px;}
+}

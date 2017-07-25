@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/back.css"/>
+    <link rel="stylesheet" href="../plugin/upload/control/css/zyUpload.css"/>
+    <link rel="stylesheet" href="../css/dialog.css"/>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/mytab.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../plugin/upload/core/zyFile.js"></script>
+    <script src="../plugin/upload/control/js/zyUpload.js"></script>
+    <script src="../js/back.js"></script>
+    <style>
+        .upload_box{margin: 0 auto;}
+        .add_upload{display: none;}
+        .upload_append_list{margin: 0;}
+        .uploadImg,.uploadImg img{text-indent: 0;}
+        .imgUpBox{text-indent: 0;}
+        .editBnt{float: right;color: #00BCF9;margin-right:25px;text-indent: 0;}
+    </style>
+    <title></title>
+
+</head>
+<script>
+    $(document).ready(function() {
+        animeShowInit();
+        playInit(5,3000);
+        //navScroll();
+        aTabsInit();
+        $('.lSlide>ul').menuSlide();
+    })
+</script>
+<body class="index back">
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="../images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="../index.html">无价之宝</a><a href="../index_brand.html">品牌体验店</a><a href="../index_shop.html">优选商户</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="banner">
+
+</div>
+
+<div class="content formCon">
+    <!--<div class="userImg">-->
+    <!--<ul class="topTap">-->
+    <!--<li class="">基本资料</li>-->
+    <!--<li class="">我的积分</li>-->
+    <!--<li class="">我关注的</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+
+    <div class="userImg">
+        <div class="userImgBox">
+            <img src="../images/user_img.png" width="160px;" style="border-radius:60px;background: #fff; " alt=""/>
+            <div><span class="uId">u12345</span><br/><span class="uInfo">这个人很懒，什么也没写，个人简介个人简介个人简介个人简介</span>
+                <ul class="bList">
+                    <li style="background-image: url(../images/bAu.png)">15</li>
+                    <li style="background-image: url(../images/bAg.png)">150</li>
+                    <li style="background-image: url(../images/bGu.png)">1500</li>
+                </ul></div>
+
+        </div>
+    </div>
+
+    <ul class="topTap">
+        <li class=""><a href="back01.html">基本资料</a></li>
+        <li class=""><a href="back02_1.html">我的财富</a></li>
+        <li class="active"><a href="back03_3.html">我关注的</a></li>
+    </ul>
+    <div class="otherCon">
+
+
+        <div class="lSlide">
+            <ul class="mChild">
+                <li><a href="back03_1.html">产品</a></li>
+                <li><a href="back03_2.html">品牌</a></li>
+                <li class="active"><a href="back03_3.html">商家</a></li>
+            </ul>
+        </div>
+        <div class="shop control noedit">
+            <div class="resUl active" data-tabcon="hSearch">
+                <ul class="resLan">
+                    <li>
+                        <div class="resShop">
+                            <div>
+                                <span class="shopTitle">美择数码时代店</span>
+                                <span class="resTel"><span class="tBlue">3523288</span>关注<span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                            </div>
+                            <div class="shopInfo"><p>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修 </p></div>
+                        </div>
+                        <ul class="otherBnt index resLink">
+                            <li><div style="background-image:url(../images/slide_deGz.png)"></div><p>粉转黑</p></li>
+                            <li><div style="background-image:url(../images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                            <li><div class="moreBnt" style="background-image:url(../images/slide_share.png)"></div><p>分享她</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="resShop">
+                            <div>
+                                <span class="shopTitle">美择数码时代店</span>
+                                 <span class="resTel"><span class="tBlue">3523288</span>关注<span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                            </div>
+                            <div class="shopInfo"><p>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修 </p></div>
+                        </div>
+                        <ul class="otherBnt index resLink">
+                            <li><div style="background-image:url(../images/slide_deGz.png)"></div><p>粉转黑</p></li>
+                            <li><div style="background-image:url(../images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                            <li><div class="moreBnt" style="background-image:url(../images/slide_share.png)"></div><p>分享她</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="resShop">
+                            <div>
+                                <span class="shopTitle">美择数码时代店</span>
+                                 <span class="resTel"><span class="tBlue">3523288</span>关注<span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                            </div>
+                            <div class="shopInfo"><p>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修 </p></div>
+                        </div>
+                        <ul class="otherBnt index resLink">
+                            <li><div style="background-image:url(../images/slide_deGz.png)"></div><p>粉转黑</p></li>
+                            <li><div style="background-image:url(../images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                            <li><div class="moreBnt" style="background-image:url(../images/slide_share.png)"></div><p>分享她</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="resShop">
+                            <div>
+                                <span class="shopTitle">美择数码时代店</span>
+                                 <span class="resTel"><span class="tBlue">3523288</span>关注<span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                            </div>
+                            <div class="shopInfo"><p>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修 </p></div>
+                        </div>
+                        <ul class="otherBnt index resLink">
+                            <li><div style="background-image:url(../images/slide_deGz.png)"></div><p>粉转黑</p></li>
+                            <li><div style="background-image:url(../images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                            <li><div class="moreBnt" style="background-image:url(../images/slide_share.png)"></div><p>分享她</p></li>
+                        </ul>
+                    </li>
+
+                    <div class="more other">
+                        点击查看更多
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

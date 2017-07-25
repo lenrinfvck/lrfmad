@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>3C帮</title>
+
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+    <link rel="stylesheet" href="css/dialog.css"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/mytab.js"></script>
+    <script src="js/banner.js"></script>
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="css/ie8.css"/>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<script>
+    $(document).ready(function() {
+        animeShowInit();        //banner动画初始化
+        playInit(5,3000);       //banner，5图，3s自动
+        //navScroll();
+        $('.proTab .content').tabs($('.pro'),'1');  //分页启动
+        $('.navL').dialog($('.dialogs'));
+        /*测试用链接跳转*/
+        $('.hBrand .proBox').testOpen('brand.html','_blank');
+        $('.hSearch .proBox').testOpen('searchRes.html','_self');
+        $('.submit').testOpen('searchRes.html','_self');
+        $('.login').testOpen('login.html','_self');
+        $('.proBox a').click(function(e){e.stopPropagation();}); //禁用冒泡
+        //$('.navL a').click(function(e){e.preventDefault();});
+    })
+</script>
+<body class="index brand">
+<!--导航-->
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="index.html" >无价之宝</a><a href="index_brand.html" class="active">品牌体验店</a><a href="index_shop.html">优选商家</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--轮播banner-->
+<div class="banner">
+    <div class="play">
+        <div class="playCenter">
+            <div class="playThing playing">
+                <div class="anime">
+                    <img data-xout="150%" data-xin="50%" data-yout="50%" data-yin="50%" src="images/banner01.png" width="910" height="386"/>
+                </div>
+            </div>
+            <div class="playThing ">
+                <div class="anime">
+                    <img data-xout="150%" data-xin="50%" data-yout="50%" data-yin="50%" src="images/pro/pro01.png"  width="199" height="192"/>
+                </div>
+            </div>
+            <div class="playThing ">
+                <div class="anime">
+                    <img data-xout="150%" data-xin="50%" data-yout="50%" data-yin="50%" src="images/banner01.png" width="910" height="386"/>
+                </div>
+            </div>
+            <div class="playThing ">
+                <div class="anime">
+                    <img data-xout="150%" data-xin="50%" data-yout="50%" data-yin="50%" src="images/banner01.png" width="910" height="386"/>
+                </div>
+            </div>
+            <div class="playThing ">
+                <div class="anime">
+                    <img data-xout="150%" data-xin="50%" data-yout="50%" data-yin="50%" src="images/pro/pro01.png" width="199" height="192"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--商品展示-->
+<div class="pro">
+<!--分页标签-->
+<div class="proTab">
+    <div class="content">
+        <div class="tab active" data-tab="hCX">关注分享 <a><span class="tabHelp">可获得帮币</span></a></div>
+        <!--<div class="tab" data-tab="hBrand">品牌体验店</div>-->
+        <!--<div class="tab" data-tab="hSearch">优选商户推荐</div>-->
+    </div>
+</div>
+
+<!--品牌分页-->
+
+<div class="proCon hBrand active" data-tabcon="hBrand">
+    <div class="content proWrap">
+        <div class="proBoxCon">
+<div class="proBox">
+<div class="proImg"><img src="images/apple.png" alt=""/></div>
+<div class="proText">
+<ul class="otherBnt index">
+<li><a><div style="background-image:url(images/slide_gz.png)"></div><p>关注她</p></a></li>
+<li><div style="background-image:url(images/more_Gpos.png)"></div><p>喵喵看</p></li>
+<li><a><div class="moreBnt" style="background-image:url(images/slide_share.png)"></div><p>分享她</p></a></li>
+</ul>
+</div>
+</div>
+
+<div class="proBox">
+<div class="proImg"><img src="images/samsung.png" alt=""/></div>
+<div class="proText">
+<ul class="otherBnt index">
+<li><a><div style="background-image:url(images/slide_deGz.png)"></div><p>粉转黑</p></a></li>
+<li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+<li><a><div class="moreBnt" style="background-image:url(images/slide_share.png)"></div><p>分享她</p></a></li>
+</ul>
+</div>
+</div>
+<div class="proBox">
+<div class="proImg"><img src="images/canon.png" alt=""/></div>
+<div class="proText">
+<ul class="otherBnt index">
+<li><a><div style="background-image:url(images/slide_gz.png)"></div><p>关注她</p></a></li>
+<li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+<li><a><div class="moreBnt" style="background-image:url(images/slide_share.png)"></div><p>分享她</p></a></li>
+</ul>
+</div>
+</div>
+<div class="proBox">
+<div class="proImg"><img src="images/lg.png" alt=""/></div>
+<div class="proText">
+<ul class="otherBnt index">
+<li><a><div style="background-image:url(images/slide_gz.png)"></div><p>关注她</p></a></li>
+<li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+<li><a><div class="moreBnt" style="background-image:url(images/slide_share.png)"></div><p>分享她</p></a></li>
+</ul>
+</div>
+</div>
+<div class="proBox">
+<div class="proImg"><img src="images/acer.png" alt=""/></div>
+<div class="proText">
+<ul class="otherBnt index">
+<li><a><div style="background-image:url(images/slide_gz.png)"></div><p>关注她</p></a></li>
+<li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+<li><a><div class="moreBnt" style="background-image:url(images/slide_share.png)"></div><p>分享她</p></a></li>
+</ul>
+</div>
+</div>
+<div class="proBox">
+<div class="proImg"><img src="images/sandisk.png" alt=""/></div>
+<div class="proText">
+<ul class="otherBnt index">
+<li><a><div style="background-image:url(images/slide_gz.png)"></div><p>关注她</p></a></li>
+<li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+<li><a><div class="moreBnt" style="background-image:url(images/slide_share.png)"></div><p>分享她</p></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="more">
+点击查看更多
+</div>
+        </div>
+    </div>
+</div>
+<!--促销分页-->
+
+<!--最爱搜索分页-->
+<!--<div class="proCon hSearch" data-tabcon="hSearch">-->
+<!--<div class="content">-->
+<!--<div class="proBox">-->
+<!--<div class="proImg"><img src="images/pro/pro01.png" alt=""/></div>-->
+<!--<div class="proText">-->
+<!--<p><span>iPhone6</span>16GB 港版金色，800万像素摄像头 支持touch iD 支持指纹解锁800万像素摄像头 </p>-->
+<!--<div class="proGz">需要积分<a>3523288</a></div>-->
+<!--<div class="proCx"><a>352053</a>人已兑换</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="proBox">-->
+<!--<div class="proImg"><img src="images/pro/pro02.png" alt=""/></div>-->
+<!--<div class="proText">-->
+<!--<p><span>iPhone6</span>16GB 港版金色，800万像素摄像头 支持touch iD 支持指纹解锁800万像素摄像头 </p>-->
+<!--<div class="proGz">需要积分<a>3523288</a></div>-->
+<!--<div class="proCx"><a>352053</a>人已兑换</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="proBox">-->
+<!--<div class="proImg"><img src="images/pro/pro03.png" alt=""/></div>-->
+<!--<div class="proText">-->
+<!--<p><span>iPhone6</span>16GB 港版金色，800万像素摄像头 支持touch iD 支持指纹解锁800万像素摄像头 </p>-->
+<!--<div class="proGz">需要积分<a>3523288</a></div>-->
+<!--<div class="proCx"><a>352053</a>人已兑换</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="proBox">-->
+<!--<div class="proImg"><img src="images/pro/pro04.png" alt=""/></div>-->
+<!--<div class="proText">-->
+<!--<p><span>iPhone6</span>16GB 港版金色，800万像素摄像头 支持touch iD 支持指纹解锁800万像素摄像头 </p>-->
+<!--<div class="proGz">需要积分<a>3523288</a></div>-->
+<!--<div class="proCx"><a>352053</a>人已兑换</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="more">-->
+<!--点击查看更多-->
+<!--</div>-->
+<!--</div>-->
+</div>
+<div class="dialogs">
+    <div class="dialog" data-dialog="support">
+        <h4>服务条款</h4>
+        <div class="diaCon">
+            <p>
+                3C帮使用协议的接受
+
+                通过访问和/或使用本网站，您表示同意接受本协议的所有条件和条款。成都西格
+
+                瑞诺广告有限公司（以下简称“西格瑞诺”）作为3C帮(www.3chelp.com)的运营
+
+                者依据本协议为您提供服务。
+
+                本协议的变更和修改
+
+                西格瑞诺有权随时对本协议进行修改，并且一旦发生协议条款的变动，西格瑞诺
+
+                将在相关页面上提示修改的内容；用户如果不同意本协议的修改，可以放弃使用
+
+                或访问本网站或取消已经获得的服务；如果用户选择在本协议变更后继续访问或
+
+                使用本网站，则视为用户已经接受本协议的修改。
+
+                ；
+
+                (4).煽动民族仇恨、民族歧视，破坏民族团结的；
+
+                1. 服务说明网站注册服务条款
+
+                尊敬的用户，欢迎您注册成为本网站用户。在注册前请您仔细阅读如下服务条款：
+
+
+                本服务协议双方为本网站与本网站用户，本服务协议具有合同效力。
+
+
+                您确认本服务协议后，本服务协议即在您和本网站之间产生法律效力。
+
+
+                无论您事实上是否在使用之前认真阅读了本服务协议，只要您点击协议正本下方的
+
+
+                "确认"或者"登录"按钮并按照本网站注册程序成功注册为用户，您的行为仍然表示
+
+
+                您同意并签署了本服务协议。
+
+
+                2.  用户必须
+
+                (1)自行配备上网的所需设备， 包括个人电脑、调制解调器或其他必备上网装置。
+
+                (2)自行负担个人上网所支付的与此服务有关的电话费用、 网络费用。
+
+                3．用户在本网站上交易平台上不得发布下列违法信息：
+
+                (1)反对宪法所确定的基本原则的；
+
+                (2).危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；
+
+                (3).损害国家荣誉和利益的
+                (5).破坏国家宗教政策，宣扬邪教和封建迷信的；
+
+                (6).散布谣言，扰乱社会秩序，破坏社会稳定的；
+
+                (7).散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；
+
+                (8).侮辱或者诽谤他人，侵害他人合法权益的；
+
+                (9).含有法律、行政法规禁止的其他内容的。
+
+                4．有关个人资料
+
+                用户同意
+
+                (1) 提供及时、详尽及准确的个人资料。
+
+                (2).同意接收来自本网站的信息。
+
+                (3) 不断更新注册资料，符合及时、详尽准确的要求。所有原始键入的资料将引
+
+                用为注册资料。
+
+                (4)本网站不公开用户的姓名、地址、电子邮箱和笔名，以下情况除外：
+
+                （a）用户授权本网站透露这些信息。
+
+                （b）相应的法律及程序要求本网站提供用户的个人资料。如果用户提供的资料包
+
+                含有不正确的信息，本网站保留结束用户使用本网站信息服务资格的权利。
+
+                5. 用户注册
+
+
+                用户在注册时应当选择稳定性及安全性相对较好的电子邮箱，并且同意接受并
+
+                阅读本网站发往用户的各类电子邮件。如用户未及时从自己的电子邮箱接受电子
+
+                邮件或因用户电子邮箱或用户电子邮件接收及阅读程序本身的问题使电子邮件无
+
+                法正常接收或阅读的，只要本网站成功发送了电子邮件，应当视为用户已经接收
+
+                到相关的电子邮件。电子邮件在发信服务器上所记录的发出时间视为送达时间。
+
+                6． 服务条款的修改
+
+                本网站有权在必要时修改服务条款，本网站服务条款一旦发生变动，将会在重要
+
+                页面上提示修改内容。如果不同意所改动的内容，用户可以主动取消获得的本网
+
+                站信息服务。如果用户继续享用本网站信息服务，则视为接受服务条款的变动。
+
+                本网站保留随时修改或中断服务而不需通知用户的权利。本网站行使修改或中断
+
+                服务的权利，不需对用户或第三方负责。
+            </p>
+        </div>
+    </div>
+    <div class="dialog" data-dialog="job">
+        <h4>工作机会</h4>
+        <div class="diaCon">
+            <ul>
+                <li class="posT">Job01</li>
+                <li><span class="diaPos">web前端</span>4000-082226</li>
+                <li class="posT">Job02</li>
+                <li><span class="diaPos">web后端</span>4000-082226</li>
+            </ul>
+        </div>
+    </div>
+    <div class="dialog" data-dialog="3cabout">
+        <h4>关于3C帮</h4>
+        <div class="diaCon">
+            <p>
+                3C帮使用协议的接受<br/>
+
+                通过访问和/或使用本网站，您表示同意接受本协议的所有条件和条款。成都西格
+
+                瑞诺广告有限公司（以下简称“西格瑞诺”）作为3C帮(www.3chelp.com)的运营
+
+                者依据本协议为您提供服务。
+            </p>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

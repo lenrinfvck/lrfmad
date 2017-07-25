@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<head>
+    <meta charset="UTF-8">
+</head>
+<BODY onclick='test()' style="margin:0 0 0 0" mce_style="margin:0 0 0 0">
+<font color=green>设置或获取鼠标指针位置相对于窗口客户区域的 x,y 坐标，其中客户区域不包括窗口自身的控件和滚动条。</font>
+<br/>
+clientX=<INPUT TYPE="text" NAME="x1">
+clientY=<INPUT TYPE="text" NAME="x2">
+<br/>
+<br/>
+
+<font color=blue>设置或获取鼠标指针位置相对于触发事件的对象的 x,y 坐标。 </font>
+<br/>
+offsetX =<INPUT TYPE="text" NAME="x3">
+offsetY =<INPUT TYPE="text" NAME="x4">
+<br/>
+<br/>
+<font color=green>设置或获取获取鼠标指针位置相对于用户屏幕的 x,y 坐标 </font>
+<br/>
+screenX =<INPUT TYPE="text" NAME="x5">
+screenY =<INPUT TYPE="text" NAME="x6">
+<br/>
+<br/>
+<font color=blue>设置或获取鼠标指针位置相对于父文档的 x,y 像素坐标。</font>
+<br/>
+x=<INPUT TYPE="text" NAME="x7">
+y=<INPUT TYPE="text" NAME="x8">
+<br/>
+<br/>
+<TABLE  align="center" width=400 height=500 border=1 style="border-style:none" mce_style="border-style:none" CELLPADDING=0 CELLSPACING=0 onclick='test()'>
+    <TR>
+        <TD>a</TD>
+        <TD>b</TD>
+    </TR>
+    <TR>
+        <TD>c</TD>
+        <TD>d</TD>
+    </TR>
+</TABLE>
+</body>
+</html>
+<SCRIPT LANGUAGE="JavaScript">
+
+    function test(){
+        document.all.x1.value=event.clientX;
+        document.all.x2.value=event.clientY;
+        document.all.x3.value=event.offsetX;
+        document.all.x4.value=event.offsetY;
+        document.all.x5.value=event.screenX;
+        document.all.x6.value=event.screenY;
+        document.all.x7.value=event.x;
+        document.all.x8.value=event.y;
+    }[0]
+</SCRIPT>

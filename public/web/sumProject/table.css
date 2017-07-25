@@ -1,0 +1,87 @@
+﻿body{
+	background:#2A86BB;font-family:微软雅黑, "Microsoft YaHei",黑体; margin:0px
+}
+table{ text-align:center; margin:0px;}
+th{ background:#262626; color:#FFF; height:30px;}
+tr{ background:#D1D1D1;}
+tr:nth-of-type(odd){ background:#FFF;}
+td{ height:25px; border-left:solid 2px;}
+.value{ width:150px;}
+
+.cont{ display:none;}
+#temp{ width:721px; margin:50px auto; box-shadow:#666 0px 0px 10px;}
+ul{ list-style:none;}
+
+tr:nth-of-type(odd) .time{width:240px; background-color:rgb(223,242,246); margin:0px; padding:0px; border:0px;}
+tr:nth-of-type(even) .time{ background-color:rgb(200,218,223); margin:0px; padding:0px; border:0px;}
+
+#Searching{ width:80px; height:25px; background-color:#000; color:#FFF; margin:0px auto; cursor:pointer; text-align:center
+; border:none;}
+#Searching:hover{ background:#FFF; color:#000;}
+
+#input{ width:900px; text-align:center; position:relative; left:50%; margin-left:-445px;}
+#input li{display:inline; float:left;margin:auto 60px; }
+#search input{ margin-left:8px}
+#input{ position:fixed; left:50%; top:70%; margin-left:-460px;}
+
+#color{ position:absolute; top:3%; left:83%; margin-right:10px;}
+#c1,#c2,#c3,#c4{float:left;width:20px;height:20px; display:inline-block; margin-left:10px;}
+#c1{ background:#08A7CF}
+#c2{ background:#FCC}
+#c3{ background:#000}
+#c4{ background:#123}
+
+#foot{text-align:center;width:100%; height:65px; position:fixed;top:100%; margin-top:-65px; background:#333; display:inline-block; color:#FFF; padding-top:20px}
+
+#head{width:auto; height:30px; background:#333;margin-top:0px;}
+div label{ color:#FFF; margin-top:5px; margin-left:5px; display:inline-block}
+#timeex{ margin-left:30px;}
+.infoimg{ padding-top:5px; margin-left:15px; float:left;}
+
+.navH{ margin:0px;}
+.navH > li{ display:inline; float:left;}
+
+#usertable{display:none; position:relative; width:200px; height:80px; background:#FFF; z-index:10; margin:4px 0px 0px 0px; }
+#usertable img{ width:60px; height:60px; margin:10px}
+#userinfo{ width:300px; height:30px; background:#666; margin-left:155px; margin-right:100px;}
+#userinfo:hover #usertable{display:block;}
+.usertableText{ color:#000; position:absolute; top:5%;overflow:hidden; width:110px}
+.usertableText + label{ font-size:12px; color:#000;position:absolute;top:35%; overflow:hidden; width:110px;}
+
+#nav1,#nav2,#nav3{ width:142px; height:22px;padding:4px; text-align:center; cursor:default;}
+#nav1 .down{ display:none; position:relative; margin-top:5px; margin-left:-44px;z-index:10;}
+#nav1 .down li{background:#666; color:#FFF; cursor:default; height:auto; width:134px; text-align:center; padding:4px 8px;}
+#nav1 .down li:hover{ background:#FFF; color:#000;}
+#nav1:hover div.down{ display:block;}
+
+.tag{ background:#333;color:#FFF}
+.tag:hover{color:#000; background:#FFF;} 
+.tagon{ background:#FFF; color:#000;}
+
+.conton{ display:block;}
+
+#contid2 > div >div,#contidx > div >div{width:500px; height:200px; position:absolute; left:50%; top:20%; margin-left:-250px;text-align:center; background:#EEE; z-index:11; border: solid 5px #333333;box-shadow:#666 0px 0px 10px;}
+#contid2 > div >div h2,#contidx > div >div h2{ background:#333; color:#FFF; margin:0px; padding:5px 0px;}
+#contid2 > div p,#contidx > div p{ padding:15px;}
+
+
+#bk{width:100%; height:400px; background:#999; position:absolute;top:17%;box-shadow:#666 0px 0px 10px;}
+#form{ position:absolute; left:12%; top:17%; width:85%; height:400px; background:#333; }
+#left{ position:relative; left:-10%; top:-4%;width:20%; height:400px; background:#CCC; padding:0px;}
+#left li{ height:20px; text-align:center; font-size:20px; padding:20px 5px; cursor:default;}
+#left li:hover{ background:#555; color:#FFF;}
+
+#info{ position:absolute;top:3%;left:15%;}
+#info li{ background:#FFF; padding:5px 10px; margin-bottom:20px;}
+#info li:hover{box-shadow:#666 0px 0px 20px;}
+#info input{ border-style:none; margin-left:5px; width:200px}
+#info textarea{ border-style:none; margin-left:10px; width:550px; height:80px}
+li.shot{ width:350px}
+li.normal{ width:400px}
+li.long{ width:600px; height:100px;}
+span{ width:70px; text-align:right; display:inline-block;}
+.taginfo{ background:#CCC; color:#000;}
+.tagoninfo{ background:#333; color:#FFF;}
+#info input.submit{ position:relative;width:150px; height:30px; margin-left:40px;}
+.submit:hover{ background:#FFF; color:#000;}
+span.longinput{ width:100px}

@@ -1,0 +1,314 @@
+<!doctype html>
+<!-- Camera is a Pixedelic free jQuery slideshow | Manuel Masia (designer and developer) --> 
+<html> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" > 
+    <title>成都灰度科技有限公司Beta</title> 
+    <meta name="description" content="Camera a free jQuery slideshow with many effects, transitions, adaptive layout, easy to customize, using canvas and mobile ready"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //		Styles
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////--> 
+    <link rel='stylesheet' id='camera-css'  href='css/camera.css' type='text/css' media='all'> 
+
+
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //		Scripts
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////--> 
+    
+    
+	<script type='text/javascript' src='http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.mobile.customized.min.js'></script>
+    <script type='text/javascript' src='js/jquery.easing.1.3.js'></script> 
+    <script type='text/javascript' src='js/camera.min.js'></script> 
+    
+    <script>
+
+		jQuery(function(){
+			var h=document.documentElement.clientHeight*0.94;
+			var w=document.documentElement.clientWidth*0.94
+			var ww=window.screen.width;
+			jQuery('#camera_wrap_1').camera({
+			thumbnails: true,
+			height:'28%',
+			fx:'simpleFade',
+			playPause: false,
+			loader:'none',
+			transPeriod:1000,
+			
+			});
+
+			jQuery('#camera_wrap_2').camera({
+				height: '500px',
+				loader: 'none',
+				fx:'scrollHorz',
+				pagination: false,
+				thumbnails: false,
+				playPause: false,
+				autoAdvance: false,
+				transPeriod:800,
+				portrait:true,
+				navigationHover:false,
+				
+			});
+			jQuery('#camera_wrap_1').css("marginBottom","0px");
+			jQuery('.zsbk')
+			.mouseover(function(){jQuery(this).fadeTo(300,0.25);})
+			.mouseout(function(){jQuery(this).fadeTo(200,0);});
+			(function(){
+				if(78<=(w/7))
+					jQuery('#logo img').css('width',w/7+'px');
+				else
+					jQuery('#logo img').css('width','78px');
+				if(w<800){
+					jQuery('#help-lan').css('display','none');
+					jQuery('#nav').removeClass('long').addClass('snav');
+				}
+				
+			})();
+			jQuery(window).resize(function() {
+                h=document.documentElement.clientHeight*0.94;
+				w=document.documentElement.clientWidth*0.94
+				if(78<=(w/7))
+					jQuery('#logo img').css("width",w/7+"px");
+				else
+					jQuery('#logo img').css("width","78px")
+				if(w<800){
+					jQuery('#help-lan').fadeOut(500);
+					jQuery('#nav').removeClass('long').addClass('snav');
+				}
+				else{
+					jQuery('#help-lan').fadeIn(500);
+					jQuery('#nav').removeClass('snav').addClass('long');
+				}
+					
+            });
+			
+		}); 
+	</script>
+     <style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family:'微软雅黑'; 
+			background:#F5F5F5;
+		}
+		a {
+			color: #000; text-decoration:none;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		#back_to_camera {
+			clear: both;
+			display: block;
+			height: 80px;
+			line-height: 40px;
+			padding: 20px;
+		}
+		.fluid_container {
+			margin: 0px auto;
+			max-width: 1920px;
+			width: 100%;
+		}
+		#camera_wrap_2{ width:80%; margin:0px 10%; margin-top:-50px;}
+		#header{ 
+			background:#CCC; 
+			color:#FFF;
+			margin: 0px auto;
+			max-width: 1920px;
+			width: 100%;
+			}
+		#header h1{ 
+			margin:0px 20px;
+			padding:20px 0px;
+		}
+		#nav{ 
+			top:0%;
+			display:block;
+			max-width: 1920px;
+			z-index:6;
+			width: 100%;	
+			height:47px;
+			background:#F5F5F5;
+			margin:0px;
+	    }
+		#nav.snav{ display:block;width:150px; height:47px; float:right;background:#808080; z-index:999}
+		#nav.snav:hover ul{ display:block;}
+		#nav.long ul{ width:50%; margin:0px;margin-left:30%; min-width:450px;}
+		#nav.long li{ float:left;display:inline-block; padding:10px 5%;background:#F5F5F5; margin:0px; cursor:default;}
+		#nav.long a{padding:20px 0px; font:1.2em;}
+		#nav.long li:hover{ border-bottom:solid 5px #000;}
+		#nav.snav ul{ display:none; width:70px;list-style:none; margin-left:70% margin-right:20px; position:absolute;z-index:999; margin-left:-40px; margin-top:47px; text-align:center}
+		#nav.snav li{ width:120px; padding:10px 15px; background:#E8E8E8; color:#000;}
+		#nav.snav li:hover{ background:#000; color:#FFF;}
+		#nav.snav li:hover a{ color:#FFF;padding:20px 0px;}
+		
+		.Bline{ border-bottom:solid 5px #000;}
+		#logo{ position:absolute; margin:0px 0px 0px 10%; z-index:9;}
+		#logo img{ margin:0px; }
+		
+		#center{ display:block;width:90%; max-width:1920px; background:url(images/line.png) repeat-x bottom; margin:50px auto; padding:0px; margin-bottom:0px; text-align:center}
+		#center ul{ position:relative;max-width:1600px; height:1xp; margin:0px 2%; padding:0px;}
+		#center li{ display:inline-block; width:250px; height:150px; background:none; margin:50px 2%; }
+		#zs01{ background:url(images/slides/thumbs/L05.jpg) center; width:100%; height:150px;box-shadow:0 0 3px 1px;}
+		#zs02{ background:url(images/slides/thumbs/L04.jpg) center; width:100%; height:150px;box-shadow:0 0 3px 1px;}
+		#zs03{ background:url(images/slides/thumbs/L03.jpg) center; width:100%; height:150px;box-shadow:0 0 3px 1px;}
+		.zsbk{ position:absolute;width:250px; height:150px;z-index:9; background:#FFF; opacity:0.01; }
+		/*.zsbk:hover{opacity:0.5;}*/
+		#center h2{ position:relative; margin-top:-60px; margin-left:0px; text-align:left; }
+		#center h5{ position:relative; margin-top:-16px; margin-left:0px; text-align:left; color:#999}
+		#product,#help{ height:500px; display:block;width:90%; max-width:1920px; margin:0px auto; background:url(images/line.png) repeat-x bottom; text-align:center;}
+		.Ltitle{ background:#666; color:#FFF; width:150px; font-size:1.5em;text-align:center; margin-top:10px; padding:5px 0px;}
+    	.proDisplay{ width:70%; margin:0px auto; background:#CCC; height:500px;display:block;}
+		
+		.proshow,.nextBnt,.preBnt{ float:left; display:inline-block;}
+		.nextBnt,.preBnt{ background:#000; width:70px; height:70px;}
+		.preBnt{ margin-right:0%;}
+		.proshow{ width:180%; display:block;}
+		.pro{ float:left;display:inline; width:60%; background:#00F;}
+		.view{width:70%; overflow:hidden; }
+		.foot h4,h5{ margin:10px auto; width:90%; text-align:center; color:#444;}
+		#lan{ background:#333; height:30px; clear:left; position:relative; margin-top:-100px; z-index:-5;}
+		
+		#help{ height:420px;}
+		#help-cont{ width:75%; margin:0px auto; min-width:780px;}
+		#help-icon{ width:60%; height:380px; min-width:460px; max-width:550px; display:inline-block; float:left;}
+		#help-lan{ width:40%; height:380px; min-width:300px;display:inline-block;}
+		#help-lan ul{ margin:40px auto; width:95%; border:solid 2px #CCC; line-height:30px; list-style:none; padding:0px;}
+		#help-lan li{ margin-bottom:10px;}
+		#help-lan li a:hover{ color:#C33; cursor:pointer;}
+		#help-lan li:first-child{ background:#CCC; font-size:1.5em; padding:10px 0px;}
+		#help-icon ul{ margin:0px; padding:0px;}
+		#help-icon li{ width:100px; height:100px;  float:left; display:inline-block; margin:35px 4%; cursor:default;}
+		#help-icon li h4{ position:relative; margin-top:110px; font-style:inherit; font-size:1.0em;}
+		#help-icon li:hover h4{ color:#0CF;}
+		
+		.ico {background-image:url(images/ico.png); display: block;}
+		.ico_c {background-position: -204px -102px; width: 100px; height: 100px; }
+		.ico_c:hover {background-position: -204px -0px; width: 100px; height: 100px; }
+		.ico_d:hover {background-position: -305px -0px; width: 100px; height: 100px; }
+		.ico_a:hover {background-position: -0px -0px; width: 100px; height: 100px; }
+		.ico_b:hover {background-position: -102px -0px; width: 100px; height: 100px; }
+		.ico_e:hover {background-position: -408px -0px; width: 100px; height: 100px; }
+		.ico_f:hover {background-position: -510px -0px; width: 100px; height: 100px; }
+		.ico_a {background-position: -0px -102px; width: 100px; height: 100px; }
+		.ico_b {background-position: -102px -102px; width: 100px; height: 100px; }
+		.ico_d {background-position: -306px -102px; width: 100px; height: 100px; }
+		.ico_e {background-position: -408px -102px; width: 100px; height: 100px; }
+		.ico_f {background-position: -510px -102px; width: 100px; height: 100px; }
+ 		
+		.clearfix:after {content:" "; display:block; height:0; clear:both; visibility:hidden; }
+		* html>body .clearfix { display:inline-block; width:100%; }
+		* html .clearfix { height:1%; }
+		*+html .clearfix { min-height:1%; }   
+    </style>
+</head>
+<body>
+    <div id="logo">
+        <img src="images/logo.png" />
+    </div>
+    <div id="nav" class="long">
+        <ul>
+        	<li class="Bline"><a href="#nav">公司主页</a></li>
+            <li><a href="#product">产品介绍</a></li>
+            <li><a href="#help">技术支持</a></li>
+            <li><a href="http://192.168.0.77:8888/redmine">关于我们</a></li>
+        </ul>
+    </div>
+	<div class="fluid_container">
+        <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+            <div data-thumb="images/slides/thumbs/L01.jpg" data-src="images/slides/01.jpg">
+                
+            </div>
+            <div data-thumb="images/slides/thumbs/L02.jpg" data-src="images/slides/02.jpg">
+              
+            </div>
+            <div data-thumb="images/slides/thumbs/L03.jpg" data-src="images/slides/03.jpg">
+               
+            </div>
+            <div data-thumb="images/slides/thumbs/L04.jpg" data-src="images/slides/04.jpg">
+               
+            </div>
+            <div data-thumb="images/slides/thumbs/L05.jpg" data-src="images/slides/05.jpg">
+               
+            </div>
+
+        </div><!-- #camera_wrap_1 -->
+
+
+    </div><!-- .fluid_container -->
+    <div id="lan"></div>
+    <div id="center" class="clearfix">
+        <ul>
+        	<li><h2>展示信息01</h2><h5>附加信息附加信息</h5><div class="zsbk"></div><div id="zs01" class="zs"></div></li>
+            <li><h2>展示信息02</h2><h5>附加信息附加信息</h5><div class="zsbk"></div><div id="zs02" class="zs"></div></li>
+            <li><h2>展示信息03</h2><h5>附加信息附加信息</h5><div class="zsbk"></div><div id="zs03" class="zs"></div></li>
+        </ul>
+    </div>
+    <div id="product">
+    	<div class="Ltitle">■&nbsp;产品介绍</div>
+        	<div class="fluid_container">
+        		<div class="camera_wrap camera_azure_skin" id="camera_wrap_2">
+            		<div data-thumb="images/slides/thumbs/L01.jpg" data-src="images/slides/pro01.png">
+                
+            		</div>
+            		<div data-thumb="images/slides/thumbs/L02.jpg" data-src="images/slides/pro02.png">
+              
+            		</div>
+            		<div data-thumb="images/slides/thumbs/L03.jpg" data-src="images/slides/pro03.png">
+               
+            		</div>
+
+        		</div><!-- #camera_wrap_2 -->
+
+
+   		 	</div><!-- .fluid_container -->
+        <!--<div class="proDisplay">
+        	<div class="preBnt"></div>
+            <div class="view">	
+                <div class="proshow">
+            		<div class="pro">1</div>
+                	<div class="pro">2</div>
+                	<div class="pro">3</div>
+            	</div>
+            </div>
+            <div class="nextBnt"></div>
+        </div>-->
+    </div>
+    <div id="help">
+    	<div class="Ltitle">■&nbsp;技术支持</div>
+        <div id="help-cont">
+        	<div id="help-icon">
+           		<ul>
+                	<li class="ico ico_a"><h4>使用说明</h4></li>
+                    <li class="ico ico_b"><h4>投诉建议</h4></li>
+                    <li class="ico ico_c"><h4>常见问题</h4></li>
+                    <li class="ico ico_d"><h4>方为检验</h4></li>
+                    <li class="ico ico_e"><h4>联系我们</h4></li>
+                    <li class="ico ico_f"><h4>下载中心</h4></li>
+                </ul>
+            </div>
+            <div id="help-lan">
+				<ul>
+                	<li>常见问题</li>
+                    <li><a>1.未付款的订单会保存多久？</a></li>
+                    <li><a>1.未付款的订单会保存多久？</a></li>
+                    <li><a>1.未付款的订单会保存多久？</a></li>
+                    <li><a>1.未付款的订单会保存多久？</a></li>
+                    <li><a>1.未付款的订单会保存多久？</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+    	<h4><a href="#nav">关于我们</a>|<a>技术支持</a>|<a>招聘信息</a>|<a>联系我们</a></h4>
+        <h5>成都灰度科技有限公司</h5>
+        <h5><img src="images/pic.gif" /></h5>
+    </div>
+</body> 
+</html>

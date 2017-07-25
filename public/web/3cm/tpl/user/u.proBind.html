@@ -1,0 +1,31 @@
+<div ms-controller="c_proBind">
+    <div class="addBox ico_add" ms-click="fnAddBox">
+        <div class="addText">点击添加我的产品 查看服务一键搞定</div>
+    </div>
+    <div class="othPage" ms-include-src="'tpl/addPro.html'" ms-class="active:flexModel">
+    </div>
+    <div ms-repeat="uModel.pInfo" class="iBoxForm">
+        <dl>
+            <dt>产品品牌</dt>
+            <dd>{{el.brand}}</dd>
+            <dt>产品型号</dt>
+            <dd>{{el.pName}}</dd>
+            <dt>保修截止</dt>
+            <dd>{{el.active}}</dd>
+            <dt>售卖商家</dt>
+            <dd><a ms-href="#!/shop?sId={{el.sId}}">{{el.buyShop}}</a></dd>
+        </dl>
+        <div ms-include-src="'tpl/addAppoint.html'" ms-visible="addApp===0"></div>
+        <div ms-visible="addApp!==0">
+            <a class="bntCir left" ms-href="#!/proInfo?pId={{el.pId}}" style="background-image: url(./images/more.png)"><span>本地相关</span></a>
+            <a class="bntCir" ms-href="tel:{{el.sTel}}"  style="background-image: url(./images/sw03.png)"><span>咨询卖家</span></a>
+            <a class="bntCir col right" ms-click="fnEditBox(el)" style="background-image: url(./images/edit.png)"><span>修改资料</span></a>
+        </div>
+    </div>
+    <div class="placeholdFooter"></div>
+    <!--<footer>-->
+        <!--<a href="#!/">首页</a>-->
+        <!--<a href="#!/ad">热门</a>-->
+        <!--<a href="#!/ad">分类</a>-->
+    <!--</footer>-->
+</div>

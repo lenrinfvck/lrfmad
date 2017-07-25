@@ -1,0 +1,225 @@
+【1】[/]index	(p1-1)
+	[接口及json]
+		1.首页加载时的热门关键字获取
+			/index		//首页加载时的相关信息
+				-method: get
+				-data:	?	//可能是微信获取用户数据
+				-json:{
+					uImg:"用户头像图片地址",
+					aLink:[
+						{text:"显示信息",linkType:"shop/pro/search/other",value:"用于跳转的数据"},
+						{text...}
+					]
+				}
+				//linkType定义
+					shop	- value="商家编号"
+					pro 	- value="产品名称"
+					search	- value="搜索关键词"
+					other	预留
+		2.辅助输入
+			/inputAjax	//搜索框输入时，返回结果
+				-method: get
+				-data:{str:"输入信息"}
+				-json:[返回信息1，返回信息2]
+		3.主页搜索输入
+			/search(【2】/res/中使用)		//根据关键字，所需类型返回收索结果json
+			//将收索结果存入url，并跳转链接,以变刷新或分享搜索结果
+		
+		//附：微信授权获取的用户数据格式(不确定) [详见 http://mp.weixin.qq.com/wiki/17/c0f37d5704f0b64713d5d2c37b468d75.html]
+			{
+				"openid":" OPENID",
+				"nickname": NICKNAME,
+				"sex":"1",		//用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
+				"province":"PROVINCE"
+				"city":"CITY",
+				"country":"COUNTRY",
+				"headimgurl":    "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/46", 
+				"privilege":[
+					"PRIVILEGE1"
+					"PRIVILEGE2"
+				]
+				"unionid": "o6_bmasdasdsad6_2sgVt7hMZOPfL"
+			}
+【2】[/res/str&type]res	(p2-1)
+	[接口及json]
+		1.搜索输入
+			/search		//根据关键字，所需类型返回收索结果json
+			-method: get
+			-data:{str:"搜索字符串",type:"所需类型(0无类型/1产品全类/2直营店结果/3本地经商结果/4客服中心/5保外维修/6配件销售商)"}
+			-json[
+				{sId:"店铺编号",sName:"店名",pos:"地址",tel:"电话",service:["经营范围01","经营范围02"]},zan:"点赞人数",save:"收藏数"},
+				{sId...}
+			]
+
+【3】[/s/sId]shop	 (p8)
+	[接口及json]
+		1.加载时
+			/shopInfo
+			-method: get
+			-data:{sId:"店铺编号"}
+			-json{
+				uType:"0(未登陆000)/ 1(未收藏该店,未赞,已登录001)/ 3(未收藏,已赞,登陆011)/ 5(已搜藏,未赞,登陆101)/ 7(全111)"
+				sName:"店名",
+				sBanner:['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg'],
+				sInfo:{
+					zan:"点赞数",
+					pos:"地址",
+					tel:"电话",
+					save:"收藏数",
+					rz:"t/f认证"
+				}		//商户详细信息，如地址，电话
+				pro:[{pId:"产品编号",pName:"产品名称",price:"产品价格",info:"附加信息"},{...}]
+			}
+		2.点击收藏/赞
+			/save	//session判断用户是否登陆，再接收信息
+			-method: post
+			-data:{sId:商户ID}		//接收数据后收藏或取消收藏该商户
+			-json{
+				res:true/false		//返回是否成功修改
+			}
+			/zan
+			-method: post
+			-data:{sId:商户ID}		//接收数据后收藏或取消收藏该商户
+			-json{
+				res:true/false		//返回是否成功修改
+			}
+
+【4】[/p/pId]proInfo (p4)
+	[接口及json]
+		1.tab3产品信息
+			/protab3
+			-method: get
+			-data:	{pId:"产品编号"}
+			-json{
+				type:"0(未登陆)/1(未收藏)/2(已收藏)",
+				pName:"产品名称(型号)",
+				localRes:"本地相关数",
+				save:"收藏数",
+				pInfo:[{key:"属性标题",val:"属性值"},{}]	//产品的所有参数，默认产品品牌，产品型号在前				
+			}
+		2.tab2本地活动
+			/protab2
+			-method: get
+			-data: {pId:"产品编号"}
+			-json{
+				type:"0(未登陆)/1(未关注)/2(已关注)",
+				pName:"产品名称(型号)",
+				localAd[
+					{sId:"店铺编号",sName:"店名",pos:"地址",tel:"电话",service:["经营范围01","经营范围02"]},zan:"点赞人数",price:"产品报价"
+					{sId...}
+				]
+			}
+		3.关注产品
+			/addPro	//session判断用户是否登陆，再接收信息	
+			-method: post
+			-data:{pId:产品编号}		//接收数据后收藏或取消收藏该商户
+			-json{
+				res:true/false		//返回是否成功修改
+			}
+【5】[/ad/type]ad	(p1-2)
+	[接口及json]
+		1.加载时
+			/hot	//热门新品
+			-method: get
+			-data:	{type:"产品类型(手机/电脑/相机)"}
+			-json[
+				{adId:"信息id", title:"标题",img:"信息配图" info:"备注", str:"跳转用关键字(暂)"}，
+				{adId...}
+			]
+【6】[/u/uid]user	(p3-1)
+	[接口及json]
+		1.加载时
+			/user	//用户基本信息
+			-method: post
+			-data:	{uId:"用户id", uPro:"设备名称"}	//校验uId是否登陆状态，uPro存在则返回相应设备信息，无则添加
+			-json{
+				uImg:"用户头像",
+				uName:"用户昵称",
+				uPersent:"用户资料完成度",
+				pInfo:[{key:"键", val:"值||未知"},{}]	//[产品品牌，产品型号，激活时间]
+			}
+		2.收藏的店
+			/collect/shop/
+			-method: post
+			-data:{}
+			-json[
+				{sId:"店铺编号",sName:"店名",pos:"地址",tel:"电话",service:["经营范围01","经营范围02"],zan:"点赞人数",save:"收藏数"}
+				{sId...}
+			]
+		3.收藏的产品
+			/collect/pro/
+			-method: post
+			-data:{}
+			-json[
+				{pId:"产品编号",pName:"产品名称",localRes:"本地相关数",save:"收藏数",},
+				{...}
+			]
+			/collect/delPro	取消收藏
+			-method: post
+			-data:{pId:"产品编号"}
+			-json{res:"t/f操作是否成功"}
+			
+		4.我的预约【】
+		5.产品信息【8】proBind
+
+【7】[/u/uid/uEdit]userInfo	(p5)
+		[接口及json]
+		1.加载时/提交时
+			/user/edit
+			-method: post
+			-data:{uId:"用户id", type:"get/set"}		//onload时请求get，获得用户当前设置。	set请求时，为修改设置。
+			-json{
+				Name:"姓名", fBirth:"生日", tel:"电话", email:"邮箱", weibo:"微博", qq:"QQ", check:false
+			}
+
+【8】[/u/proBind]proBind	(p3)			
+		[接口及json]
+			1.加载时
+				/user/proBind
+				-method: post
+				-data:{uId:"用户id"}		//
+				-json[
+					{brand:"产品品牌"，pName:"产品型号"，dateBuy:"购买时间"，dateKeep:"保修截止"，shop:"售卖商家"，hasApp:"true/false是否有预约"},
+					{...}
+				]
+			2.添加产品
+				/user/addPro
+				-method: post
+				-data:{brand:"产品品牌"，pName:"产品型号"，dateBuy:"购买时间"，dateKeep:"保修截止"，shop:"售卖商家"}		//登陆状态
+				-json{res: true/false}	//添加是否成功
+			3.修改产品信息
+				/user/editPro
+				-method: post
+				-data:{brand:"产品品牌"，pName:"产品型号(*key)", dateBuy:"购买时间", dateKeep:"保修截止", shop:"售卖商家"}
+				-json:{res: true/false}
+			4.我要预约
+				/user/addApp
+				-method: post
+				-data:{aShop:"预约商家"，pName:"产品型号(*key)", aDate:"日期", aTime:"预约时间段", aInfo:"故障描述"}
+				-json:{res: true/false}
+
+【9】[/appList]	(p7)
+		[接口及json]
+			1.加载时
+				/appList
+				-method: post
+				-data:{}		//
+				-json[{aId:"预约编号",aShop:"预约商家名称",sId:"商户id", isSave:"是否收藏该店",tel:"商户电话", pName:"产品型号",aDate:"日期",aTime:"预约时间段"}]
+			2.收藏商家  【3-2】
+			3.取消预约
+				/delApp
+				-method: post
+				-data:{aId:"预约编号"}		//
+				-json{res:true/false}
+			
+【10】[/iphSet]
+		[接口及json]
+			1.查询串号
+				/appList
+				-method: post
+				-data:{str:"串号"}		//
+				-json[{key:"键",val:"值"},{...}]
+		
+		
+		
+		

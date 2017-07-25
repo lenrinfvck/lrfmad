@@ -1,0 +1,52 @@
+body{font-family: '微软雅黑';color: #c9c9ca;}
+.nav{box-shadow: none;}
+.nav a:visited{color: #fff;}
+.nav a:hover{color: #00BCF9;}
+.nav a:link{color: #fff;}
+.logBox{text-align: center}
+.logBox img{margin: 70px auto; margin-top: 110px;}
+.logBox form{width: 500px;height: 165px;margin: 0 auto;}
+.logBox input,.logBnt{width: 500px;height: 55px;font-size: 24px;border-left: 1px solid #c9c9ca;border-right: 1px solid #c9c9ca;display: block;}
+.logBox input{text-indent: 20px;}
+.firList{border-radius: 10px 10px 0 0;border: 1px solid #c9c9ca;}
+.enList{border-radius: 0 0 10px 10px;border: 1px solid #c9c9ca;}
+.logBnt{text-align: center;line-height: 55px;font-size: 20px;letter-spacing: 1em;background: #c9c9ca;cursor: pointer;margin-bottom: 20px;color: #fff;}
+.logBnt:hover{background: #00BCF9; }
+#cookieCheck{display: inline-block;width: auto;height: auto;}
+label{margin-left: 10px;}
+.logFoot{text-align: center}
+.logFoot h3{visibility: hidden;font-size: 20px;color: #00BCF9;font-weight: normal;border-bottom:1px solid #c9c9ca;margin-top: 100px;padding: 10px;}
+.logFoot ul{visibility: hidden;width: 580px;height: auto;text-align: center;margin: 0 auto;}
+.logFoot li{display: inline-block;width: 100px;height: 100px;border-radius: 50px;background: #c9c9ca center no-repeat;margin: 40px;text-align: center;line-height: 100px;}
+.logFoot li:hover{background-color:#00BCF9 ;}
+.logFoot img{vertical-align: middle;}
+.logFoot a{color: #c9c9ca;padding: 10px;}
+.logFoot a:hover{color: #00BCF9;}
+
+input{border: none;outline: none;}
+::-webkit-input-placeholder {  /*WebKit browsers*/
+    color: #D8D8D8;font-family: '微软雅黑';
+}
+:-moz-placeholder {  /*Mozilla Firefox 4 to 18*/
+    color: #D8D8D8;font-family: '微软雅黑';
+}
+::-moz-placeholder {  /*Mozilla Firefox 19+*/
+    color: #D8D8D8;font-family: '微软雅黑';
+}
+:-ms-input-placeholder {  /*Internet Explorer 10+*/
+    color: #D8D8D8;font-family: '微软雅黑';
+}
+
+.passCon{width: 100%; height: 550px;border-bottom: 1px solid #c9c9ca;margin-top: 40px;}
+.passImg{text-align: center;height:600px;line-height:600px;float: left}
+.passImg img{vertical-align: middle;margin-left: 30px;}
+.passForm{float: right;margin-right: 25px;margin-top: 90px;}
+.passForm input{border: 1px solid #00BCF9;width: 500px;height: 64px; margin: 5px;text-indent: 1em;}
+.passForm input,.passForm label{display: block;font-size: 18px; color: #c9c9ca;}
+.passForm input{font-size: 20px;border-radius: 5px;}
+.passForm label{margin-left: 5px;}
+input.mailCheck{width: 320px;display: inline-block;border-radius: 5px 0 0 5px}
+.mailCheckBnt{width: 175px;height: 64px; display: inline-block;background: #f08300;border-radius: 0 5px 5px 0;text-align: center;line-height: 64px;font-size: 20px;color: #fff;border: 1px solid #f08300;cursor: default}
+.mailCheckBnt:hover{background: #f4d31b;border: #f4d31b;}
+.passBnt{width: 500px;height: 64px;text-align: center;line-height: 64px;border-radius: 5px;background:#c9c9ca;position: relative;top: 110px;color: #fff; font-size: 20px;cursor: default;margin: 5px;border: 1px solid #C9C9CA;}
+.passBnt:hover{background:#00BCF9;border-color: #00BCF9;}

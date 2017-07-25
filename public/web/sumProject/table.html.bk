@@ -1,0 +1,177 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="table.css" />
+    <script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript">
+        function changecolor(event) {
+            var target = event.target;
+            switch (target.id) {
+                case 'c1': document.body.style.backgroundColor = "#08A7CF"; break;
+                case 'c2': document.body.style.backgroundColor = "#FCC"; break;
+                case 'c3': document.body.style.backgroundColor = "#000"; break;
+                case 'c4': document.body.style.backgroundColor = "#123"; break;
+            }
+        }
+  		function getParameter(param)
+  		{
+    		var query = window.location.search;
+     		var iLen = param.length;
+     		var iStart = query.indexOf(param);
+      		if (iStart == -1)
+        	return "";
+     		iStart += iLen + 1;
+     		var iEnd = query.indexOf("&", iStart);
+     		if (iEnd == -1)
+        	return query.substring(iStart); 
+    		return query.substring(iStart, iEnd);
+		 }
+		function time(){
+			var time=new Date();		
+			var seven=time.getDay();
+			var prseven;
+			switch(seven){
+				case 1: prseven='Monday';break;
+				case 2: prseven='Tuesday';break;
+				case 3: prseven='Wednesday';break;
+				case 4: prseven='Thursday';break;
+				case 5: prseven='Friday';break;
+				case 6: prseven='Saturday';break;
+				case 0: prseven='Sunday';break;
+			}
+			document.getElementById("timeex").innerHTML= time.getFullYear()+'-'+ (time.getMonth()+1) +'-'+  time.getDate() +' '+ prseven;
+			var name = decodeURIComponent(getParameter("username"));
+
+			var text=document.getElementsByClassName("nametext");
+			for(i=0;i<text.length;i++){
+				text.item(i).innerHTML=name;
+			}
+		}
+    </script>
+    <title>table</title>
+</head>
+<body onload="time()">
+    <form method="post" action="monitor.aspx?username=safaride&amp;statu=9D4421AE0CAEA54C420E3AB42A8EAAD8" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="D7D3XfyL4P1+pjbG/2wt3kmQyihgOe7sCtbNfdCpAmjt6mG5wLkjtSU/y744u3THRQ9BAti45EfNera+NhH419vBJTRsVHId6rJItPUz14OPsljix/7Pu2FMN4rd0JgWu21zHm6bFEmAkYupSsQ2MmlB26RzHyy0nCIxrcZpWcopyMClVEKKNr6i/051k/qEB1+niG2D2+Jbq5jbLSeT/36BDvu0/jcturNkh1SSfCv5xqoz9txocP7rZFbHFi+lXpbIjNP+b+YjHsG6Rvt3IG2pmS2DUjiFccCm1Qh8PpSm0D9FJPZ83ccgU77pf965kCmUxWQGftKTTLYtJSm1mNKgnqgicptEj2IXuSeELiOQnUAuNsJosWH7vAa0YZ/X9931lDTKwAG6zu8ujdyG/od4kxWuyu1+p/rPHzcJ8hmRQ46+h+gFHnej/el9M+X9jwxko9lcruov4z08vR1JwSK81C4q27glsCDq2LO1FzPJvnxm2ln4fXRF1zvmJHSmRGpK8qkPtqlkC4pzjCXikJjpnyqQ55I4E1fY2OvpwMrN4GXtuzuAZuOhzqNWvqQKF6hf12rTj40KrS4l1XQPvBKdzdWX/LYWlmhYI+jmX6sei4cB3iFOX+tZlpidC9hIjuS6wJDMO/6bLcN16kHEVIwLwPv9Stntum8VTvuRg/iPcQUiJaDo/dPIKgN8/2Pr4vJfhfja8uSiCxu+pOxj4g==" />
+</div>
+	<div id="head">
+    	<div id="userinfo">
+        	<div><img class="infoimg" src="image/user.png" /><label  class="nametext"></label><label id="timeex"></label></div>
+        	<div id="usertable"><img src="image/user.jpg" /><label class="usertableText nametext"></label><label>物联网工程实践</label></div>
+        </div>
+        	
+    </div>
+        <div id="cont">
+            <ul id="tab">
+                <li>
+                    <div id="temp">
+                        <div>
+	<table cellspacing="0" cellpadding="4" rules="all" border="1" id="Temperature" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">温度采集时间</th><th scope="col">温度传感器号</th><th scope="col">温度(℃)</th>
+		</tr><tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+	</table>
+</div>
+                    </div>
+                </li>
+                <li>
+                    <div id="light" class="tab">
+                        <div>
+	<table cellspacing="0" cellpadding="4" rules="all" border="1" id="Illumination" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">光强采集时间</th><th scope="col">光强传感器号</th><th scope="col">光强(lux)</th>
+		</tr><tr>
+			<td class="time">2014-06-23 22:34:33 </td><td class="value">D2</td><td class="value">021</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:27 </td><td class="value">D4</td><td class="value">020</td>
+		</tr>
+        <tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+        	<tr>
+			<td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr><tr>
+			<td class="time">2014-06-23 01:30:21 </td><td class="value">A3</td><td class="value">028</td>
+		</tr>
+        <td class="time">2014-06-26 22:34:31 </td><td class="value">D3</td><td class="value">031</td>
+		</tr>
+        
+	</table>
+</div>
+                    </div>
+                </li>
+            </ul>
+            <div id="input">
+                <ul id="search">
+                    <li>Form<input name="StartDate" type="text" id="StartDate" class="Wdate" onclick="WdatePicker()" /></li>
+                    <li>
+                        <div id="submit">
+                            <input type="submit" name="Searching" value="Search" id="Searching" />
+                        </div>
+                    </li>
+                    <li>To<input name="EndDate" type="text" id="EndDate" class="Wdate" onclick="WdatePicker()" /></li>
+                </ul>
+
+            </div>
+        </div>
+        <div id="color">
+            <ul onclick="changecolor(event)">
+                <li id="c1"></li>
+                <li id="c2"></li>
+                <li id="c3"></li>
+                <li id="c4"></li>
+            </ul>
+        </div>
+        <div id="foot">
+                    <p>@2014 工程实践</p>
+        </div>
+    
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="76508830" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="q37+e1g9vEHyqxKGPTDyQ8zZqGvPhnWoZBpFt5a1fXeGsXvquwCroQR1XaB/PEGkBShieN5Ewjsyowdvnb85QntcSvcLVuk+PqSI25okZuFyNYiBcRQb/aiY93uUpq4uoNmXOklxNUgdDUCmMrp2f5G7vn9tsxqtFPl8FRUOGQw=" />
+</div></form>
+
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"39296f25ed204f6fb082917a7cc8fe87"}
+</script>
+<script type="text/javascript" src="http://localhost:45588/6fc8608b454849e8967ac4ee05758b8e/browserLink" async="async"></script>
+<!-- End Browser Link -->
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+[
+{"sId":"S0001","sName":"成都美择科技有限公司","pos":"成都市A世界资讯广场","service":["苹果/三星"],"reg":true,"zan":31211,"save":1234},
+{"sId":"S0002","sName":"店名01","pos":"地址","service":["经营范围01","经营范围02"],"reg":true,"zan":31211,"save":1234},
+{"sId":"S0003","sName":"店名02","pos":"地址","service":["经营范围01","经营范围02"],"reg":false,"zan":311,"save":14},
+{"sId":"S0004","sName":"店名03","pos":"地址","service":["经营范围01","经营范围02"],"reg":false,"zan":3123121,"save":1234},
+{"sId":"S0005","sName":"店名04","pos":"地址","service":["经营范围01","经营范围02"],"reg":true,"zan":1211,"save":1234},
+{"sId":"S0006","sName":"店名05","pos":"地址","service":["经营范围01","经营范围02"],"reg":false,"zan":3211,"save":1234}
+]

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,user-scalable=0"/>
+<link href="css/jquery.mobile-1.4.4.min.css" rel="stylesheet">
+</head>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.4.min.js"></script>
+<style type="text/css">
+	html,body,ul,li{margin: 0;padding: 0;}
+	ul{list-style: none;}
+	.lgBnt{width: 80%;height: 80px;margin: 5% auto; font-size: 1.5em;line-height: 80px;}
+	form.searchBar{width: 80%;min-width: 320px; margin:20px auto 0 auto;text-align: center;}
+	    .controlgroup-textinput{
+	        padding-top:.23em;
+	        padding-bottom:.22em;
+	        width: 50%;
+        }
+        .ui-input-clear{display: none;}
+        .ui-listview > .ui-li-static{overflow: visible;white-space: normal;}
+        .ui-content{padding: 0em 1em}
+	header{font-size: 1.2em;}
+	footer{position: fixed;bottom: 0; width: 100%;display: inline-block;text-align: center;}
+	a.homeBnt{font:18px;}
+	.homeCen{position: absolute;width: 80%;height: 320px;top: 50%;left: 50%;margin: -160px auto auto -40%;}
+	.center{ margin: 0 auto ; padding-bottom:75px; }
+	
+	.mask{position: fixed;background: #000; opacity: 0.3;z-index: 998;width: 100%;height: 100%;}
+	.dialog{position: fixed;width: 60%;left: 50%;top:50%;margin: -20% 0 0 -30%;background: #fff;z-index: 999}
+	.dialog li{height: 3em;text-align: center;line-height: 3em; border-bottom:solid 1px #DDD;}
+	.dialog li:hover{background: #38C;color: #fff;}
+	.li-first-child{border-top-left-radius:5px  ;border-top-right-radius:5px;}
+	.li-last-child{border-bottom-left-radius:5px  ;border-bottom-right-radius:5px;}
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.center table tr:odd').css('background', '#eee');				//表格隔行换色
+		$('body').on('click','.dialog', function(event){					//对话框ajax
+			if(event.target.id!=="close"){
+				var Data =event.target.innerHTML.toString();
+	            console.log(Data);
+	            $.ajax({
+	                type: "GET",
+	                url: "php/select.php",
+	                cache: false,
+	                data: {select:Data},
+	                success: onSuccess,
+	                error: onError
+	            });
+			}
+			$('.mask,.dialog').fadeOut();
+		});
+		$('.searchBar').submit(function(event) {							//搜索框ajax
+            var formData = $(this).serialize();
+            $.ajax({
+                type: "GET",
+                url: "php/search.php",
+                cache: false,
+                data: formData,
+                success: onSuccess,
+                error: onError
+            });
+
+            return false;
+		});
+	});
+    function onSuccess(data, status)										//ajax返回数据操作
+    {
+        //data = $.trim(data);
+        data = JSON.parse(data);
+        if(data.type!='1'){	        
+	        $('.mask,.dialog').fadeOut();
+	        $('.center li:eq(0)').text('名称：'+data.name);
+	        $('.center li:eq(1)').text('主要用途：'+data.fn);
+	        $('.center li:eq(2)').text('ADI：'+data.ADI);
+	        $('.center li:eq(5)').text('light：'+data.way);
+	    }else{
+	    	var ul='<ul class="dialog ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true"><form>';
+	    	for(i=0;i<data.select.length;i++){
+	    		if(i==0)
+	    			ul+='<li class="li-first-child">'+data.select[i]+'</li>';
+	    		else
+	    			ul+='<li>'+data.select[i]+'</li>';
+	    	}
+	    	ul+='<li class="li-last-child" id="close">关&nbsp;&nbsp;&nbsp;闭</li>';
+	    	ul+='</form></ul>';
+	    	$('#nySearch').prepend('<div class="mask"></div>')
+	    	.prepend(ul);
+	    }
+    }
+
+    function onError(data, status)
+    {
+        console.log('gagag');
+    }       
+</script>
+<body>
+    <!-主菜单页->
+    <section data-role="page" id="home">
+    	<div class="homeCen">
+    		<a href="#nySearch" data-role="button" class="lgBnt" data-transition="slide">农药查询</a>
+    		<a href="#spSearch" data-role="button" class="lgBnt" data-transition="slide">食品查询</a>
+    	</div>
+    </section>
+    
+	<!-农药查询页->
+    <section data-role="page" id="nySearch">
+    	<header data-role="header"><h1>农药查询</h1></header>
+    	<form action="php/search.php" method="get" class="searchBar" data-role="content">
+    		<div data-role="controlgroup" data-type="horizontal">	
+    			<input type="search" class="search" name="nySearch" id="#" placeholder="请输入农药名称" data-wrapper-class="controlgroup-textinput ui-btn"/>
+    			<input type="submit" value="查询" name="submit" />
+    		</div>
+    	</form>
+    	<article class="center" data-role="content">
+    		<ul data-role="listview" data-inset="true">
+    			<li><span>4.370</span>名称(可使用0或1搜索测试demo)</li>
+    			<li><span>4.370.1</span>主要用途</li>    			
+    			<li><span>4.370.2</span>ADI</li>
+    			<li><span>4.370.3</span>残留物</li>    			
+    			<li><span>4.370.4</span>
+					<table class="nyTable">
+						<tr>
+							<th>食品类别/名称</th>
+							<th>食品分类/名称</th>
+							<th>最大残留限量(mg/kg)</th>
+						</tr>
+						<tr>
+							<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+						</tr>
+						<tr>
+							<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+						</tr>
+						<tr>
+							<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+						</tr>
+							
+					</table>
+    			</li>
+    			<li><span>4.370.5</span>检测方法：因为农药名称是模糊查询 所以当我输入的农药名称在数据库里能匹配上的次数不止一个的时候 这时候会弹出</li>
+    		</ul>
+    	</article>
+    	<!-页脚_返回主菜单->
+    	<footer>
+    		<nav data-role="navbar">
+    			<ul>
+    				<li>
+    					<a href="#home" class="homeBnt" data-icon="home" data-iconpos="bottom">主菜单</a>
+    				</li>
+    			</ul>
+    		</nav>
+    	</footer>
+    </section>
+   	<!-食品查询页->
+   	<section data-role="page" id="spSearch">
+    	<header data-role="header"><h1>食品查询</h1></header>
+    	<form action="php/search.php" method="get" class="searchBar">
+    		<div data-role="controlgroup" data-type="horizontal">	
+    			<input type="search" class="search" name="nySearch" id="#" placeholder="请输入农药名称" data-wrapper-class="controlgroup-textinput ui-btn"/>
+    			<input type="submit" value="查询" name="submit"/>
+    		</div>
+    	</form>
+    	<article class="center" data-role="content">
+			<table class="spTable"  data-role="listview" data-inset="true">
+				<tr>
+					<th>食品类别</th>
+					<th>食品分类</th>
+					<th>农药编号</th>					
+					<th>农药名称</th>
+					<th>农药英文</th>
+					<th>主要用途</th>
+					<th>ADI</th>
+					<th>残留物</th>
+					<th>最大残留限量(mg/kg)</th>
+				</tr>
+				<tr>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+				</tr>
+				<tr>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+				</tr>
+				<tr>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+					<td>蔬菜(瓜类)</td><td>黄瓜</td><td>0.5</td>
+				</tr>				
+			</table>
+    	</article>
+    	<footer>
+    		<nav data-role="navbar">
+    			<ul>
+    				<li>
+    					<a href="#home" class="homeBnt" data-icon="home" data-iconpos="bottom">主菜单</a>
+    				</li>
+    			</ul>
+    		</nav>
+    	</footer>
+    </section>
+</body>
+</html>

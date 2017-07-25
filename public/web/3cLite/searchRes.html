@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>3C帮</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/mytab.js"></script>
+    <script src="js/banner.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+    <link rel="stylesheet" href="css/dialog.css"/>
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="css/ie8.css"/>
+    <![endif]-->
+    <style>
+        .proTab{display: none;}
+        .nav{box-shadow: 0 1px 15px 1px #00A2E9;}
+        .miniZan,.miniCai{display: inline-block;font-size: 14px;margin-left: 5px;cursor: pointer;width: 75px;text-align: right;}
+        .resTitle{color: #fff;font-size: 30px;margin-right: 10px;}
+        .resNum{margin-left: 10px;}
+    </style>
+</head>
+<script>
+    $(document).ready(function() {
+        $('.resLan li').testURL('_self',true);
+        $('.slideMore').dialog($('.dialogs'));      //对话框初始化
+        $('.logo').testOpen('index.html','_self');  //logo返回首页
+        //测试链接
+        new TopBnt({top:200});
+        new HoverSlide({list:['用户中心','我的资料','退出'],link:['backAdmin/creat.html','backAdmin/creat.html','index.html'],dom:$('.login')});
+    })
+</script>
+
+<body class="index">
+<div class="nav">
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="index.html">返回首页</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--标题栏条及附加按钮-->
+    <div class="search re">
+        <div class="content">
+            <div class="brandLogo searchTitle">
+                <div><span class="resTitle">iPhone6</span> 的相关搜索结果约<span class="resNum"><span>2333</span>条</span></div>
+            </div>
+            <ul class="otherBnt">
+
+            </ul>
+        </div>
+    </div>
+    <!--下拉菜单-->
+
+<!--搜索结果-->
+<div class="pro res">
+    <!--分页标签-->
+    <div class="proTab resTab">
+        <div class="content">
+            <div class="tab active" data-tab="hSearch">本地商家信息</div>
+        </div>
+    </div>
+    <!--搜索结果1-->
+    <div class="content resUl" data-tabcon="hSearch">
+        <ul class="resLan">
+            <li data-url="shop.html">
+                <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                    <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+                </div>
+                <div class="resTel">138-8884-8333</div>
+                <div class="resLink"><a href="shop.html">&nbsp;</a></div>
+            </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店asdasaaaaaaa</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时asd代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>                <li>
+            <div class="resShop"><span class="resT">美择数码时代店</span><span class="miniZan"><span class="">352053</span>赞</span> <span class="miniCai"><span class="">352053</span>踩</span>
+                <div class="resTime"><span>苹果(Apple)/全系列/销售 三星(SAMSUNG)/全系列/销售&维修</span></div>
+            </div>
+            <div class="resTel">138-8884-8333</div>
+            <div class="resLink"><a href="">&nbsp;</a></div>
+        </li>
+            <div class="more other">
+                点击查看更多
+            </div>
+        </ul>
+    </div>
+    <!--搜索结果2-->
+</div>
+</body>
+</html>

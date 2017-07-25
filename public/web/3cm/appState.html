@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="css/siteForm.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/user.css"/>
+    <link rel="stylesheet" href="css/map.css"/>
+    <link rel="stylesheet" href="css/mobiscroll.min.css"/>
+    <title>3C帮</title>
+    <script src="js/avalon.min.js"></script>
+    <script src="js/main/main.js"></script>
+</head>
+<body>
+<div ms-controller="test">
+    <div ms-view="page"></div>
+    <div class="topBnt" ms-class-1="show:topShow" ms-click="scrollTop">TOP</div>
+    <div ms-class-1="show:shareShow" class="shareBox">
+        <div ms-visible="shareShow" class="bdsharebuttonbox">
+            <!--<a href="#" class="bds_more" data-cmd="more"></a>-->
+            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <!--<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>-->
+            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+            <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到贴吧"></a>
+            <!--<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>-->
+            <p ms-click="fnShare">返回</p>
+        </div>
+        <div class="mask" ms-if="shareShow"></div>
+        <script>
+            (function(){var url='http://m.3chelp.com'; window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"成都本地数码产品商户，来自3C帮","bdPic":"","bdUrl":url,"bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];})()        </script>
+    </div>
+</div>
+</body>
+</html>

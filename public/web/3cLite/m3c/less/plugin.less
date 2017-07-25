@@ -1,0 +1,55 @@
+@import "public";
+/* banner */
+//主体图
+.mBanner{
+  overflow: hidden;
+  .bannerUl{
+    height: 100%;
+    .transition(0s);
+    li{
+      float: left;
+      height:100%;
+      overflow: hidden;
+      background: no-repeat center;
+      background-size: auto 100%;
+      img{
+        float: none;
+      }
+    }
+  }
+}
+//圆点tab
+.bannerIndex{
+  width: auto;
+  height: 10px;
+  margin: 0 auto;
+  position: relative;
+  top: -25px;
+  text-align: center;
+  li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin:0 3px;
+    .radius(5px);
+    background: #FFF;
+    opacity: 0.4;
+    text-align: center;
+    &.active{
+      background: #00BCF9;
+      opacity: 1;
+    }
+  }
+}
+
+/* 左侧边 */
+.lSlide{
+  width: 240px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: #FFF;
+  z-index: 1000;
+  .trans3d(-240px,0,0);
+  .transition(0.3s);
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/userList.css"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/taxi.js"></script>
+    <title></title>
+    <style>
+
+    </style>
+</head>
+<script>
+    $(document).ready(function(){
+        $('.userFn').testOpen('li','_self');
+    })
+</script>
+<body>
+    <div class="content">
+        <div class="nav">
+            <ul>
+                <li style="background: url(images/userico.png) left no-repeat;"><a href="">用户中心</a></li>
+                <li style="background: url(images/setico.png) left no-repeat;"><a href="">发布线路</a></li>
+            </ul>
+            <div class="logo"><img src="images/5178logo.jpg" height="100%" alt=""/></div>
+        </div>
+        <div class="addr"><a href="index.html">首页</a>&gt;&gt;<a href="user.html">会员中心</a></div>
+        <div class="box tx1">
+            <div class="inCon">
+                <img class="userImg" src="images/userImg.jpg" alt="" width="80px" height="60px"/>
+                <div class="icoCard">驾照认证</div>
+                <div class="userInfo">
+                    <div>会员：<span>王师傅</span></div>
+                    <div>性别：<span>男</span>&nbsp;&nbsp;&nbsp;驾龄：<span>3</span>年</div>
+                </div>
+                <div class="userLink"><a href="">查看详细信息</a><a href="">编辑信息</a></div>
+            </div>
+        </div>
+        <div class="box tx3">
+                <ul class="userFn">
+                    <li data-url="mycar.html">
+                        <div style="background-image: url(images/user_car.png)">
+                            <span>我的车库</span>
+                        </div>
+                    </li>
+                    <li data-url="mypost.html">
+                        <div style="background-image: url(images/user_pos.png)">
+                            <span>我发布的路线</span>
+                        </div>
+                    </li>
+                    <li  data-url="myapply02.html">
+                        <div style="background-image: url(images/user_person1.png)">
+                            <span>我邀请的乘客</span>
+                        </div>
+                    </li>
+                    <li  data-url="myapply.html">
+                        <div style="background-image: url(images/user_person2.png)">
+                            <span>我申请的拼车</span>
+                        </div>
+                    </li>
+                    <li data-url="mymsg.html">
+                        <div style="background-image: url(images/user_msg.png)">
+                            <span class="rNum">16</span>
+                            <span>站内信</span>
+                        </div>
+                    </li>
+                    <li data-url="suggest.html">
+                        <div style="background-image: url(images/user_six.png)">
+                            <span>我提出的建议</span>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+        <div class="box padding"></div>
+        <div class="box bkBlue">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div class="r-block r-more">
+    <h5>MORE</h5>
+    <ul class="more-links">
+        {% for item in items  %}
+            {% if loop.index <= 5 %}
+            <li>
+                <a target="_blank" href="{{item.dir}}">
+                    <h4>- {{item.title}}</h4>
+                </a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

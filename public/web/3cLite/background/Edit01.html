@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/back.css"/>
+    <link rel="stylesheet" href="../plugin/upload/control/css/zyUpload.css"/>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/mytab.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../js/back.js"></script>
+    <script src="../plugin/upload/core/zyFile.js"></script>
+    <script src="../plugin/upload/control/js/zyUpload.js"></script>
+    <style>
+        .upload_box{margin: 0 auto;}
+        .add_upload{display: none;}
+        .upload_append_list{margin: 0;}
+        .uploadImg,.uploadImg img{text-indent: 0;}
+        .imgUpBox{text-indent: 0;}
+        .editBnt{float: right;color: #00BCF9;margin-right:25px;text-indent: 0;}
+        .control  ::-webkit-input-placeholder {  /*WebKit browsers*/
+            font-family: '微软雅黑';font-size: 14px;color: #E62129;
+        }
+        .control  :-moz-placeholder {  /*Mozilla Firefox 4 to 18*/
+            font-family: '微软雅黑';font-size: 14px;color: #E62129;
+        }
+        .control  ::-moz-placeholder {  /*Mozilla Firefox 19+*/
+            font-family: '微软雅黑';font-size: 14px;color: #E62129;
+        }
+        .control :-ms-input-placeholder {  /*Internet Explorer 10+*/
+            font-family: '微软雅黑';font-size: 14px;color: #E62129;
+        }
+        .control{padding-left:0;}
+    </style>
+    <title></title>
+
+</head>
+<script>
+    $(document).ready(function() {
+        animeShowInit();
+        playInit(5,3000);
+        //navScroll();
+        aTabsInit();
+
+        $('.upBnt').imgUp($('#img'),$('.imgUpBox > div'));
+        $('.inTable').on('click','.removeAdd',function(){
+            $(this).parent().remove();
+        });
+        $('.inTable').on('click','.add',function(){
+            var html ='<tr>';
+               html +='<td>';
+               html +='<select>';
+               html +='<option value="1">苹果</option>';
+               html +='<option value="2">三星</option>';
+               html +='</select>';
+               html +='</td>';
+               html +='<td>';
+               html +='<select>';
+               html +='<option value="1">销售&维修</option>';
+               html +='<option value="2">维修&售后</option>';
+               html +='</select>';
+               html +='</td>';
+               html +='<td>';
+               html +='<select>';
+               html +='<option value="1">全系列</option>';
+               html +='<option value="2">部分系列</option>';
+               html +='</select>';
+               html +='</td>';
+               html +='<td class="removeAdd">删除</td>';
+               html +='</tr>';
+            $(this).parent().parent().append(html);
+        });
+
+        $("#baseImg").zyUpload({
+            width            :   "640px",                 // 宽度
+            height           :   "520px",                 // 宽度
+            itemWidth        :   "640px",                 // 文件项的宽度
+            itemHeight       :   "480px",                 // 文件项的高度
+            url              :   "/upload/UploadAction",  // 上传文件的路径
+            multiple         :   false,                    // 是否可以多个文件上传
+            dragDrop         :   false,                    // 是否可以拖动上传文件
+            del              :   true,                    // 是否可以删除文件
+            finishDel        :   false,  				  // 是否在上传文件完成后删除预览
+            /* 外部获得的回调接口 */
+            onSelect: function(files, allFiles){                    // 选择文件的回调方法
+                console.info("当前选择了以下文件：");
+                console.info(files);
+                console.info("之前没上传的文件：");
+                console.info(allFiles);
+            },
+            onDelete: function(file, surplusFiles){                     // 删除一个文件的回调方法
+                console.info("当前删除了此文件：");
+                console.info(file);
+                console.info("当前剩余的文件：");
+                console.info(surplusFiles);
+            },
+            onSuccess: function(file){                    // 文件上传成功的回调方法
+                console.info("此文件上传成功：");
+                console.info(file);
+            },
+            onFailure: function(file){                    // 文件上传失败的回调方法
+                console.info("此文件上传失败：");
+                console.info(file);
+            },
+            onComplete: function(responseInfo){           // 上传完成的回调方法
+                console.info("文件上传完成");
+                console.info(responseInfo);
+            }
+        });
+
+    });
+
+</script>
+<body class="index back">
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="../images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="../index.html">返回首页</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="banner">
+
+</div>
+<div class="content formCon">
+    <!--<div class="userImg">-->
+    <!--<ul class="topTap">-->
+    <!--<li class="">基本资料</li>-->
+    <!--<li class="">我的积分</li>-->
+    <!--<li class="">我关注的</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+
+    <div class="userImg">
+        <div class="userImgBox">
+            <img src="../images/user_img.png" width="160px;" style="border-radius:60px;background: #fff; " alt=""/>
+            <div><span class="uId">u12345</span><br/><span class="uInfo">这个人很懒，什么也没写，个人简介个人简介个人简介个人简介</span>
+
+
+        </div>
+    </div>
+    <ul class="topTap">
+        <li class="active"><a href="back01.html">基本资料</a></li>
+        <li class=""><a href="back02.html">完善资料</a></li>
+        <li class=""><a href="Edit03.html">密码修改</a></li>
+        <!--<li class=""><a href="Edit04.html">促销发布</a></li>-->
+        <!--<li class=""><a href="Edit05.html">促销管理</a></li>-->
+    </ul>
+    <div class="control">
+        <form action="" method="post" data-tabcon="baseInfo" class="active">
+            <table class="inBorder" cellspacing="0" cellpadding="0">
+                <tr class="first"><th>所属区域</th><td><a class="editBnt" href="back01.html">取消修改</a><input type="text" value="四川成都" readonly="readonly"/></td></tr>
+                <tr class="first"><th>商户编号</th><td><input type="text" value="S002810008" readonly="readonly"/></td></tr>
+                <tr><th>商户商号</th><td><input type="text" value="成都美择科技有限公司"/></td></tr>
+                <tr><th>店铺地址</th><td><input type="text" value="成都一环路南二段17号数码广场3F327" /></td></tr>
+                <tr><th>联系电话</th><td><input type="text" value="028-88210126" /></td></tr>
+                <tr><th>主要产品</th>
+                    <td>
+                        <table class="inTable">
+                            <tr><td>品牌范围</td><td>经营性质</td><td>经营范围</td><td class="add" data-select="a">添加</td></tr>
+                            <tr>
+                                <td>
+                                    <select>
+                                    <option value="1">苹果</option>
+                                    <option value="2">三星</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select>
+                                    <option value="1">销售&维修</option>
+                                    <option value="2">维修&售后</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select>
+                                        <option value="1">全系列</option>
+                                        <option value="2">部分系列</option>
+                                    </select>
+                                </td>
+                                <td class="removeAdd">删除</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <select>
+                                    <option value="1">苹果</option>
+                                    <option value="2">三星</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select>
+                                    <option value="1">销售&维修</option>
+                                    <option value="2">维修&售后</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select>
+                                        <option value="1">全系列</option>
+                                        <option value="2">部分系列</option>
+                                    </select>
+                                </td>
+                                <td class="removeAdd">删除</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="imgUp">
+                    <th>营业执照</th>
+                    <td><span><span class="tRed">*</span>上传营业执照，加v认证后，有利于排名靠前</span></td>
+
+                </tr>
+                <tr class="first">
+                    <td colspan="2">
+                        <div class="imgUpBox">
+                            <h4>仅支持JPG/JPEG/PNG格式色彩模式为RGB的文件，最佳分辨率 640x480像素</h4>
+                            <div class="imgBox" id="baseImg">
+                                <!--<input id="img" type="file"/>-->
+                                <!--<div class="upBnt">本地上传</div>-->
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="first"><td colspan="2" class="submit"><div>确认修改</div></td></tr>
+            </table>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

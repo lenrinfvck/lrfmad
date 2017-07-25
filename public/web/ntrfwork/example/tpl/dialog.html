@@ -1,0 +1,30 @@
+<header class="nm_header">弹窗</header>
+<div class="nm_notfoot">
+    <p class="demo_th">使用原生弹窗(<i>alert/prompt/confirm</i>)</p>
+    <ul class="demo_viewcon" style="line-height: 3.5rem;padding: 0 1rem;text-align: center">
+        <li><div class="nm_b2 b_blue" onclick="alert('弹窗')">普通 alert</div></li>
+        <li><div class="nm_b2 b_blue" onclick="(function() {
+            var name = prompt('请输入您的名字', ''); //将输入的内容赋给变量 name ，
+            //这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值
+            if (name)//如果返回的有内容
+            {
+                alert('欢迎您：' + name)
+            }
+            })()  ">
+            输入 prompt</div>
+        </li>
+        <li><div class="nm_b2 b_blue" onclick="(function(){
+        //利用对话框返回的值 （true 或者 false）
+            if (confirm('吃饭了吗？')) {
+                alert('吃撑了吧');
+            }
+            else {
+                alert('快去吃啊');
+            }
+            })() ">
+            可选确定取消 confirm</div>
+        </li>
+
+    </ul>
+    <hr class="demo_hr" />
+</div>

@@ -1,0 +1,66 @@
+@import "public";
+@import (less)"reset.css";
+
+
+html{max-width: 640px;margin: 0 auto;}
+.tBlue{
+  color: @mBlue;
+}
+a:link, a:visited, a:active{
+  color: inherit
+}
+/* 滚动后index头部 */
+header{
+  display: none;
+  width: 100%;
+  height: 40px;
+  min-width: 320px;
+  position: fixed;
+  background: @mBlue;
+  border-bottom: 1px solid @mWhite;
+  line-height: 40px;
+  z-index: 999;
+  input{
+    width: 60%;
+    height: 24px;
+    color: @mWhite;
+    line-height: 24px;
+    display: block;
+    margin: 8px auto;
+    background: url(../images/searchBgW.png) no-repeat 95% #0092C2;
+    border: 0;
+    .nFn(m);
+    text-indent: 1rem;
+  }
+}
+.left,.right{
+  width: 15%;
+  height: 100%;
+  float: left;
+  .nBg("../images/topMenuBnt.png",right);
+}
+.right{
+  float: right;
+  .nBg("../images/user_small01.png",left);
+}
+.top{
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+  .nBg("../images/top.png");
+  z-index: 1000;
+}
+.box{
+  width: 100%;
+  height: 160px;
+  min-width: 320px;
+  margin-top: 10px;
+  background: @mWhite;
+  border-bottom: 1px solid #C6C6C6;
+  &.null{background: none;border: 0;height: auto;padding-bottom: 10px;}
+  &.hauto{height: auto;}
+}
+

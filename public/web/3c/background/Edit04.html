@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/back.css"/>
+    <link rel="stylesheet" href="../plugin/upload/control/css/zyUpload.css"/>
+    <link rel="stylesheet" href="../css/dialog.css"/>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/mytab.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../plugin/My97DatePicker/WdatePicker.js"></script>
+    <script src="../plugin/upload/core/zyFile.js"></script>
+    <script src="../plugin/upload/control/js/zyUpload.js"></script>
+    <script src="../js/back.js"></script>
+    <style>
+        .upload_box{margin: 0 auto;}
+        .add_upload{display: none;}
+        .upload_append_list{margin: 0;}
+        .uploadImg,.uploadImg img{text-indent: 0;}
+        .imgUpBox{text-indent: 0;}
+        .editBnt{float: right;color: #00BCF9;margin-right:25px;text-indent: 0;}
+        .control{padding-left:80px;}
+        .control.edit4 span{margin: 0 5px 0 0;width: 30px;}
+        .control.edit4 input.sIn{width: 80px;}
+    </style>
+    <title></title>
+
+</head>
+<script>
+    $(document).ready(function() {
+        animeShowInit();
+        playInit(5,3000);
+        //navScroll();
+        aTabsInit();
+        $('.upBnt').imgUp($('#img'),$('.imgUpBox > div'));
+    })
+
+</script>
+<body class="index back">
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="../images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="../index.html">无价之宝</a><a href="../index_brand.html">品牌体验店</a><a href="../index_shop.html">优选商户</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="banner">
+
+</div>
+<div class="content formCon">
+    <!--<div class="userImg">-->
+    <!--<ul class="topTap">-->
+    <!--<li class="">基本资料</li>-->
+    <!--<li class="">我的积分</li>-->
+    <!--<li class="">我关注的</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+
+    <div class="userImg">
+        <div class="userImgBox">
+            <img src="../images/user_img.png" width="160px;" style="border-radius:60px;background: #fff; " alt=""/>
+            <div><span class="uId">u12345</span><br/><span class="uInfo">这个人很懒，什么也没写，个人简介个人简介个人简介个人简介</span>
+                <ul class="bList">
+                    <li style="background-image: url(../images/bAu.png)">15</li>
+                    <li style="background-image: url(../images/bAg.png)">150</li>
+                    <li style="background-image: url(../images/bGu.png)">1500</li>
+                </ul></div>
+
+        </div>
+    </div>
+    <ul class="topTap">
+        <li class=""><a href="back01.html">基本资料</a></li>
+        <li class=""><a href="back02.html">完善资料</a></li>
+        <li class=""><a href="Edit03.html">密码修改</a></li>
+        <li class="active"><a href="Edit04.html">促销发布</a></li>
+        <li class=""><a href="Edit05.html">促销管理</a></li>
+    </ul>
+    <div class="control edit4">
+        <form class="active" action="" method="post" data-tabcon="allInfo" name="cxmsg">
+            <table class="inBorder" cellspacing="0" cellpadding="0">
+                <tr class="first"><th>品牌型号</th><td><input type="text" name="proid" value=""/></td></tr>
+                <tr><th>促销价格</th><td><input class="sIn" type="text" name="price" value="" />元</td></tr>
+                <tr><th>抵用帮币</th><td><span class="bAu"></span><input class="sIn" type="text"  placeholder="0"/>(每一金币抵用1元)</td></tr>
+                <tr><th>关注发放</th><td>
+                    <ul class="othInput bInput">
+                        <li><span class="bAu"></span><input class="sIn" type="text"  placeholder="0"/></li>
+                        <li><span class="bAg"></span><input class="sIn" type="text"  placeholder="0"/></li>
+                        <li><span class="bCu"></span><input class="sIn" type="text"  placeholder="0"/></li>
+                    </ul>
+                </td>
+                <tr>
+                    <th>截止时间</th>
+                    <td><input name="date" type="text" id="StartDate" class="Wdate" onclick="WdatePicker()" /></td>
+                </tr>
+
+                <tr><td colspan="2" class="submit" ><div class="diaBnt" data-dialog="view">发布预览</div></td></tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class="dialogs">
+    <div class="dialog diaForm"  data-dialog="view">
+        <h4>发布预览</h4>
+        <div class="diaCon noedit">
+            <div class="diaImgLan">
+                <ul class="imgList">
+                    <li><img src="../images/slidePhoto/iPhone6-1.jpg" width="100%" alt=""/></li>
+                    <li><img src="../images/slidePhoto/iPhone6-2.jpg" width="100%" alt=""/></li>
+                    <li><img src="../images/slidePhoto/iPhone6-3.jpg" width="100%" alt=""/></li>
+                    <li><img src="../images/slidePhoto/iPhone6-4.jpg" width="100%" alt=""/></li>
+                    <li><img src="../images/slidePhoto/iPhone6-5.jpg" width="100%" alt=""/></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

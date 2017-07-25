@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>3C帮</title>
+
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+    <link rel="stylesheet" href="css/dialog.css"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/mytab.js"></script>
+    <script src="js/banner.js"></script>
+    <!--[if IE 8]>
+        <link rel="stylesheet" href="css/ie8.css"/>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<script>
+    $(document).ready(function() {
+        //navScroll();
+        $('.foot').diaAjax();
+        $('.tabHelp').scroTrans($('.footHelp'),700);
+        /*测试用链接跳转*/
+        $('.hBrand .proBox').testOpen('brand.html','_blank');
+        $('.hSearch .proBox').testOpen('searchRes.html','_self');
+        $('.submit').testOpen('searchRes.html','_self');
+        $('.login').testOpen('login.html','_self');
+        $('.proBox a').click(function(e){e.stopPropagation();}); //禁用冒泡
+        //banner图
+        new Banner({dom:$('.banner'),list:['images/banner/banner01.jpg','images/banner/banner02.jpg','images/banner/banner03.jpg','images/banner/banner04.jpg','images/banner/banner05.jpg']});
+        new TopBnt({top:200,with:50,height:50});
+        //$('.navL a').click(function(e){e.preventDefault();});
+    })
+</script>
+<body class="index">
+<!--导航-->
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="index.html" class="active">无价之宝</a><a href="index_brand.html">品牌体验店</a><a href="index_shop.html">优选商家</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--轮播banner-->
+<div class="banner">
+</div>
+<!--商品展示-->
+<div class="pro">
+    <!--分页标签-->
+    <div class="proTab">
+        <div class="content">
+            <div class="tab active" data-tab="hCX">帮币兑换 <a><span class="tabHelp">如何获得帮币</span></a></div>
+            <!--<div class="tab" data-tab="hBrand">品牌体验店</div>-->
+            <!--<div class="tab" data-tab="hSearch">优选商户推荐</div>-->
+        </div>
+    </div>
+    <div class="proCon hCX active" data-tabcon="hCX">
+        <div class="content proWrap">
+            <div class="proBoxCon">
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro01.png" alt=""/></div>
+                    <div class="proText">
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro02.png" alt=""/></div>
+                    <div class="proText">
+
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro03.png" alt=""/></div>
+                    <div class="proText">
+
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro04.png" alt=""/></div>
+                    <div class="proText">
+
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro05.png" alt=""/></div>
+                    <div class="proText">
+
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro06.png" alt=""/></div>
+                    <div class="proText">
+
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro04.png" alt=""/></div>
+                    <div class="proText">
+
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro05.png" alt=""/></div>
+                    <div class="proText">
+
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="proBox">
+                    <h3>iPhone6</h3>
+                    <div class="proImg"><img src="images/pro/pro06.png" alt=""/></div>
+                    <div class="proText">
+                        <div class="proGz">需要积分<a>3523288</a></div>
+                        <div class="proCx"><a>352053</a>人已兑换</div>
+                    </div>
+                </div>
+                <div class="more">
+                    点击查看更多
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="footHelp" id="foot">
+    <ul>
+        <li><div class="footImg" style="background-image: url(images/footImg01.png)"></div><span>如何获得帮币</span><div class="footAbout">了解更多</div></li>
+        <li><div class="footImg" style="background-image: url(images/footImg02.png)"></div><span>兑换说明</span><div class="footAbout">了解更多</div></li>
+        <li><div class="footImg" style="background-image: url(images/footImg03.png)"></div><span>使用说明</span><div class="footAbout">了解更多</div></li>
+    </ul>
+</div>
+<div class="foot">
+    <!--<div class="footLogo"><img src="images/logo.png" alt=""/></div>-->
+    <p class="footLink"><a class="diaBnt" data-url="files/3cAbout.txt">关于我们</a><a class="diaBnt" data-url="files/support.txt">服务条款</a><a class="diaBnt" data-url="files/job.html">工作机会</a><a class="diaBnt" data-url="files/support.txt">联系我们</a></p>
+    <p class="copyRight">©2014 SignalReal All Rights Reserved 备案/许可证编号:蜀ICP证14011475-1</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<header class="nm_header">icon 图标</header>
+<style>
+    .demo_icon {
+        padding: 0 1rem;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .demo_icon span {
+        display: inline-block;
+        width: 3.5rem;
+        height: 3.5rem;
+        text-align: center;
+        border: 1px solid #999;
+        border-radius: 2rem;
+    }
+    .demo_icon li {
+        margin: 0.5rem 0;
+    }
+    .demo_icon span:after,
+    .demo_icon span:before {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        color: #999;
+    }
+    .demo_icon>li:active span:after,
+    .demo_icon>li:active span:before {
+        color: #007AFC;
+    }
+    @-webkit-keyframes rotate{
+        from{-webkit-transform:rotate(0deg)}
+        to{-webkit-transform:rotate(360deg)}
+    }
+    .demo_icon_loading span {
+        animation: 1s linear 0s normal none infinite rotate;
+        -webkit-animation: 1s linear 0s normal none infinite rotate;
+    }
+</style>
+<div class="nm_notfoot">
+    <p class="demo_th">图标(左&右)<i>.ico_*_l</i>&<i>.ico_*_r</i></p>
+    <ul class="nm_row demo_icon">
+        <li class="col-1"><span class="ico_home_r"></span></li>
+        <li class="col-1"><span class="ico_remove_r"></span></li>
+        <li class="col-1"><span class="ico_config_r"></span></li>
+        <li class="col-1"><span class="ico_share_r"></span></li>
+        <li class="col-1"><span class="ico_pos_r"></span></li>
+        <li class="col-1"><span class="ico_save_r"></span></li>
+        <li class="col-1"><span class="ico_bookmark_r"></span></li>
+        <li class="col-1"><span class="ico_list_r"></span></li>
+        <li class="col-1"><span class="ico_lock_r"></span></li>
+        <li class="col-1"><span class="ico_unlock_r"></span></li>
+        <li class="col-1"><span class="ico_android_r"></span></li>
+        <li class="col-1"><span class="ico_left_r"></span></li>
+        <li class="col-1"><span class="ico_up_r"></span></li>
+        <li class="col-1"><span class="ico_right_r"></span></li>
+        <li class="col-1"><span class="ico_down_r"></span></li>
+        <li class="col-1"><span class="ico_done_r"></span></li>
+        <li class="col-1"><span class="ico_close_r"></span></li>
+        <li class="col-1"><span class="ico_add_r"></span></li>
+        <li class="col-1"><span class="ico_sub_r"></span></li>
+        <li class="col-1"><span class="ico_checktrue_l"></span></li>
+        <li class="col-1"><span class="ico_checkfalse_l"></span></li>
+    </ul>
+    <p class="demo_th">loading(左&右)<i>.ico_load*_l</i>&<i>.ico_load*_r</i></p>
+    <ul class="nm_row demo_icon demo_icon_loading">
+        <li class="col-1"><span class="ico_load1_r"></span></li>
+        <li class="col-1"><span class="ico_load2_r"></span></li>
+        <li class="col-1"><span class="ico_load3_r"></span></li>
+    </ul>
+</div>

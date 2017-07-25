@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/back.css"/>
+    <link rel="stylesheet" href="../plugin/upload/control/css/zyUpload.css"/>
+    <link rel="stylesheet" href="../css/dialog.css"/>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/mytab.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../plugin/upload/core/zyFile.js"></script>
+    <script src="../plugin/upload/control/js/zyUpload.js"></script>
+    <script src="../js/back.js"></script>
+    <style>
+        .upload_box{margin: 0 auto;}
+        .add_upload{display: none;}
+        .upload_append_list{margin: 0;}
+        .uploadImg,.uploadImg img{text-indent: 0;}
+        .imgUpBox{text-indent: 0;}
+        .editBnt{float: right;color: #00BCF9;margin-right:25px;text-indent: 0;}
+        .control{padding-left:0;}
+    </style>
+    <title></title>
+
+</head>
+<script>
+    $(document).ready(function() {
+        animeShowInit();
+        playInit(5,3000);
+        //navScroll();
+        aTabsInit();
+        $('.upBnt').imgUp($('#img'),$('.imgUpBox > div'));
+        $('.submit').testOpen('creat.html','_self');
+
+        $("#allImg").zyUpload({
+            width            :   "640px",                 // 宽度
+            height           :   "520px",                 // 宽度
+            itemWidth        :   "120px",                 // 文件项的宽度
+            itemHeight       :   "90px",                 // 文件项的高度
+            url              :   "/upload/UploadAction",  // 上传文件的路径
+            multiple         :   true,                    // 是否可以多个文件上传
+            dragDrop         :   true,                    // 是否可以拖动上传文件
+            del              :   true,                    // 是否可以删除文件
+            finishDel        :   false,  				  // 是否在上传文件完成后删除预览
+            /* 外部获得的回调接口 */
+            onSelect: function(files, allFiles){                    // 选择文件的回调方法
+                console.info("当前选择了以下文件：");
+                console.info(files);
+                console.info("之前没上传的文件：");
+                console.info(allFiles);
+            },
+            onDelete: function(file, surplusFiles){                     // 删除一个文件的回调方法
+                console.info("当前删除了此文件：");
+                console.info(file);
+                console.info("当前剩余的文件：");
+                console.info(surplusFiles);
+            },
+            onSuccess: function(file){                    // 文件上传成功的回调方法
+                console.info("此文件上传成功：");
+                console.info(file);
+            },
+            onFailure: function(file){                    // 文件上传失败的回调方法
+                console.info("此文件上传失败：");
+                console.info(file);
+            },
+            onComplete: function(responseInfo){           // 上传完成的回调方法
+                console.info("文件上传完成");
+                console.info(responseInfo);
+            }
+        });
+    })
+
+</script>
+<body class="index back">
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="../images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="../index.html">返回首页</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="banner">
+
+</div>
+<div class="content formCon">
+    <!--<div class="userImg">-->
+    <!--<ul class="topTap">-->
+    <!--<li class="">基本资料</li>-->
+    <!--<li class="">我的积分</li>-->
+    <!--<li class="">我关注的</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <ul class="topTap">
+        <li class=""><a href="creat.html">创建账号</a></li>
+        <li class=""><a href="creChannel.html">首页编辑</a></li>
+        <li class="active"><a href="Edit02.html">banner图</a></li>
+        <li class=""><a href="Edit03.html">密码修改</a></li>
+        <li class=""><a href="Edit04.html">商户审批</a></li>
+    </ul>
+    <div class="control">
+        <form class="active" action="" method="post" data-tabcon="allInfo">
+            <table class="inBorder" cellspacing="0" cellpadding="0">
+                <tr><th>商户编号</th><td><input class="able" type="text" value="S002811763" /></td></tr>
+                <tr><th>商户商号</th><td><input class="able" type="text" readonly="readonly" value="028智能手机网" /></td></tr>
+                <tr class="imgUp">
+                    <th>banner图</th>
+                    <td><span><span class="tRed">*</span>上传店铺相关照片，展示商户详情</span></td>
+                </tr>
+                <tr class="first">
+                    <td colspan="2">
+                        <div class="imgUpBox">
+                            <h4>仅支持JPG/JPEG/PNG格式色彩模式为RGB的文件，最佳分辨率 1920x480像素</h4>
+                            <div class="imgBox" id="allImg">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="last"><td colspan="2" class="submit"><div>提交</div></td></tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

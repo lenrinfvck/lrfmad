@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ctmon.com仿制练习</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="../Jquery/jquery-1.8.3.min.js"></script>
+</head>
+<style type="text/css">
+	body{font-family: '微软雅黑';font-size: 18px;min-width: 1100px;}
+	html,body,div,ul,li,p{margin: 0;padding: 0;}
+	a{text-decoration: none;}
+	ul{list-style: none;}
+	.nav{background: #1F2228;height: 60px; width: 100%;position: fixed;top: 0;z-index: 9;}
+		.navLogo{background: ; line-height: 60px;height: 60px; color: #fff;font: 1rem; display: inline-block;position: absolute;left: 5%;}
+		.navLogo img{padding: 10px 0;float: left;}
+		.navLogo div{float: left;margin-left: 20px;}
+		.navMenu{position: absolute;right: 5%;width: 60px;height: 60px;background: #E60013;font-size: 2rem;color: #fff;text-align: center;line-height: 55px;cursor: default; z-index: 10;}
+		.navMenu:hover{background:#F20011;}
+			.navList{position: absolute;height: 60px;}
+			.navList li{float: right; width: 70px;height: 60px;background: #000;font-size: 0.9rem}
+			.navList li:hover{background: #E60013}
+			.menuOn{display:none;width: 0px;height: 60px;position: relative;left: 0px;}
+			.menuOff{position: relative;left: -70px;width: 70px;}
+	.rBar{position: fixed;right: -55px;top: 30%;z-index: 9;}
+		.rBar ul li{height: 45px;width: 100px;background:#1B1B1D;margin: 1px 0;opacity: 0.9;position: relative;color: #fff;line-height: 45px;font-size: 0.9rem;text-indent: 0.5rem;cursor: default;}
+		.rBar ul li:hover{background: #E60013; color: #000;}
+		.rBar li.maBnt{background: #25B2D5;}
+		.maBnt div{display: none; position: relative;left: -132px;top: -85px; width: 130px;height: 130px;background: #fff;text-align: center;border-radius: 3px;}
+		.maBnt div img{padding-top: 10px;}
+		.maBnt:hover div{display: block;}
+		.maBnt h5{margin: 0;padding: 0;color: #000 ;position: relative;top:-25px;}
+	.content{width:90%;height:90%;margin: 0 auto; position: relative;top:5%; text-align: center;min-width: 1000px;}
+	.play{width: 100%;height: 700px;overflow: hidden; position: relative;}
+		.playThing{width: 100%;height: 100%;background: #ffa800;position: absolute; z-index: 1;}
+		.playThing .bk img{position: absolute;left: 50%;margin-left: -960px;}
+		.anime img{position: absolute;z-index: 4;}
+		.playing{display: block;z-index: 2}
+		.playBnt{position:relative;top: 100%;margin:-30px auto 0 auto;width: auto;text-align: center;z-index: 7}
+		.playBnt li{background: #333;width: 40px;position: relative; height: 60px;display: inline-block;margin: 0 1px;}
+		.playBnt li:hover{background: #E60013} 
+	.pageA{width: 100%;height: 650px;background: #fff;}
+		h2{font-size: 1.5rem;margin: 10px auto 5px auto}
+		h3{font-size: 0.9rem;margin: 1px auto;color: #999;font-weight: normal;}
+		.aBnt ul,.bBnt ul{width: 1100px;text-align: center;margin: 60px auto;}
+		.aBnt li,.bBnt li{width: 164px;display: inline-block;margin:0 50px;height: 188px; background: url(images/main_b.jpg);position: relative; }
+		.aBnt img{position: absolute;top:35px;left: 20px;}
+		.aBnt li:hover{background:url(images/czxj_a.jpg);}
+		.aBnt li h4,.aBnt li h5{position: relative;top: 220px;}
+			h4{font-size: 1rem;margin: 3px auto}
+			h5{font-size: 0.8rem;color: #999;font-weight: normal; margin: 0px auto;}			
+			.pageB h2{color: #fff;}
+			.pageB h3{color: #FF4F38;}
+			.pageB h4{font-size: 1rem;margin: 2px auto 2px 10px;color: #fff;text-align: left;}
+			.pageB h5{font-size: 0.8rem;color: #ccc;font-weight: normal; margin: 0px auto 0px 10px;text-align: left;}
+	.pageB{width: 100%;height: 800px;background: #CA192B;}
+		.bBnt ul{margin: 60px auto 40px auto;width: 1100px;}
+		.bBnt li{width: 240px; height: 150px;min-height: 150px;margin: 0px 5px 10px 0px;overflow: hidden;}
+		div.bText{position: relative;height: 50px;top:0px;z-index: 3}
+		div.bTextBg{background: #000;width: 100%; height: 50px;position: absolute;top:-5px;opacity: 0.7;z-index: -1}
+		.moreBnt{width: 50px;height: 50px;border-radius: 25px;background: #fff;color:#CA192B;margin: 0 auto;font-size: 0.7rem;line-height: 50px;cursor: default;}
+		.moreBnt:hover{background:#1F2228;color: #fff;}
+	.foot{width: 100%;height: 550px;background: #1F2228; text-align: center;}
+		.foot h4{ color: #393E48;font-size: 0.8rem;font-weight: normal;}
+			.footLogo{margin: 0 auto;padding-top: 50px;}
+			.ICP{text-align: center; color: #858FA7;font-size: 14px; padding-top: 10px;}
+			.ICP a{color: #858FA7; }
+		.foot .content{top:0;width:100%;margin: 0 auto; margin-top:20px;border-top: dashed 1px #333338;border-bottom: dashed 1px #333338;height: 220px;}
+			.center{width:1000px;margin: 0 auto;}
+		.foot ul{float: left; width: 100px;margin: 20px 20px;}
+		.foot ul li{color: #393E48;font-size: 0.8rem;text-align: left; }
+		.foot ul li:hover{color: #fff}
+		.foot li.first{color: #fff;margin-bottom: 8px;}
+		.foot li a{color: #393E48;}
+		.foot li a:hover{color: #fff;}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		navMenuInit();
+		pageInit();
+		rBarInit();
+		playInit();
+		function navMenuInit(){
+			$('.navMenu').toggle(function() {
+				$('.menuOff').animate({'width': '0','left':'0'},150).hide().siblings('.menuOn').animate({'width': '280px',left:'-280px'},150).show();
+			}, function() {
+				$('.menuOn').animate({'width': '0','left':'0'},150).hide().siblings('.menuOff').animate({'width': '70px',left:'-70px'},150).show();
+			});
+			$(window).scroll(function(event) {
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				if(scrollTop>60){
+           			$('.nav').stop().fadeTo('150', 0.8);       
+				}else{
+					$('.nav').stop().fadeTo('150', 1);
+				};
+			});		
+		}
+		function pageInit(){
+			$('.bBnt li').hover(function() {
+				$(this).children('.bText').stop().animate({'top': '-50px'}, 150)
+			}, function() {
+				$(this).children('.bText').stop().animate({'top': '0px'}, 150)
+			});
+		}
+		function rBarInit() {
+			$('.qqBnt,.chatBnt').hover(function() {
+				$(this).stop().animate({'left': '-55px'}, 150)
+			}, function() {
+				$(this).stop().animate({'left': '0px'}, 150)
+			});
+			$('.topBnt').click(function(event) {
+				$('html,body').animate({scrollTop:0}, '200')
+			});
+		}
+		function playInit(){
+			var autoPlay=function(){
+				var index=($('.playThing').index($('.playing'))+1)%3
+				$('.playBnt li').eq(index).click();
+			}
+			playBnt='<ul class="playBnt">';
+			for(var i=0,j=$('.playThing').length;i<j;i++){
+				playBnt+='<li></li>';
+			}
+			playBnt+='</ul>';
+			$('.play').append(playBnt);
+			$('.playBnt li').eq(0).css({
+				'background': '#E60013',
+				'top': '-30px'
+			});
+			$('.anime').children().each(function(index, el) {
+					var pos=$(this).data();
+					$(this).css({'left': pos.xout,'bottom': pos.yout});
+					$(this).css({'margin-left': -$(this).width()/2,'margin-bottom':-$(this).height()/2});
+				});
+			$('.playing .anime').children().each(function(index, el) {		
+					var pos=$(this).data();
+					$(this).animate({
+						'left': pos.xin,
+						'bottom': pos.yin},
+						600
+					);
+			});
+			$('.playBnt li').each(function(index, el) {				
+				$(this).click(function(event) {
+					var $act=$('.playThing').eq(index);
+					$act.siblings('.playing').css('z-index', '2');
+					$('.playing .anime').children().each(function(index, el) {
+						var pos=$(this).data();
+						$(this).animate({
+							'left': pos.xout,
+							'bottom': pos.yout},
+							600
+						);
+					});
+					$act.css({
+						'display':'none',
+						'z-index':'3'
+					}).addClass('playing').fadeIn('700',function(){
+						$act.siblings('.playing').css('z-index', '1').removeClass('playing');
+						$('.playBnt li').css('background', '#333').animate({'top': '0px'},50).eq($('.playThing').index($('.playing'))).css('background', '#E60013').animate({'top': '-30px'}, 50);
+						$('.playing .anime').children().each(function(index, el) {
+							var pos=$(this).data();
+							$(this).css({'left': pos.xout,'bottom': pos.yout});
+							$(this).animate({
+								'left': pos.xin,
+								'bottom': pos.yin},
+								600
+							);
+						});
+					});
+
+					clearTimeout(auto);
+					auto=setTimeout(autoPlay,5000);
+				});
+			})
+			var auto=setTimeout(autoPlay,5000);
+		}
+	});
+</script>
+<body>
+    <div class="nav">
+    	<div class="navLogo"><img src="images/logo.jpg" width="40px" /><div>ctmon.com仿制练习</div></div>
+    	
+    	<div class="navMenu">
+			<div class="navList">
+				<ul class="menuOn">
+					<li>Blog</li>
+					<li>Web</li>
+					<li>Mad</li>
+					<li>Index</li>
+				</ul>
+				<ul class="menuOff">
+					<li>Menu</li>
+				</ul>
+			</div>
+    	</div>   	
+    </div>
+    <div class="rBar">
+    	<ul>
+    		<li class="topBnt">Top</li>
+    		<li class="qqBnt"></li>
+    		<li class="numBnt"></li>
+    		<li class="chatBnt"></li>
+    		<li class="maBnt"><div><img src="images/GTc.png" width="70%" /><h5>光头保护协会</h5></div></li>
+    	</ul>
+    </div>    
+	<div class="play">
+		<div class="playThing playing">
+			<div class="anime">
+				<img data-xout="100%" data-xin="50%" data-yout="70%" data-yin="70%" src="images/czxj_a.png" height="188" width="164" />
+				<img data-xout="0%" data-xin="50%" data-yout="70%" data-yin="70%" src="images/GTb.png" height="120" width="128" />
+				<img data-xout="50%" data-xin="50%" data-yout="-100%" data-yin="200px" src="images/saya.png" width="600px" height="502" />
+			</div>
+			<div class="bk"><img src="images/m1g.jpg" height="700" width="1920" /></div>
+		</div>
+		<div class="playThing ">
+			<div class="anime">
+				<img data-xout="50%" data-xin="50%" data-yout="0%" data-yin="50%" src="images/czxj_a.png" height="188" width="164" />
+				<img data-xout="50%" data-xin="50%" data-yout="100%" data-yin="50%" src="images/GTb.png" height="120" width="128" />
+			</div>
+			<div class="bk"><img src="images/m2.jpg" height="700" width="1920" /></div>
+		</div>
+		<div class="playThing ">			
+			<div class="anime">
+				<img data-xout="50%" data-xin="50%" data-yout="0%" data-yin="70%" src="images/czxj_a.png" height="188" width="164" />
+				<img data-xout="50%" data-xin="50%" data-yout="100%" data-yin="70%" src="images/GTb.png" height="120" width="128" />
+				<img data-xout="0%" data-xin="50%" data-yout="200px" data-yin="200px" src="images/saya.png" width="600" height="502" />
+			</div>
+			<div class="bk"><img src="images/m3.jpg" height="700" width="1920" /></div>
+		</div>
+	</div>
+	<div class="pageA">
+		<div class="content">
+			<div class="aLogo"><img src="images/biggeruncleb.jpg" height="173" width="216" /></div>
+			<h2>关于逼格昂寇</h2>
+			<h3>bigger than uncle</h3>
+			<h3>大叔了解大中小型大叔的光头模式，需求，大叔倡导让光头感知大叔的应用体验价值，而不仅是大叔的功能。</h3>
+			<div class="aBnt">
+				<ul>
+					<li><img src="images/GTb.png" /><h4>霸王防脱</h4><h5>bawang fangtuo</h5></li>
+					<li><img src="images/GTb.png" /><h4>光头村村长</h4><h5>guatoucun cunchang</h5></li>
+					<li><img src="images/GTb.png" /><h4>霸王防脱</h4><h5>bawang fangtuo</h5></li>
+					<li><img src="images/GTb.png" /><h4>光头村村长</h4><h5>guatoucun cunchang</h5></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="pageB">
+		<div class="content">
+			<div class="aLogo"><img src="images/GTb.png" height="120" width="128" /></div>
+			<h2>光头展示</h2>
+			<h3>愿光头与你同在!</h3>
+			<h3>光头了解大中小型光头的光头模式，需求，光头倡导让光头感知光头的应用体验价值，而不仅是光头的功能。</h3>
+			<div class="bBnt">
+				<ul>
+					<li>
+						<img src="images/b01.jpg" height="150" width="240"/>
+						<div class="bText">
+							<h4>霸王防脱</h4><h5>bawang fangtuo</h5>
+							<div class="bTextBg"></div>
+						</div>
+					</li>
+					<li>
+						<img src="images/b02.jpg" height="150" width="240"/>
+						<div class="bText">
+							<h4>光头村村长</h4><h5>guatoucun cunchang</h5>
+							<div class="bTextBg"></div>
+						</div>
+					</li>
+					<li><img src="images/b03.jpg" height="150" width="240"/>						
+						<div class="bText">
+							<h4>霸王防脱</h4><h5>bawang fangtuo</h5>
+							<div class="bTextBg"></div>
+						</div></li>
+					<li><img src="images/b04.jpg" height="150" width="240"/>						
+						<div class="bText">
+							<h4>光头村村长</h4><h5>guatoucun cunchang</h5>
+							<div class="bTextBg"></div>
+						</div></li>					
+					<li><img src="images/b05.jpg" height="150" width="240"/>						
+						<div class="bText">
+							<h4>霸王防脱</h4><h5>bawang fangtuo</h5>
+							<div class="bTextBg"></div>
+						</div></li>
+					<li><img src="images/b06.jpg" height="150" width="240"/>						
+						<div class="bText">
+							<h4>光头村村长</h4><h5>guatoucun cunchang</h5>
+							<div class="bTextBg"></div>
+						</div></li>
+					<li><img src="images/b01.jpg" height="150" width="240"/>						
+						<div class="bText">
+							<h4>霸王防脱</h4><h5>bawang fangtuo</h5>
+							<div class="bTextBg"></div>
+						</div></li>
+					<li><img src="images/b02.jpg" height="150" width="240"/>						
+						<div class="bText">
+							<h4>霸王防脱</h4><h5>bawang fangtuo</h5>
+							<div class="bTextBg"></div>
+						</div></li>
+				</ul>
+			</div>
+			<div class="moreBnt">MORE</div>
+		</div>
+	</div>
+	<div class="foot">
+		<div class="footLogo "><img src="images/GTb.png" /></div>
+		<h4>地址/Add：Love For Mad</h4>
+		<h4>邮箱/Mail：gayteam@mad.ae</h4>
+		<h4>电话/Tel：023-33333333</h4>
+		<div class="content">
+			<div class="center">
+			<ul><li class="first">解决方案</li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+			</ul>			
+			<ul><li class="first">服务专区</li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+			</ul>			
+			<ul><li class="first">知识学院</li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+			</ul>			
+			<ul><li class="first">案例展示</li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+			</ul>			
+			<ul><li class="first">产品中心</li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+			</ul>			
+			<ul><li class="first">创同盟</li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+			</ul>			
+			<ul><li class="first">联系我们</li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+				<li><a href="">光头1</a></li>
+			</ul>
+			</div>
+		</div>
+		<div class="ICP">Copyright © GayTeam All Rights Reserved 版权  <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备2333333号</a></div>
+	</div>
+
+</body>
+</html>

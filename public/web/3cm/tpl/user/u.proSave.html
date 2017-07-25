@@ -1,0 +1,12 @@
+<header>
+    <h3>我关注的产品</h3>
+</header>
+<div class="placehold"></div>
+<section>
+    <ul class="appUl savePro">
+        <li ms-repeat="uModel.proSave" ms-click="go(el.pId)" class="ico_right">
+                <h4>{{el.pName}}</h4>
+                <span>{{el.save}} 人关注</span>
+        </li>
+    </ul>
+</section>

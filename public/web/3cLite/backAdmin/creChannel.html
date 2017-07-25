@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/back.css"/>
+    <link rel="stylesheet" href="../plugin/upload/control/css/zyUpload.css"/>
+    <link rel="stylesheet" href="../css/dialog.css"/>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../js/jquery.tmpl.min.js"></script>
+    <script src="../js/mytab.js"></script>
+    <script src="../js/banner.js"></script>
+    <script src="../plugin/upload/core/zyFile.js"></script>
+    <script src="../plugin/ajaxfileupload.js"></script>
+    <script src="../plugin/upload/control/js/zyUpload.js"></script>
+    <script src="../js/back.js"></script>
+    <style>
+        .upload_box{margin: 0 auto;}
+        .add_upload{display: none;}
+        .upload_append_list{margin: 0;}
+        .uploadImg,.uploadImg img{text-indent: 0;}
+        .imgUpBox{text-indent: 0;}
+        .editBnt{float: right;color: #00BCF9;margin-right:25px;text-indent: 0;}
+        .control{padding-left:0;}
+        .control table .last td{text-align: center;}
+        .control table .last td a{margin: 50px;}
+        .control  input{width: 200px;}
+    </style>
+    <title></title>
+</head>
+<script>
+    $(document).ready(function() {
+        var posa,posb;
+        var eqSet =function(){
+            $('#setBoxPos .eq').each(function(index,el){
+                $(this).html(index+1);
+            })
+        };
+        var upImg = function(id,img){
+            $.ajaxFileUpload
+            (
+                {
+                    url: '../files/imgSrc.json', //用于文件上传的服务器端请求地址
+                    secureuri: false, //是否需要安全协议，一般设置为false
+                    fileElementId: id, //文件上传域的ID
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        data = data.slice(6,-6);
+                        data = JSON.parse(data);
+                        console.log(data);
+
+                    },
+                    error: function (data, status, e)//服务器响应失败处理函数
+                    {
+                        data = data.responseText;
+                        data = data.slice(5,-6);
+                        data = JSON.parse(data.toString());
+                        img.attr('src',data.src);
+                        console.log(data);
+                        console.log(1);
+                    }
+                }
+            );
+            return false;
+        };
+        $('.control').dialog($('.dialogs'));
+
+        /*频道设置*/
+        $('#setBoxPos').on('click','.setRemove',function(){
+            $(this).parent().remove();
+            eqSet();
+        }).on('click','.setTop',function(){
+            $(this).parent().prependTo($('#setBoxPos'));
+            eqSet();
+        }).on('click','.setEdit',function() {
+            var $table = $(this).siblings('.inBorder');
+            if($table.css('display')=='none'){
+                $table.show();
+            }else{
+                $table.hide();
+            }
+        }).on('input propertychange keyup','.proInput',function(){
+            var $this=$(this);
+            /*辅助输入*/
+            $.ajax({
+                type:"GET",
+                url:'../files/ulText.json'/*+'?search='+$this.val()*/,
+                cache:false,
+                dataType:"json",
+                success:function (data){
+                    $this.next().show().html($('#tmpl_ajaxUl').tmpl(data)).unbind().on('click','li',function() {
+                        var select = $(this).html();
+                        $(this).parent().prev().val(select).parents('tr').find('.ulImg').trigger('change.proImg', select);
+                        $(this).parent().hide();
+                        $this.next().unbind();
+                    });
+                    $(document).click(function(){
+                        $this.next().hide().unbind();
+                        $(document).unbind('click');
+                    })
+                }
+            });
+        }).on('change.proImg','.ulImg',function(e,select){
+            var $this=$(this);
+            /*选择相应文字后返回图片*/
+            $.ajax({
+                type:"GET",
+                url:'../files/ulImg.json'/*+'?search='+select*/,
+                cache:false,
+                dataType:"json",
+                success:function (data){
+                    $this.prev().attr('src',data.list[0]);
+                    $this.html($('#tmpl_ajaxUl').tmpl(data));
+                }
+            });
+        }).on('click','.ulImg',function(e){
+            e.stopPropagation();
+            var $this=$(this);
+            $this.animate({'width':40*5},'fast');
+            $(this).on('click','li',function(e) {
+                e.stopPropagation();
+                $(this).prependTo($this);
+                $this.animate({'width':40},'fast').unbind();
+            });
+        }).on('input propertychange keyup','.titleInput',function(){
+            $(this).parents('.setBox').find('h2').html($(this).val());
+        }).on('click','.up',function(){
+            var $tr=$(this).parents('tr');
+            if($tr.prev().attr('class') =='proTr')
+                $tr.insertBefore($tr.prev());
+        }).on('click','.down',function(){
+            var $tr=$(this).parents('tr');
+            if($tr.next().attr('class') =='proTr')
+                $tr.insertAfter($tr.next());
+        }).on('click','.setFile',function(){
+            $(this).prev().click();
+        }).on('click','.setUp',function(){
+            var $this=$(this).next('input');
+            var $img = $this.parent().prev().find('img');
+            //console.log($this.attr('id'));
+            upImg($this.attr('id'),$img);
+        });
+
+        $('.setSubmit').click(submit);
+        function submit(){
+            var data=[];
+            $('#setBoxPos .setBox').each(function(index,el){
+                $this=$(this);
+                var box={};
+                var alist=[];
+                var blist=[];
+                box.lTitle=$this.find('.titleInput').val();
+                $this.find('.proTr').each(function(index,el){
+                    var id=$(this).find('.proInput').val();
+                    var img=$(this).find('.ulImg li img').eq(0).attr('src');
+                    alist.push({proId:id,proImg:img});
+                });
+                $this.find('.shopTr').each(function(index,el){
+                    var id=$(this).find('.shopId').val();
+                    var img=$(this).find('.shopImg').attr('src');
+                    blist.push({shopId:id,shopImg:img});
+                });
+                box.lList=alist;
+                box.rList=blist;
+                data.push(box);
+            });
+            data=JSON.stringify(data);
+            $.ajax({
+                type:"POST",
+                url:'#',
+                cache:false,
+                data:data,
+                dataType:"json",
+                success:function(data){
+                    //test
+                    alert('已提交')
+                }
+            });
+        }
+        /*添加空白信息*/
+        $('.control .setAdd').click(function(){
+            //空白信息
+            var data={
+                "lTitle":"标题输入",
+                "lList":[
+                    {
+                        "proId":"",
+                        "proImg":[]
+                    },
+                    {
+                        "proId":"",
+                        "proImg":[]
+                    },
+                    {
+                        "proId":"",
+                        "proImg":[]
+                    },
+                    {
+                        "proId":"",
+                        "proImg":[]
+                    },
+                    {
+                        "proId":"",
+                        "proImg":[]
+                    }
+                ],
+                "rList":[
+                    {
+                        "shopId":"",
+                        "shopImg":""
+                    },
+                    {
+                        "shopId":"",
+                        "shopImg":""
+                    },
+                    {
+                        "shopId":"",
+                        "shopImg":""
+                    },
+                    {
+                        "shopId":"",
+                        "shopImg":""
+                    },
+                    {
+                        "shopId":"",
+                        "shopImg":""
+                    }
+                ]
+            };
+            $('#tmpl_setBox').tmpl(data).appendTo('#setBoxPos');
+            eqSet();
+        });
+
+        /*原始数据初始化*/
+        $.ajax({
+            type:"GET",
+            url:'../files/creChTest.json',
+            cache:false,
+            dataType:"json",
+            success:function(data){
+                for(var i in data){
+                    $('#tmpl_setBox').tmpl(data[i]).appendTo('#setBoxPos');
+                }
+                eqSet();
+            }
+        });
+
+        /*组件初始化*/
+        new TopBnt({top:200});
+        new Banner({dom:$('.viewBanner'),width:1200,time:4000,list:['../images/banner/banner01.jpg','../images/banner/banner02.jpg','../images/banner/banner03.jpg','../images/banner/banner04.jpg','../images/banner/banner05.jpg']});
+    })
+</script>
+<script type="text/x-jquery-tmpl" id="tmpl_setBox">
+    <div class="setBox slide">
+        <span class="eq"></span>
+        <h2>${lTitle}</h2>
+        <div class="formBnt lite setRemove red">删除</div>
+        <div class="formBnt lite setView diaBnt" data-dialog="view">预览</div>
+        <div class="formBnt lite setEdit">编辑</div>
+        <div class="formBnt lite setTop">置顶</div>
+        <table class="inBorder" cellspacing="0" cellpadding="0">
+            <tr class="first ti"><th colspan="4">热门列表</th></tr>
+            <tr><th>名称</th>
+                <td>
+                    <input class="titleInput" type="text" value="${lTitle}" />
+                </td>
+            </tr>
+            {{each(i,v) lList}}
+                <tr class="proTr"><th>产品型号0${i+1}</th>
+                    <td>
+                        <input class='proInput' type="text" value="${proId}" />
+                        <ul class="ulText"></ul>
+                    </td>
+                    <td style="width:150px;"><span class="up">上移</span><span class="down">下移</span></td>
+                    <td>
+                        <ul class="ulImg">
+                            {{each(i,v) lList[i].proImg}}
+                            <li><img src="${v}" width="100%"/></li>
+                            {{/each}}
+                        </ul>
+                    </td>
+                </tr>
+            {{/each}}
+
+            <tr class="first ti"><th colspan="4">首页推荐</th></tr>
+            {{each(i,v) rList}}
+                <tr class="shopTr"  style="height:60px;"><th>商户编号0${i+1}</th>
+                    <td>
+                        <input type="text" class="shopId" value="${shopId}" />
+                        <ul class="ulText"></ul>
+                    </td>
+                    <td style="width:200px;height:50px;"><img class="shopImg" src="${shopImg}" height="100%"/></td>
+                    <td>
+                        <span class="formBnt lite setUp">上传</span>
+                        <input class="shopInput" style="display:none;" type="file" value="" id="${Math.random().toString().slice(2,6)+i}"/>
+                        <span class="formBnt lite setFile">选择</span>
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+</div>
+</script>
+<script type="text/x-jquery-tmpl" id="tmpl_ajaxUl">
+    {{if type === 'text'}}
+        {{each(i,v) list}}
+        <li>${v}</li>
+        {{/each}}
+    {{else}}
+        {{each(i,v) list}}
+        <li><img src="${v}" width="100%"/></li>
+        {{/each}}
+    {{/if}}
+</script>
+<body class="index back">
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="../images/logo.png" height="40px"/></div>
+            <div class="pageLink"><a href="../index.html">返回首页</a></div>
+            <div class="login"></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="banner">
+</div>
+<div class="content formCon">
+    <ul class="topTap">
+        <li class=""><a href="creat.html">创建账号</a></li>
+        <li class="active"><a href="creChannel.html">首页编辑</a></li>
+        <li class=""><a href="Edit02.html">banner图</a></li>
+        <li class=""><a href="Edit03.html">密码修改</a></li>
+        <li class=""><a href="Edit04.html">商户审批</a></li>
+    </ul>
+    <div class="control">
+            <div class="setBox">
+        <span class="eq">0</span>
+        <h2>首页banner</h2>
+
+        <div class="formBnt lite setView diaBnt" data-dialog="banner">预览</div>
+        <div class="formBnt lite setUp">上传</div>
+        <table class="inBorder" cellspacing="0" cellpadding="0">
+            <tr class="first ti"><th colspan="5">顶部Banner(1920x480)</th></tr>
+            <tr>
+                <th>链接01</th>
+                <td>
+                    <input type="text" value=""/>
+                </td>
+                <th>banner</th>
+                <td>
+                    <input type="file" value=""/>
+                </td>
+            </tr>
+            <tr><th>链接02</th>
+                <td>
+                    <input type="text" value=""/>
+                </td>
+                <th>banner</th>
+                <td>
+                    <input type="file" value=""/>
+                </td>
+            </tr>
+            <tr><th>链接03</th>
+                <td>
+                    <input type="text" value=""/>
+                </td>
+                <th>banner</th>
+                <td>
+                    <input type="file" value=""/>
+                </td>
+            </tr>
+            <tr><th>链接04</th>
+                <td>
+                    <input type="text" value=""/>
+                </td>
+                <th>banner</th>
+                <td>
+                    <input type="file" value=""/>
+                </td>
+            </tr>
+            <tr><th>链接05</th>
+                <td>
+                    <input type="text" value=""/>
+                </td>
+                <th>banner</th>
+                <td>
+                    <input type="file" value=""/>
+                </td>
+            </tr>
+        </table>
+    </div>
+            <div class="formBnt lite setAdd">添加</div>
+            <!--频道设置-->
+            <div id="setBoxPos">
+
+            </div>
+            <div class="formBnt setSubmit">确认提交</div>
+    </div>
+    <div class="dialogs">
+        <div class="dialog diaImg" data-dialog="view">
+            <h4>预览图</h4>
+            <div class="diaCon">
+                <div class="content indexLan">
+                    <div class="box">
+                        <dl class="boxList">
+                            <dt>精品推荐</dt>
+                            <dd data-url="searchRes.html"><img src="../images/pro/pro04.png" width="100%" /><h5>iPhone 6</h5></dd>
+                            <dd data-url="searchRes.html"><img src="../images/pro/pro03.png" width="100%" /><h5>iPhone 6</h5></dd>
+                            <dd data-url="searchRes.html"><img src="../images/pro/pro02.png" width="100%" /><h5>iPhone 6</h5></dd>
+                            <dd data-url="searchRes.html"><img src="../images/pro/pro01.png" width="100%" /><h5>iPhone 6</h5></dd>
+                            <dd data-url="searchRes.html"><img src="../images/pro/pro05.png" width="100%" /><h5>iPhone 6 iPhone 6</h5></dd>
+                        </dl>
+                        <ul class="inBox">
+                            <li class="big"><a href="shop.html"><img src="../images/banner/Lbanner01.jpg" height="100%" alt=""/></a></li>
+                            <li class="normal"><a href="shop.html"><img src="../images/banner/Lbanner02.jpg" height="100%" alt=""/></a></li>
+                            <li class="normal"><a href="shop.html"><img src="../images/banner/Lbanner03.jpg" height="100%" alt=""/></a></li>
+                            <li class="normal"><a href="shop.html"><img src="../images/banner/Lbanner04.jpg" height="100%" alt=""/></a></li>
+                            <li class="normal"><a href="shop.html"><img src="../images/banner/Lbanner05.jpg" height="100%" alt=""/></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog diaImg" data-dialog="banner">
+            <h4>预览图</h4>
+            <div class="diaCon" style="width: 100%">
+                <div class="centerBox">
+                    <div class="viewBanner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

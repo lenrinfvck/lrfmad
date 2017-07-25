@@ -1,0 +1,97 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?uu7g07');
+	src:url('fonts/icomoon.eot?#iefixuu7g07') format('embedded-opentype'),
+		url('fonts/icomoon.woff?uu7g07') format('woff'),
+		url('fonts/icomoon.ttf?uu7g07') format('truetype'),
+		url('fonts/icomoon.svg?uu7g07#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star:before {
+	content: "\e600";
+}
+
+.icon-check:before {
+	content: "\f00c";
+}
+
+.icon-close:before {
+	content: "\f00d";
+}
+
+.icon-check-square-o:before {
+	content: "\f046";
+}
+
+.icon-check-circle:before {
+	content: "\f058";
+}
+
+.icon-square-o:before {
+	content: "\f096";
+}
+
+.icon-angle-left:before {
+	content: "\f104";
+}
+
+.icon-angle-right:before {
+	content: "\f105";
+}
+
+.icon-angle-up:before {
+	content: "\f106";
+}
+
+.icon-angle-down:before {
+	content: "\f107";
+}
+
+.icon-x-altx-alt:before {
+	content: "\e601";
+}
+
+.icon-search2:before {
+	content: "\e602";
+}
+
+.icon-checkbox-checked:before {
+	content: "\ea52";
+}
+
+.icon-checkbox-unchecked:before {
+	content: "\ea53";
+}
+
+.icon-apple:before {
+	content: "\eabf";
+}
+
+.icon-clock:before {
+	content: "\e014";
+}
+
+.icon-plus:before {
+	content: "\e114";
+}
+
+.icon-cross:before {
+	content: "\e117";
+}
+

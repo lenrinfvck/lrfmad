@@ -1,0 +1,35 @@
+.submit{margin-top:30px;margin-bottom: 20px; width: 30%;font-size:1rem;height: 35px;border-radius: 5px;display: inline-block;line-height: 35px;color: #fff}
+.submit{background: #448aca; margin-right: 20px;}
+.list{width: auto;margin: 0 auto;padding: 0 5%;}
+.list>li{background: url(../images/user_car.png) 0 15px no-repeat;height: auto;padding:10px 1px;;border-bottom: 1px solid #eeefef;}
+.list.msg>li{background-image: url(../images/user_msg.png)}
+.list>li.ulTitle{background:none;height: 30px;text-align: center;line-height: 30px;font-size: 1rem;}
+.rBnt{float: right;text-align: center;}
+.rBntUp,.lBntUp{height: 20px;padding-bottom: 13px;font-size: 17px;line-height: 20px;}
+.lBntUp{float: left;margin-left: 20%;}
+.rBntDown{height: 15px;color: #666;font-size: 12px;line-height: 15px;}
+.rNum{margin-right: 5%;}
+.pos,.time{margin-left: 20%;}
+.pos span{margin-right: 3%;}
+.time span{margin-right: 8px;}
+
+.slideBnt{cursor: pointer;}
+.msgCon{font-size: 15px;background: #fff;display: none;}
+.msgCon.active{display: block;}
+.msgCon li{padding: 3px 0;}
+.msgBnt{text-align: center;margin: 10px 0;}
+.yes,.no{color: #fff;display:inline-block;line-height:30px;cursor: pointer;width: 45%;max-width: 200px;margin: 5%; height: 30px;border-radius: 3px;background: #2dc03e;}
+.no{background: #448aca;}
+.active .no{margin: 10px 0px 0 0;text-align: center}
+.active .con .no{width:90%;}
+.inCon.auto h5{position: relative;top: -10px;color: #448aca;font-weight: normal;}
+
+.tab{font-size: 16px;}
+.tabHead{height: 40px;text-align: center;}
+.tabBnt{float: left;width: 50%;height: 40px;line-height:40px;background: #eee;}
+.tabBnt.active{background: #fff;}
+.tabBnt a{display:inline-block;height:40px;width:65%;cursor: pointer;color: #333;}
+.tabBnt.active a{border-bottom: 1px solid #448aca;}
+.tab form{width: 90%;margin: 0 auto;max-width: 600px;padding: 10px 0;text-align: center;}
+.tab input{width: 35%;min-width: 50px;}
+.rSelect{float: right;margin-right: 20px;font-size: 16px;width: 80px;}

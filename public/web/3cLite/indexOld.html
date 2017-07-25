@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title>3C帮</title>
+
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/search.css"/>
+    <link rel="stylesheet" href="css/dialog.css"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/mytab.js"></script>
+    <script src="js/banner.js"></script>
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="css/ie8.css"/>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<script>
+    $(document).ready(function() {
+        animeShowInit();        //banner动画初始化
+        playInit(5,3000);       //banner，5图，3s自动
+        //navScroll();
+        //$('.proTab .content').tabs($('.pro'),'1');  //分页启动
+        $('.foot').diaAjax();
+        $('.navL').dialog($('.dialogs'));
+        /*测试用链接跳转*/
+        $('.hSearch .proBox').testOpen('searchRes.html','_self');
+        $('.searchBnt').testOpen('searchRes.html','_self');
+        $('.login').testOpen('login.html','_self');
+        $('.proBox a').click(function(e){e.stopPropagation();}); //禁用冒泡
+        $('.resLan li').testOpen('shop.html','_blank',true);
+
+        //banner图
+        new Banner({dom:$('.banner'),time:3000,list:['images/banner/banner01.jpg','images/banner/banner02.jpg','images/banner/banner03.jpg','images/banner/banner04.jpg','images/banner/banner05.jpg']});
+        new TopBnt({top:200});
+    })
+</script>
+<body class="index shop">
+<!--导航-->
+<div class="nav">
+    <!--搜索条-->
+    <div class="search">
+        <div class="content">
+            <div class="logo"><img src="images/logo.png" height="40px"/></div>
+            <div class="pageLink"></div>
+            <div class="loginText"><a href="login.html">登陆</a></div>
+        </div>
+    </div>
+</div>
+<!--轮播banner-->
+<div class="banner">
+</div>
+<!--商品展示-->
+<div class="pro">
+    <!--分页标签-->
+    <div class="indexTab">
+        <div class="content">
+            <div class="iTab"><a href="index.html">热门搜索</a></div>
+            <div class="iTab active"><a href="indexOld.html">优选商家</a></div>
+            <div class="searchBar">
+                <form action="">
+                    <span class="searchText"><input type="text" placeholder="请输入你喜欢的"/></span>
+                    <span class="searchBnt"><input type="submit" onclick="event.preventDefault()" value="搜&nbsp;索"/></span>
+                </form>
+                <!--<div class="searchLink"><a href="">美择新店开业</a> | <a href="">零首付分期</a> | <a href="">戴尔品牌入驻</a> | <a href="">联想年终大战</a> | <a href="">零首付分期</a></div>-->
+
+            </div>
+        </div>
+    </div>
+    <!--品牌分页-->
+
+    <div class="content resUl active">
+        <ul class="resLan">
+            <li>
+                <div class="resShop">
+                    <div>
+                        <span class="shopTitle">美择数码时代店</span>
+                        <span class="resTel"><span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                    </div>
+                    <div class="shopInfo"><p><span>苹果(Apple)/全系列/销售</span><span>三星(SAMSUNG)/全系列/销售&维修</span></p></div>
+                </div>
+                <ul class="otherBnt index resLink">
+                    <li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resShop">
+                    <div>
+                        <span class="shopTitle">美择数码时代店</span>
+                        <span class="resTel"><span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                    </div>
+                    <div class="shopInfo"><p><span>苹果(Apple)/全系列/销售</span><span>三星(SAMSUNG)/全系列/销售&维修</span></p></div>
+                </div>
+                <ul class="otherBnt index resLink">
+                    <li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resShop">
+                    <div>
+                        <span class="shopTitle">美择数码时代店</span>
+                        <span class="resTel"><span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                    </div>
+                    <div class="shopInfo"><p><span>苹果(Apple)/全系列/销售</span><span>三星(SAMSUNG)/全系列/销售&维修</span></p></div>
+                </div>
+                <ul class="otherBnt index resLink">
+                    <li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resShop">
+                    <div>
+                        <span class="shopTitle">美择数码时代店</span>
+                        <span class="resTel"><span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                    </div>
+                    <div class="shopInfo"><p><span>苹果(Apple)/全系列/销售</span><span>三星(SAMSUNG)/全系列/销售&维修</span></p></div>
+                </div>
+                <ul class="otherBnt index resLink">
+                    <li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resShop">
+                    <div>
+                        <span class="shopTitle">美择数码时代店</span>
+                        <span class="resTel"><span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                    </div>
+                    <div class="shopInfo"><p><span>苹果(Apple)/全系列/销售</span><span>三星(SAMSUNG)/全系列/销售&维修</span></p></div>
+                </div>
+                <ul class="otherBnt index resLink">
+                    <li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resShop">
+                    <div>
+                        <span class="shopTitle">美择数码时代店</span>
+                        <span class="resTel"><span class="tBlue">352053</span>赞<span class="tBlue">352053</span>踩</span>
+                    </div>
+                    <div class="shopInfo"><p><span>苹果(Apple)/全系列/销售</span><span>三星(SAMSUNG)/全系列/销售&维修</span></p></div>
+                </div>
+                <ul class="otherBnt index resLink">
+                    <li><div style="background-image:url(images/more_Gpos.png)"></div><p>瞄瞄看</p></li>
+                </ul>
+            </li>
+            <div class="more other">
+                点击查看更多
+            </div>
+        </ul>
+    </div>
+</div>
+</div>
+
+</div>
+<!--<div class="footHelp" id="foot">-->
+    <!--<ul>-->
+        <!--<li><div class="footImg" style="background-image: url(images/footImg01.png)"></div><span>如何获得帮币</span><div class="footAbout">了解更多</div></li>-->
+        <!--<li><div class="footImg" style="background-image: url(images/footImg02.png)"></div><span>兑换说明</span><div class="footAbout">了解更多</div></li>-->
+        <!--<li><div class="footImg" style="background-image: url(images/footImg03.png)"></div><span>使用说明</span><div class="footAbout">了解更多</div></li>-->
+    <!--</ul>-->
+<!--</div>-->
+<div class="foot">
+    <!--<div class="footLogo"><img src="images/logo.png" alt=""/></div>-->
+    <p class="footLink"><a class="diaBnt" data-url="files/3cAbout.txt">关于我们</a><a class="diaBnt" data-url="files/support.txt">服务条款</a><a class="diaBnt" data-url="files/job.html">工作机会</a><a class="diaBnt" data-url="files/support.txt">联系我们</a></p>
+    <p class="copyRight">©2014 SignalReal All Rights Reserved 备案/许可证编号:蜀ICP证14011475-1</p>
+</div>
+</body>
+</html>

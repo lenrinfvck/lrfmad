@@ -1,0 +1,30 @@
+<div ms-controller="c_proInfo">
+<div class="pInfo">
+    <h3>{{pModel.pName}}</h3>
+    <div class="num">{{pModel.res}}条本地相关 | {{pModel.save}}关注</div>
+    <div class="bnt3" ms-class-1="active:pModel.uType&2" ms-click="fn_save"></div>
+</div>
+
+<div class="proCon">
+    <ul class="proUl">
+        <li class="proUlth" ms-class-1="ico_down:!slide" ms-class-2="ico_up:slide" ms-click="fnSlide">
+            <div>了解产品配置</div>
+            <ul class="pInfoUl" ms-class="active:slide">
+                <li ms-repeat="pModel.pInfo" ms-visible="el.val!==''"><span class="liTh">{{el.key}}</span><span>{{el.val | pfilter}}</span></li>
+            </ul>
+        </li>
+        <li ms-click="res(1)">本地直营及授权经销</li>
+        <li ms-click="res(2)">本地经销商</li>
+        <li ms-click="res(3)">客户服务中心</li>
+        <li ms-click="res(4)">保外维修中心</li>
+        <li ms-click="res(5)">配件销售商</li>
+    </ul>
+
+</div>
+<div class="placeholdFooter"></div>
+    <footer ms-if="!isInput">
+        <a href="#!/iSearch/pIndex" class="bottom_apple"></a>
+        <a href="#!/" class="bottom_home active"></a>
+        <a href="#!/user/pIndex" class="bottom_user"></a>
+    </footer>
+</div>

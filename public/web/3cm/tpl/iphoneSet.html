@@ -1,0 +1,182 @@
+<div ms-controller="c_iphSet" ms-keyup="fnEnter" id="iphSet">
+<header ms-if="tab!=='pIndex'&&tab!=='pSelect'">
+    <h3>
+        <span ms-visible="tab==='pCode'">地区代码</span>
+        <span ms-visible="tab==='pNet'">网络制式一览表</span>
+        <span ms-visible="tab==='pRes'">查询结果</span>
+        <span ms-visible="tab==='pResSel'">产品型号对照</span>
+    </h3>
+</header>
+<div class="placehold80" ms-if="tab!=='pIndex'&&tab!=='pSelect'"></div>
+<div ms-if="tab==='pIndex'||tab==='pSelect'">
+    <div class="indexBanner" ms-class="inputTop:isInput">
+        <div class="indexLogo">
+            <a href="#!/userInfo"><img ms-src="{{uImg}}" width="100%" alt="3chelp" /></a>
+        </div>
+        <div class="indexSearch">
+            <!--<span class="ico_search"></span>-->
+            <input id="boldNum" placeholder="请输入IMEI/序列号" ms-click="scro_focus" ms-duplex="iph" />
+            <span class="ico_close" ms-visible="iph.length>0" ms-click="clearInput"></span>
+            <!--ms-visible="iph.length>0"-->
+            <button ms-class="show:isInput"  ms-click="load_tab1">查询</button>
+            <!--TODO:辅助输入，待定-->
+            <!--<ul class="inputAjax" ms-visible="isInput">-->
+                <!--<li ms-repeat="inputList" ms-click="go(el)">{{el.text}}</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+    <div class="content" ms-if="tab==='pIndex'">
+        <div class="chanel">
+            <h3>还可以查询</h3>
+            <ul class="single">
+                <li ms-click="chPage('pSelect')">产品型号对照</li>
+                <li ms-click="chPage('pCode')">地区代码</li>
+                <li ms-click="chPage('pNet')">网络制式一览表</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content" ms-if="tab==='pSelect'">
+        <div class="chanel">
+            <h3>请选择</h3>
+            <ul class="slide">
+                <li ms-repeat="p4res" ms-click="fnSelect_1($key)">{{$key}}</li>
+            </ul>
+        </div>
+        <div class="dialogList" ms-class="active:onSelect">
+            <h4 class="dialogHead">请选择 <span ms-click="fnSelcetPrev">返回</span></h4>
+            <ul>
+                <li ms-repeat="p4Select_2List" ms-click="fnSelect_2(el)">{{el}}</li>
+            </ul>
+        </div>
+        <div class="mask" ms-visible="onSelect"></div>
+        <div class="bnt3 singleBnt singleBottom" ms-click="chPage('pIndex')">查询其他</div>
+    </div>
+</div>
+<div ms-if="tab!=='pIndex'&&tab!=='pSelect'" class="iphSet">
+    <table ms-if="tab==='pRes'" class="resIptab1">
+        <caption ms-visible="tab1List[0]"><span>查询结果</span></caption>
+        <tr ms-repeat="tab1List" ms-visible="el.val!==''">
+            <th>{{el.key}}</th><td>{{el.val}}</td>
+        </tr>
+        <tfoot class="resBnt" ms-click="chPage('pIndex')">
+        <tr>
+            <td colspan="2" ms-class="active:!tab1List[0]">
+                <div class="content" ms-class="noBorder:tab1List[0]">
+                    <ul ms-visible="!tab1List[0]">
+                        <li><span class="ico_fail"></span>未查询到相关结果</li>
+                        <li>1.产品刚激活,苹果官网数据还未更新</li>
+                        <li>2.暂时无法验证该产品的购买日期,所以无法显示保修状态</li>
+                        <li>3.苹果官网可能未接收到该产品的激活信息,您也可以前往苹果官网注册提交</li>
+                        <li>4.输入的IMEI/序列号(SN)有误</li>
+                    </ul>
+                    <div ms-visible="!tab1List[0]"  class="witheIm">重新输入</div>
+                    <div ms-visible="tab1List[0]"  class="witheIm">继续查询</div>
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+    <table ms-if="tab==='pCode'" class="resIptab2">
+        <caption>/A前面的XX表示对应的地区</caption>
+        <thead>
+        <tr>
+            <th>地区</th><td>代码</td><th>地区</th><td>代码</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>中国</th><td>CH</td><th>香港</th><td>ZP</td>
+        </tr>
+        <tr><th>台湾</th><td>TA</td><th>阿拉伯</th><td>AE</td></tr>
+        <tr><th>日本</th><td>J</td><th>韩国</th><td>KH</td></tr>
+        <tr><th>菲律宾</th><td>PP</td><th>新加坡</th><td>ZA</td></tr>
+        <tr><th>澳大利亚</th><td>X</td><th>马来西亚</th><td>MY</td></tr>
+        <tr><th>英国</th><td>B</td><th>越南</th><td>VN</td></tr>
+        <tr><th>俄国</th><td>RS</td><th>印度</th><td>HN</td></tr>
+        <tr><th>美国</th><td>LL</td><th>加拿大</th><td>C</td></tr>
+        <tr><th>墨西哥</th><td>E</td><th>巴西</th><td>BZ</td></tr>
+        <tr><th>阿根廷</th><td>LE</td><th>牙买加</th><td>ZQ</td></tr>
+        <tr><th>智力</th><td>LZ</td><th>印尼</th><td>ID</td></tr>
+        <tr><th>法国</th><td>F</td><th>立陶宛</th><td>LT</td></tr>
+        <tr><th>奥地利</th><td>FD</td><th>挪威</th><td>KN</td></tr>
+        <tr><th>希腊</th><td>GR</td><th>瑞典</th><td>KS</td></tr>
+        <tr><th>葡萄牙</th><td>PO</td><th>爱沙尼亚</th><td>EE</td></tr>
+        <tr><th>罗马尼亚</th><td>RR</td><th>埃及</th><td>AB</td></tr>
+        <tr><th>留尼汪岛</th><td>FB</td><th>巴拿马</th><td>LA</td></tr>
+        <tr><th>德国</th><td>D</td><th>南非</th><td>SO</td></tr>
+        <tr><th>土耳其</th><td>TU</td><th>克罗地亚</th><td>CR</td></tr>
+        <tr><th>斯洛伐克</th><td>SL</td><th>捷克</th><td>CZ</td></tr>
+        <tr><th>拉脱维亚</th><td>LV</td><th>西班牙</th><td>MM</td></tr>
+        <tr><th>保加利亚</th><td>GB</td><th>匈牙利</th><td>MG</td></tr>
+        <tr><th>以色列</th><td>HB</td><th>波兰</th><td>LP</td></tr>
+        <tr><th>意大利</th><td>T</td><th>新西兰</th><td>NZ</td></tr>
+        </tbody>
+        <tfoot>
+        <tr><td colspan="4"><div ms-click="chPage('pIndex')">查询其他</div></td></tr>
+        </tfoot>
+    </table>
+    <div ms-if="tab==='pNet'">
+        <table class="resP6">
+            <caption>iPhone 5s/6/6 Plus</caption>
+            <thead>
+            <tr>
+                <th class="line"><span class="left">版本</span><span class="right">制式</span></th><th>GSM</th><th>CDMA2000</th><th>TD-SCDMA</th><th>TD-LTE</th><th>WCDMA</th><th>FDD-LTE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ms-repeat="p6List">
+                <td>{{el.title}}</td><td ms-repeat-list="el.list" class="ico_true" ms-class-1="ico_false:!list" ms-class-2="other:list===2"></td>
+            </tr>
+            <!--<tr class="footInfo">-->
+                <!--<td colspan="7">-->
+                    <!--<p class="pTh">关于iPhone 5s三网通吃版</p>-->
+                    <!--<p><span>国行A1533</span> 该版本型号可以实现三网通吃,注意此型号只支持移动2G和电信、联通3G,不支持任何4G网络-->
+                        <!--三网通吃+国际通用4G（FDD-LTE）版</p>-->
+                    <!--<p><span>港行/美版A1453 、港行/美版A1533（CDMA)</span> 该版本跟以上型号的多了一个国际版4G网络，这4G网络也是未来联通、电信所使用的4G网络制式</p>-->
+                    <!--<p class="pTh">移动联通版</p>-->
+                    <!--<p><span>国行A1530</span> 可以使用所有移动现有的网络制式2G、TD-SCDMA（所谓的3G）4G(TD-Lte),同时该版本也支持联通3G网络制式-->
+                    <!--<p class="pTh">移动联通+全球4G版</p>-->
+                    <!--<p><span>港行A1530</span> 该版本可以继续使用移动2G网络制式以外,还支持联通3G网络,以及国际通用的4G网络(同样也是未来联通/电信所使用的4G网络制式)和移动4G(TD-Lte)版-->
+                    <!--</p>-->
+                <!--</td>-->
+            <!--</tr>-->
+            </tbody>
+            <tfoot>
+            <tr><td colspan="7"><div ms-click="chPage('pIndex')"><span>继续查询</span></div></td></tr>
+            </tfoot>
+        </table>
+    </div>
+    <div ms-if="tab==='pResSel'">
+        <table class="resP5">
+            <caption>{{p4Select_2}}的查询结果</caption>
+            <thead>
+            <tr ms-visible="">
+                <th class="w5">对应型号</th><th class="w4">对应编号</th><th>地区</th><th>运营商</th><th class="w2">有锁与否</th><th class="w3">大陆保修</th><th  class="w3">充电器</th>
+            </tr>
+            <tr>
+                <th class="w5">对应型号</th><th class="w4">对应编号</th><th>地区</th><th>运营商</th><th class="w2">有锁与否</th><th class="w3">大陆保修</th><th  class="w3">充电器</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ms-repeat="p5resList">
+                <td ms-repeat-td="el">{{td}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr><td colspan="7"><div ms-click="chPage('pIndex')"><span>继续查询</span></div></td></tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+
+    <div class="bnt3 singleBnt singleBottom" ms-visible="tab==='p3'" ms-click="chPage('p4')">型号对照</div>
+
+</div>
+<div class="placehold100"></div>
+<!--<footer ms-if="!isInput">-->
+    <!--<a href="#!/">首页</a>-->
+    <!--<a href="#!/ad">热门</a>-->
+    <!--<a href="#!/ad">分类</a>-->
+<!--</footer>-->
+</div>

@@ -1,0 +1,16 @@
+<div class="content">
+    <div class="chanel">
+        <h3>请选择</h3>
+        <ul class="slide">
+            <li ms-repeat="p4res" ms-click="fnSelect_1($key)">{{$key}}</li>
+        </ul>
+    </div>
+    <div class="dialogList" ms-class="active:onSelect">
+        <h4 class="dialogHead">请选择 <span ms-click="fnSelcetPrev">返回</span></h4>
+        <ul>
+            <li ms-repeat="p4Select_2List" ms-click="fnSelect_2(el)">{{el}}</li>
+        </ul>
+    </div>
+    <div class="mask" ms-visible="onSelect"></div>
+    <div class="bnt3 singleBnt singleBottom" ms-click="chPage('pIndex')">查询其他</div>
+</div>

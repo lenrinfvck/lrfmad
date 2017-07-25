@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="height=device-height, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="blank" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="lenrinfvck个人主页，用于展示web、mad、及相关文章" />
+    <meta name="keywords" content="web前端 lenrinfvck 个人主页 mad" />
+	{% block head %}
+        <link rel="stylesheet" href="/css/base.css">
+	{% endblock %}
+    <script src="/js/base.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/lib/base/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="warp-height">
+	{% block content %}
+        {% include 'widget/header.html' %}
+    {% endblock %}
+    </div>
+    {% include 'widget/footer.html' %}
+</body>
+</html>
